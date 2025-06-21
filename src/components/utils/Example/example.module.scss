@@ -1,0 +1,8 @@
+@use '/src/styles/forward' as *;
+
+.example {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: $color-primary;
+  color: $color-light;
+}
