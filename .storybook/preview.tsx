@@ -36,7 +36,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: [],
+        order: ['Components', 'UI', 'Navigation', 'Utils', 'Main', 'Pages'],
       },
     },
     pseudo: {
@@ -52,29 +52,27 @@ const preview: Preview = {
   },
 
   initialGlobals: {
-    theme: typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
+    theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
   },
 
   decorators: [
     (Story, context) => {
       const theme = context.globals.backgrounds?.value || 'light'
 
-      const excludedStories: string[] = []
+      const excludedStories: string[] = ['main-header--default', 'main-header--toggle']
       const isExcluded = excludedStories.includes(context.id)
 
-      return React.createElement(
-        ThemeProvider,
-        {
-          enableSystem: true,
-          defaultTheme: 'system',
-          disableTransitionOnChange: true,
-          ...(isExcluded ? {} : { forcedTheme: theme }),
-        },
-        React.createElement(
-          'div',
-          { className: clsx(inter.className, nunito.className) },
-          React.createElement(Story)
-        )
+      return (
+        <ThemeProvider
+          attribute="class"
+          enableSystem
+          defaultTheme="system"
+          disableTransitionOnChange
+          {...(isExcluded ? {} : { forcedTheme: theme })}>
+          <div className={clsx(inter.className, nunito.className)}>
+            <Story />
+          </div>
+        </ThemeProvider>
       )
     },
   ],

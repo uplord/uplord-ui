@@ -1,0 +1,77 @@
+@use '/src/styles/forward' as *;
+
+.nav {
+  @include skeleton-text;
+
+  & {
+    position: relative;
+    display: none;
+    width: max-content;
+    border-radius: 1.5rem;
+    background: rgb(0 0 0 / 20%);
+    outline: 0.0625rem solid rgb(255 255 255 / 20%);
+
+    @include dark-mode {
+      background: rgb(255 255 255 / 10%);
+      outline-color: $color-border-dark;
+    }
+  }
+
+  &.skeleton {
+    outline: 0;
+
+    @include light-mode {
+      background-color: rgb(0 0 0 / 20%) !important;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+  li {
+    list-style: none;
+
+    &:first-child {
+      display: none;
+
+      @media (min-width: $breakpoint-lg) {
+        display: block;
+      }
+    }
+
+    a {
+      @include text-md;
+      @include text-normal;
+
+      & {
+        display: inline-flex;
+        padding: 0.75rem 1rem;
+        border-radius: 1.5rem;
+        font-family: $font-heading;
+        transition: all 0.3s ease-in-out;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: #fff;
+            color: #000;
+            scale: 1.05;
+          }
+        }
+
+        @media (min-width: $breakpoint-lg) {
+          padding-right: 1.5rem;
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    display: block;
+  }
+}

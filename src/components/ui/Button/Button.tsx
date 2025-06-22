@@ -1,0 +1,132 @@
+'use client'
+
+import clsx from 'clsx'
+import Link from 'next/link'
+import React from 'react'
+
+import { Icon, IconProps } from '../../utils/Icon'
+import styles from './button.module.scss'
+import { VariantType } from '@/types/system'
+
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  label?: string
+  href?: string
+  target?: '_blank' | '_self' | ''
+  size: 'sm' | 'md'
+  variant: VariantType
+  leadingIcon?: IconProps['name']
+  trailingIcon?: IconProps['name']
+  block?: boolean
+  className?: string
+  isIcon?: boolean
+  isDisabled?: boolean
+  isLoading?: boolean
+  isSkeleton?: boolean
+  hasHover?: boolean
+  ariaLabel?: string
+}
+
+export const Button = ({
+  label,
+  href,
+  target,
+  size = 'md',
+  variant,
+  leadingIcon,
+  trailingIcon,
+  block = false,
+  className = '',
+  isIcon = false,
+  isDisabled = false,
+  isLoading = false,
+  isSkeleton = false,
+  hasHover = true,
+  ...restProps
+}: ButtonProps) => {
+  const content = (
+    <>
+      <span className={styles.content}>
+        {leadingIcon && (
+          <Icon
+            name={leadingIcon}
+            size="md"
+            className={styles.icon}
+          />
+        )}
+        {label}
+        {trailingIcon && (
+          <Icon
+            name={trailingIcon}
+            size="md"
+            className={styles.icon}
+          />
+        )}
+      </span>
+    </>
+  )
+
+  const classes = clsx(
+    styles.button,
+    styles[`size-${size}`],
+    styles[`variant-${variant}`],
+    block && styles.block,
+    className,
+    (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
+    isLoading && styles['is-loading'],
+    isSkeleton && styles['is-skeleton'],
+    hasHover && styles['has-hover'],
+    (((leadingIcon || trailingIcon) && !label) || isIcon) && styles['has-icon'],
+  )
+
+  if (href) {
+    return isSkeleton ? (
+      <div className={classes}>{content}</div>
+    ) : target === '_blank' ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}>
+        {content}
+      </a>
+    ) : (
+      <Link
+        href={href}
+        className={classes}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <button
+      className={classes}
+      type="button"
+      disabled={isDisabled || isLoading || isSkeleton}
+      onClick={(e) => {
+        if (isLoading) {
+          return
+        }
+        if (restProps.onClick) {
+          restProps.onClick(e)
+        }
+      }}
+      {...restProps}>
+      {content}
+    </button>
+  )
+}
+
+export type ButtonGroupProps = {
+  children: React.ReactNode
+  className?: string
+  justify?: 'center' | 'start' | 'end'
+}
+
+export const ButtonGroup = ({ children, className, justify }: ButtonGroupProps) => {
+  return (
+    <div className={clsx(styles.group, className, justify && styles[`justify-${justify}`])}>
+      {children}
+    </div>
+  )
+}

@@ -1,0 +1,52 @@
+@use '/src/styles/forward' as *;
+
+.logo {
+  @include text-lg;
+  @include text-semibold;
+  @include skeleton-text;
+
+  & {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    margin: 0.25rem 0;
+    color: $color-header-text;
+    font-family: $font-heading;
+    gap: 0.5rem;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .icon {
+    @include text-xl;
+
+    & {
+      position: relative;
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0.5rem 0.5rem;
+      background-color: $color-primary;
+      color: $color-light;
+    }
+
+    &.skeleton {
+      @include light-mode {
+        background-color: rgb(0 0 0 / 20%) !important;
+      }
+    }
+  }
+
+  .title.skeleton {
+    @include light-mode {
+      background-color: rgb(0 0 0 / 20%) !important;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}

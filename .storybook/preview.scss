@@ -13,13 +13,13 @@ body {
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   gap: 1rem;
 }
 
 .padding-y {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .list {
@@ -30,4 +30,26 @@ body {
 
 html .sb-show-main {
   background: inherit !important;
+}
+
+.flex {
+  display: flex;
+
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.header {
+  display: flex;
+  min-height: 79px;
+  align-items: center;
+  justify-content: center;
+  background: $color-info;
+  color: $color-header-text;
+
+  @include dark-mode {
+    background: $color-header-dark;
+  }
 }
