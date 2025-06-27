@@ -59,7 +59,11 @@ const preview: Preview = {
     (Story, context) => {
       const theme = context.globals.backgrounds?.value || 'light'
 
-      const excludedStories: string[] = ['main-header--default', 'main-header--toggle']
+      const excludedStories: string[] = [
+        'pages-home--default',
+        'main-header--default',
+        'main-header--toggle',
+      ]
       const isExcluded = excludedStories.includes(context.id)
 
       return (

@@ -1,3 +1,9 @@
+export * from './components/blocks/Banner'
+export * from './components/blocks/Projects'
+export * from './components/blocks/Section'
+export * from './components/blocks/Stack'
+export * from './components/blocks/Timeline'
+
 export * from './components/main/Footer'
 export * from './components/main/Header'
 

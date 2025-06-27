@@ -14,19 +14,14 @@ import { useMounted } from '@/lib/useMounted'
 export type HeaderProps = {
   id?: string
   isHome?: boolean
+  theme?: 'dark' | 'light'
+  onToggleTheme?: (newTheme: 'dark' | 'light') => void
 }
 
-export const Header = ({ id, isHome = false }: HeaderProps) => {
-  const { resolvedTheme, setTheme } = useTheme()
-  const [darkMode, setDarkMode] = useState(false)
+export const Header = ({ id, isHome = false, theme, onToggleTheme }: HeaderProps) => {
+  const [darkMode, setDarkMode] = useState(theme === 'dark')
   const mounted = useMounted()
   const isScrolled = useScroll()
-
-  useEffect(() => {
-    if (resolvedTheme) {
-      setDarkMode(resolvedTheme === 'dark')
-    }
-  }, [resolvedTheme])
 
   return (
     <div
@@ -42,9 +37,11 @@ export const Header = ({ id, isHome = false }: HeaderProps) => {
               value=""
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 const isChecked = event.target.checked
-                const newTheme = isChecked ? 'dark' : 'light'
-                setDarkMode(isChecked)
-                setTheme(newTheme)
+                const theme = isChecked ? 'dark' : 'light'
+                if (onToggleTheme) {
+                  onToggleTheme(theme)
+                }
+                setDarkMode(theme === 'dark' ? true : false)
               }}
               checked={darkMode}
               isSkeleton={!mounted}

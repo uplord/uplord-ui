@@ -24,20 +24,12 @@ export const ModalFooter = ({
   leading,
   trailing,
   fullWidth = false,
-  hasBorder = true,
-  hasShadow = false,
 }: ModalFooterProps) => {
   const hasAnchorLeading = isAnchorButton(leading)
   const hasAnchorTrailing = isAnchorButton(trailing)
 
   return (
-    <div
-      className={clsx(
-        styles.footer,
-        fullWidth && styles.full,
-        hasBorder && styles.border,
-        hasShadow && styles.shadow,
-      )}>
+    <div className={clsx(styles.footer, fullWidth && styles.full)}>
       {(title || subtext || leading) && (
         <div className={clsx(styles.left, hasAnchorLeading && !title && !subtext && styles.anchor)}>
           {title || subtext ? (

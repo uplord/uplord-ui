@@ -34,8 +34,7 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
       modal={modal}
       headerProps={{
         title: 'Title',
-        subtext: 'Subtext',
-        leading: (
+        trailing: (
           <Button
             leadingIcon="X"
             variant="anchor"
@@ -44,7 +43,6 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
             onClick={() => modal.hide()}
           />
         ),
-        hasBorder: true,
       }}
       footerProps={{
         leading: (
@@ -118,7 +116,6 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
             onClick={() => modal.hide()}
           />
         ),
-        hasBorder: true,
         sheet: true,
       }}
       footerProps={{
@@ -187,7 +184,7 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
       headerProps={{
         title: 'Title',
         subtext: 'Subtext',
-        leading: (
+        trailing: (
           <Button
             leadingIcon="X"
             variant="anchor"
@@ -196,7 +193,6 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
             onClick={() => modal.hide()}
           />
         ),
-        hasBorder: true,
       }}
       bottomSheet
       mobileDraggable>
@@ -281,15 +277,6 @@ export const HeaderModal: StoryObj = {
   args: {
     title: 'Title',
     subtext: 'Subtext',
-    leading: (
-      <Button
-        leadingIcon="X"
-        variant="anchor"
-        size="sm"
-        className={styles.anchor}
-        onClick={() => console.log('Close')}
-      />
-    ),
     trailing: (
       <Button
         leadingIcon="X"
@@ -329,7 +316,11 @@ export const FooterModal: StoryObj = {
     hasBorder: true,
     hasShadow: false,
   },
-  render: (args: ModalFooterProps) => <ModalFooter {...args} />,
+  render: (args: ModalFooterProps) => (
+    <div className="padding-y">
+      <ModalFooter {...args} />
+    </div>
+  ),
 }
 
 export const ModalOpen: StoryObj = {
@@ -339,7 +330,7 @@ export const ModalOpen: StoryObj = {
         <ModalHeader
           title="Title"
           subtext="Subtext"
-          leading={
+          trailing={
             <Button
               leadingIcon="X"
               variant="anchor"

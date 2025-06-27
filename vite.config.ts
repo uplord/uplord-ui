@@ -10,7 +10,10 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         icon: true,
+        exportType: 'default',
+        dimensions: false,
       },
+      include: '**/*.svg',
     }),
     dts({
       entryRoot: 'src',
@@ -35,19 +38,6 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-        },
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'vendor-react'
-            return 'vendor'
-          }
-
-          if (id.includes('components')) return 'components'
-          if (id.includes('lib')) return 'lib'
-
-          console.log('id', id)
-
-          return 'main'
         },
       },
     },

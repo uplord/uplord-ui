@@ -8,9 +8,7 @@ import { ButtonProps } from '@/components/ui/Button'
 export type ModalHeaderProps = {
   title?: string
   subtext?: string
-  leading?: React.ReactNode
   trailing?: React.ReactNode
-  hasBorder?: boolean
   sheet?: boolean
 }
 
@@ -21,29 +19,17 @@ const isAnchorButton = (node: React.ReactNode): node is React.ReactElement<Butto
 export const ModalHeader = ({
   title = '',
   subtext = '',
-  leading,
   trailing,
-  hasBorder = true,
   sheet = false,
 }: ModalHeaderProps) => {
   const isMobile = useMediaQuery({ maxWidth: 743 })
-  const hasAnchorLeading = isAnchorButton(leading)
   const hasAnchorTrailing = isAnchorButton(trailing)
 
   return (
-    <div
-      className={clsx(
-        styles.header,
-        hasBorder && styles.border,
-        sheet && !isMobile && styles.sheet,
-      )}>
-      {!sheet && leading && !isMobile && (
-        <div className={clsx(styles.left, hasAnchorLeading && styles.anchor)}>{leading}</div>
-      )}
-
+    <div className={clsx(styles.header, sheet && !isMobile && styles.sheet)}>
       {(title || subtext) && (
         <div className={styles.top}>
-          <div className={styles.title}>{title}</div>
+          <div className={clsx(styles.title, !subtext && styles.large)}>{title}</div>
           {subtext && <div className={styles.subtext}>{subtext}</div>}
         </div>
       )}

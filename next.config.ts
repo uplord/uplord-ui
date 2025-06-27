@@ -43,11 +43,12 @@ const nextConfig: NextConfig = {
               ],
             },
           },
+          dimensions: false,
         },
       ],
-    });
+    })
 
-    return config;
+    return config
   },
 }
 

@@ -3,7 +3,7 @@ import { create } from 'storybook/theming'
 export default create({
   base: 'dark',
 
-  // fontBase: '"Nunito", sans-serif',
+  fontBase: '"Nunito", sans-serif',
   // fontCode: 'monospace',
 
   brandTitle: 'Uplord UI',
@@ -22,7 +22,7 @@ export default create({
   appBorderRadius: 0,
 
   // // Text colors
-  textColor: '#fff',
+  textColor: '#bdc1c6',
   // textInverseColor: '#0f0',
 
   // // Toolbar default and active colors
