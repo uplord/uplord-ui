@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     dts({
       entryRoot: 'src',
-      include: ['src/index.ts', 'src/**/*.ts', 'src/**/*.tsx', 'src/styles.d.ts'],
+      include: ['src/index.ts', 'src/components/index.ts', 'src/lib/index.ts', 'src/**/*.ts', 'src/**/*.tsx', 'src/styles.d.ts'],
     }),
   ],
   resolve: {
@@ -27,9 +27,13 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: {
+        index: path.resolve(__dirname, 'src/index.ts'),
+        components: path.resolve(__dirname, 'src/components/index.ts'),
+        lib: path.resolve(__dirname, 'src/lib/index.ts'),
+      },
       name: 'UplordUI',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

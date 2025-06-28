@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { useTheme } from 'next-themes'
 
-import { Header, Footer, Banner, Projects, Section, Stack, Timeline } from '../../src'
+import { Header, Footer, Banner, Projects, Section, Stack, Timeline } from '@/components'
 import styles from '@/app/page.module.scss'
 
 const meta: Meta<typeof Banner> = {
