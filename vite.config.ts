@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     dts({
       entryRoot: 'src',
-      include: ['src/index.ts', 'src/styles.d.ts'],
+      include: ['src/index.ts', 'src/**/*.ts', 'src/**/*.tsx', 'src/styles.d.ts'],
     }),
   ],
   resolve: {
