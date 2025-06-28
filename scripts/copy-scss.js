@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename)
 const srcDir = path.resolve(__dirname, '../src/styles')
 const destDir = path.resolve(__dirname, '../dist/styles')
 
-const filesToCopy = ['forward.scss', 'mixins.scss', 'variables.scss']
+const filesToCopy = ['forward.scss', 'mixins.scss', 'variables.scss', 'typography.scss']
 
 if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir, { recursive: true })
