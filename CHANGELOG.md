@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/uplord/uplord-ui/compare/v0.0.15...v0.0.16) (2025-06-29)
+
+
+### Features
+
+* accessibility fixes ([36fd557](https://github.com/uplord/uplord-ui/commit/36fd557a9afa007a5d01fc9a1bc9f1e383bc3970))
+
 ### 0.0.15 (2025-06-29)
 
 
