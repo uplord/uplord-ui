@@ -7,6 +7,8 @@ export { Timeline } from './blocks/Timeline'
 export { Footer } from './main/Footer'
 export { Header } from './main/Header'
 
+export * from './modals/ContactForm'
+
 export { Pagination } from './navigation/Pagination'
 
 export { Button } from './ui/Button'
