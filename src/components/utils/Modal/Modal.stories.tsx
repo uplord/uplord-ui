@@ -37,8 +37,8 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
         trailing: (
           <Button
             leadingIcon="X"
-            variant="anchor"
             size="sm"
+            variant="anchor"
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -48,8 +48,8 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
         leading: (
           <Button
             label="Back"
-            variant="anchor"
             size="md"
+            variant="anchor"
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -57,14 +57,11 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
         trailing: (
           <Button
             label="Submit"
-            variant="primary"
             size="md"
+            variant="primary"
             onClick={() => modal.hide()}
           />
         ),
-        fullWidth: false,
-        hasBorder: true,
-        hasShadow: false,
       }}
       mobileDraggable>
       <p>
@@ -83,8 +80,8 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
 export const ButtonOpen: StoryObj<ButtonProps> = {
   args: {
     label: 'Open',
-    variant: 'primary',
     size: 'md',
+    variant: 'primary',
     onClick: () => NiceModal.show(ButtonOpenModal),
   },
   parameters: { controls: { disable: true } },
@@ -110,8 +107,8 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
         trailing: (
           <Button
             leadingIcon="X"
-            variant="anchor"
             size="sm"
+            variant="anchor"
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -124,8 +121,8 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
         leading: (
           <Button
             label="Back"
-            variant="anchor"
             size="md"
+            variant="anchor"
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -133,14 +130,11 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
         trailing: (
           <Button
             label="Submit"
-            variant="primary"
             size="md"
+            variant="primary"
             onClick={() => modal.hide()}
           />
         ),
-        fullWidth: false,
-        hasBorder: true,
-        hasShadow: false,
       }}
       bottomSheet
       mobileDraggable>
@@ -160,8 +154,8 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
 export const Sheet: StoryObj<ButtonProps> = {
   args: {
     label: 'Open',
-    variant: 'primary',
     size: 'md',
+    variant: 'primary',
     onClick: () => NiceModal.show(SheetModal),
   },
   parameters: { controls: { disable: true } },
@@ -187,8 +181,8 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
         trailing: (
           <Button
             leadingIcon="X"
-            variant="anchor"
             size="sm"
+            variant="anchor"
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -212,8 +206,8 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
 export const MobileBottom: StoryObj<ButtonProps> = {
   args: {
     label: 'Open',
-    variant: 'primary',
     size: 'md',
+    variant: 'primary',
     onClick: () => NiceModal.show(MobileBottomModal),
   },
   parameters: { controls: { disable: true } },
@@ -246,8 +240,8 @@ const PreventCloseModal = NiceModal.create((props: ModalProps) => {
       <ButtonGroup>
         <Button
           label="Close modal"
-          variant="outline"
           size="sm"
+          variant="outline"
           onClick={() => modal.hide()}
         />
       </ButtonGroup>
@@ -258,8 +252,8 @@ const PreventCloseModal = NiceModal.create((props: ModalProps) => {
 export const PreventClose: StoryObj<ButtonProps> = {
   args: {
     label: 'Open',
-    variant: 'primary',
     size: 'md',
+    variant: 'primary',
     onClick: () => NiceModal.show(PreventCloseModal),
   },
   parameters: { controls: { disable: true } },
@@ -280,8 +274,8 @@ export const HeaderModal: StoryObj = {
     trailing: (
       <Button
         leadingIcon="X"
-        variant="anchor"
         size="sm"
+        variant="anchor"
         className={styles.anchor}
         onClick={() => console.log('Close')}
       />
@@ -297,8 +291,8 @@ export const FooterModal: StoryObj = {
     leading: (
       <Button
         label="Back"
-        variant="anchor"
         size="md"
+        variant="anchor"
         className={clsx(styles.anchor, styles.button)}
         onClick={() => console.log('Close')}
       />
@@ -306,15 +300,12 @@ export const FooterModal: StoryObj = {
     trailing: (
       <Button
         label="Submit"
-        variant="primary"
         size="md"
+        variant="primary"
         className={styles.button}
         onClick={() => console.log('Submit')}
       />
     ),
-    fullWidth: false,
-    hasBorder: true,
-    hasShadow: false,
   },
   render: (args: ModalFooterProps) => (
     <div className="padding-y">
@@ -333,8 +324,8 @@ export const ModalOpen: StoryObj = {
           trailing={
             <Button
               leadingIcon="X"
-              variant="anchor"
               size="sm"
+              variant="anchor"
               className={styles.anchor}
               onClick={() => console.log('Close')}
             />
@@ -357,8 +348,8 @@ export const ModalOpen: StoryObj = {
           leading={
             <Button
               label="Back"
-              variant="anchor"
               size="md"
+              variant="anchor"
               className={clsx(styles.anchor, styles.button)}
               onClick={() => console.log('Close')}
             />
@@ -366,8 +357,8 @@ export const ModalOpen: StoryObj = {
           trailing={
             <Button
               label="Submit"
-              variant="primary"
               size="md"
+              variant="primary"
               className={styles.button}
               onClick={() => console.log('Submit')}
             />
