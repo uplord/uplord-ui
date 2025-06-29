@@ -1,5 +1,8 @@
 name: Deploy to Chromatic and Publish to NPM
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
