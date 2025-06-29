@@ -28,10 +28,10 @@
     }
 
     & + label {
-      color: $color-border;
+      color: $color-text;
 
       @include dark-mode {
-        color: $color-border-dark;
+        color: $color-text-dark;
       }
 
       .title,

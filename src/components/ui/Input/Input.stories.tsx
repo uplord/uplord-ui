@@ -113,6 +113,7 @@ export const Default: Story = {
 
 export const All: Story = {
   args: {
+    label: 'Label',
     placeholder: 'Testing',
     leadingIcon: 'User',
     leadingText: '$',
@@ -311,6 +312,13 @@ const InputStates = (args: InputProps) => {
         }}
         helper="Button"
         onChange={(e) => console.log(e.target.value)}
+      />
+      <Input
+        {...args}
+        name="label"
+        label="Label"
+        placeholder="Label"
+        helper="Label"
       />
     </div>
   )

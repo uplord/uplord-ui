@@ -58,6 +58,7 @@ export const Checkbox = ({
           onChange={onChange}
           className={clsx(styles.input, className)}
           checked={checked}
+          aria-label={name}
           disabled={isDisabled || isSkeleton}
         />
         <label htmlFor={id || name}>

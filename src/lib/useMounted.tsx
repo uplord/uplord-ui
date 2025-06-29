@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-export const useMounted = (delay = 500) => {
+export const useMounted = (delay = 0) => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {

@@ -18,6 +18,10 @@
 
     & {
       color: $color-text;
+
+      @include dark-mode {
+        color: $color-text-dark;
+      }
     }
   }
 
@@ -79,10 +83,10 @@
     .input + .placeholder,
     .icon,
     .text {
-      color: $color-border;
+      color: $color-text;
 
       @include dark-mode {
-        color: $color-border-dark;
+        color: $color-text-dark;
       }
     }
   }
@@ -188,10 +192,10 @@
   }
 
   &:disabled {
-    color: $color-border;
+    color: $color-text;
 
     @include dark-mode {
-      color: $color-border-dark;
+      color: $color-text-dark;
     }
   }
 
@@ -213,6 +217,10 @@
       color: $color-text;
       font-size: 0.75rem;
       line-height: 0.875rem;
+
+      @include dark-mode {
+        color: $color-text-dark;
+      }
     }
   }
 
@@ -228,6 +236,10 @@
       color: $color-text;
       pointer-events: none;
       transition: all 0.2s ease-in-out;
+
+      @include dark-mode {
+        color: $color-text-dark;
+      }
     }
   }
 }
