@@ -248,7 +248,7 @@
 
   &-default {
     background-color: color.change($color-dark, $alpha: 0.2);
-    color: $color-light;
+    color: $color-dark;
 
     @include dark-mode {
       &.has-hover:not(.is-disabled) {

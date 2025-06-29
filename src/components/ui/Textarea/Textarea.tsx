@@ -6,6 +6,7 @@ import React, { useRef } from 'react'
 import styles from '@/components/ui/Input/input.module.scss'
 
 export type TextareaProps = {
+  label?: string
   placeholder?: string
   name: string
   id?: string
@@ -22,6 +23,7 @@ export type TextareaProps = {
 }
 
 export const Textarea = ({
+  label = '',
   placeholder = '',
   name,
   id,
@@ -42,6 +44,7 @@ export const Textarea = ({
 
   return (
     <div className={clsx(styles.field, !placeholder && styles['no-placeholder'])}>
+      {label && <label htmlFor={id || name}>{label}</label>}
       <div
         className={clsx(
           styles.outer,
@@ -64,6 +67,7 @@ export const Textarea = ({
             className={styles.input}
             placeholder=" "
             required
+            aria-label={!label ? placeholder : ''}
             disabled={isDisabled || isLoading || isSkeleton}
           />
 

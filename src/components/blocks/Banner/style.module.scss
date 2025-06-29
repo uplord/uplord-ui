@@ -169,8 +169,10 @@
     }
   }
 
-  .button-text {
-    color: #fff;
+  .button {
+    @include light-mode {
+      color: #fff;
+    }
   }
 
   .skeleton {

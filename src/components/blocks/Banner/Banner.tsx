@@ -59,7 +59,7 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
                 variant="primary"
                 size="md"
                 isSkeleton={!mounted}
-                className={!mounted ? clsx(styles.skeleton, styles.button) : ''}
+                className={clsx(!mounted && styles.skeleton)}
               />
               <Button
                 label="Download CV"
@@ -68,7 +68,7 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
                 variant="default"
                 size="md"
                 isSkeleton={!mounted}
-                className={!mounted ? clsx(styles.skeleton, styles.button) : ''}
+                className={clsx(!mounted && styles.skeleton, styles.button)}
               />
             </ButtonGroup>
           </div>

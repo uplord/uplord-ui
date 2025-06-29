@@ -9,6 +9,7 @@ import { Icon, IconProps } from '@/components/utils/Icon'
 
 export type InputProps = {
   type?: 'text' | 'email' | 'password' | 'number'
+  label?: string
   placeholder?: string
   name: string
   id?: string
@@ -36,6 +37,7 @@ export type InputProps = {
 
 export const Input = ({
   type = 'text',
+  label = '',
   placeholder = '',
   name,
   id,
@@ -97,6 +99,7 @@ export const Input = ({
 
   return (
     <div className={clsx(styles.field, !placeholder && styles['no-placeholder'])}>
+      {label && <label htmlFor={id || name}>{label}</label>}
       <div
         className={clsx(
           styles.outer,
@@ -134,6 +137,7 @@ export const Input = ({
             className={styles.input}
             placeholder=" "
             required
+            aria-label={!label ? placeholder : ''}
             disabled={isDisabled || isLoading || isSkeleton}
             {...props}
           />

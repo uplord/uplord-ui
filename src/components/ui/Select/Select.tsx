@@ -9,6 +9,7 @@ import { Icon } from '@/components/utils/Icon'
 type Option = { value: string | number; label: string }
 
 export type SelectProps = {
+  label?: string
   placeholder?: string
   options: Option[]
   name: string
@@ -26,6 +27,7 @@ export type SelectProps = {
 }
 
 export const Select = ({
+  label = '',
   placeholder = '',
   options,
   name,
@@ -45,6 +47,7 @@ export const Select = ({
 
   return (
     <div className={clsx(styles.field, styles['no-placeholder'])}>
+      {label && <label htmlFor={id || name}>{label}</label>}
       <div
         className={clsx(
           styles.outer,
@@ -64,6 +67,7 @@ export const Select = ({
             value={value}
             onChange={onChange}
             className={styles.input}
+            aria-label={!label ? id || name : ''}
             disabled={isDisabled || isLoading || isSkeleton}>
             {placeholder && <option value="">{placeholder}</option>}
             {options?.map((option) => (

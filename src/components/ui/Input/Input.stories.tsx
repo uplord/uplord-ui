@@ -12,6 +12,7 @@ const meta: Meta<InputProps> = {
   component: Input,
   args: {
     type: 'text',
+    label: '',
     placeholder: '',
     leadingIcon: null,
     leadingText: '',

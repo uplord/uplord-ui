@@ -179,6 +179,10 @@ export const Variants: Story = {
         {...args}
         variant="text"
       />
+      <Button
+        {...args}
+        variant="anchor"
+      />
     </ButtonGroup>
   ),
 }

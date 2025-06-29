@@ -12,6 +12,15 @@
   flex-direction: column;
   gap: 0.5rem;
 
+  label {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      color: $color-text;
+    }
+  }
+
   textarea {
     resize: none;
   }
@@ -201,7 +210,7 @@
     & + .placeholder {
       top: -0.40625rem;
       padding: 0;
-      color: $color-placeholder;
+      color: $color-text;
       font-size: 0.75rem;
       line-height: 0.875rem;
     }
@@ -216,7 +225,7 @@
       top: 0;
       left: 0;
       padding: 0;
-      color: $color-placeholder;
+      color: $color-text;
       pointer-events: none;
       transition: all 0.2s ease-in-out;
     }
@@ -277,11 +286,11 @@
   @include text-normal;
 
   & {
-    color: $color-placeholder;
+    color: $color-text;
     transition: color 0.2s ease-in-out;
 
     @include dark-mode {
-      color: $color-placeholder-dark;
+      color: $color-text-dark;
     }
   }
 }

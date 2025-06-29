@@ -103,6 +103,7 @@ export const Button = ({
       className={classes}
       type="button"
       disabled={isDisabled || isLoading || isSkeleton}
+      aria-label={!label && leadingIcon === 'X' ? 'Close' : undefined}
       onClick={(e) => {
         if (isLoading) {
           return
