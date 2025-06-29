@@ -7,7 +7,7 @@ export { Timeline } from './blocks/Timeline'
 export { Footer } from './main/Footer'
 export { Header } from './main/Header'
 
-export { default as ContactFormModal, ContactForm } from './modals/ContactForm'
+export { ContactForm } from './modals/ContactForm'
 
 export { Pagination } from './navigation/Pagination'
 

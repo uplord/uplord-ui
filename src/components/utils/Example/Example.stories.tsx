@@ -5,6 +5,9 @@ import { Example } from './Example'
 const meta: Meta<typeof Example> = {
   title: 'Utils/Example',
   component: Example,
+  args: {
+    isSkeleton: false,
+  },
   decorators: [
     (Story) => {
       return (

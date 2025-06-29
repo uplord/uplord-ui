@@ -1,12 +1,12 @@
 import NiceModal, { NiceModalHocProps, useModal } from '@ebay/nice-modal-react'
 import { FC, useState } from 'react'
+
+import styles from './contact-form.module.scss'
 import { Modal, Input, Textarea, Button } from '@/components'
 import { useModalData } from '@/lib'
 
-import styles from './contact-form.module.scss'
-
 export const ContactForm = () => {
-   const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     message: '',
@@ -19,28 +19,28 @@ export const ContactForm = () => {
 
   return (
     <div className={styles.section}>
-        <Input
-          placeholder="Full name"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Input
-          type="email"
-          placeholder="Email address"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Textarea
-          placeholder="Message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-      </div>
+      <Input
+        placeholder="Full name"
+        name="fullName"
+        value={formData.fullName}
+        onChange={handleChange}
+        autoComplete="off"
+      />
+      <Input
+        type="email"
+        placeholder="Email address"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        autoComplete="off"
+      />
+      <Textarea
+        placeholder="Message"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+      />
+    </div>
   )
 }
 

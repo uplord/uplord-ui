@@ -1,13 +1,10 @@
 import NiceModal from '@ebay/nice-modal-react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import {
-  ModalHeader,
-  ModalFooter,
-} from '@/components/utils/Modal'
-import styles from '@/components/utils/Modal/modal.module.scss'
-import { Button, ButtonProps } from '@/components/ui/Button'
 import { ContactForm, ContactFormModal } from './ContactForm'
+import { Button, ButtonProps } from '@/components/ui/Button'
+import { ModalHeader, ModalFooter } from '@/components/utils/Modal'
+import styles from '@/components/utils/Modal/modal.module.scss'
 
 const meta: Meta = {
   title: 'Modals/Contact Form',

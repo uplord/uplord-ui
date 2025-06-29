@@ -5,4 +5,17 @@
   border-radius: 0.5rem;
   background: $color-primary;
   color: $color-light;
+
+  &.is-skeleton {
+    animation: pulse 1.5s infinite ease-in-out;
+    background-color: $color-skeleton;
+
+    @include dark-mode {
+      background-color: $color-skeleton-dark;
+    }
+
+    .content {
+      opacity: 0;
+    }
+  }
 }
