@@ -10,7 +10,7 @@ import { TextareaProps } from '../Textarea'
 type FormikInputProps = FieldProps & {
   helper?: string
   input?: React.ComponentType<CheckboxProps | InputProps | RadioProps | SelectProps | TextareaProps>
-  value?: string
+  value?: string | boolean
 }
 
 export const FormikInput = ({

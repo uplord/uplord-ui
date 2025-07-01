@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import { useState } from 'react'
 
 import { Radio, RadioProps } from './Radio'
 import styles from '@/components/ui/Checkbox/checkbox.module.scss'
@@ -63,22 +64,32 @@ export const Default: Story = {
   args: {
     label: 'Radio',
   },
-  render: (args: RadioProps) => (
-    <div className={styles.fields}>
-      <Radio
-        {...args}
-        id="radio1"
-        name="input1"
-        value="true"
-      />
-      <Radio
-        {...args}
-        id="radio2"
-        name="input1"
-        value="false"
-      />
-    </div>
-  ),
+  render: (args: RadioProps) => {
+    const [value, setValue] = useState(true)
+
+    return (
+      <div className={styles.fields}>
+        <Radio
+          {...args}
+          label="Radio 1"
+          id="radio1"
+          name="input1"
+          value={true}
+          onChange={() => setValue(true)}
+          checked={value === true}
+        />
+        <Radio
+          {...args}
+          label="Radio 2"
+          id="radio2"
+          name="input1"
+          value={false}
+          onChange={() => setValue(false)}
+          checked={value === false}
+        />
+      </div>
+    )
+  },
 }
 
 export const Content: Story = {
@@ -105,22 +116,29 @@ export const Content: Story = {
       },
     },
   },
-  render: (args: RadioProps) => (
-    <div className={styles.fields}>
-      <Radio
-        {...args}
-        id="radio3"
-        name="input2"
-        value="true"
-      />
-      <Radio
-        {...args}
-        id="radio4"
-        name="input2"
-        value="false"
-      />
-    </div>
-  ),
+  render: (args: RadioProps) => {
+    const [value, setValue] = useState(true)
+    return (
+      <div className={styles.fields}>
+        <Radio
+          {...args}
+          id="radio3"
+          name="input2"
+          value={true}
+          onChange={() => setValue(true)}
+          checked={value === true}
+        />
+        <Radio
+          {...args}
+          id="radio4"
+          name="input2"
+          value={false}
+          onChange={() => setValue(false)}
+          checked={value === false}
+        />
+      </div>
+    )
+  },
 }
 
 export const State: Story = {

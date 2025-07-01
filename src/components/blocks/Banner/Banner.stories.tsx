@@ -15,18 +15,36 @@ const meta: Meta<typeof Banner> = {
 export default meta
 type Story = StoryObj<BannerProps>
 
-export const Default: Story = {}
+export const Default: Story = {
+  argTypes: {
+    hasHeader: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+}
 
 export const WithHeader: Story = {
   parameters: {
     backgrounds: { disable: true },
   },
-  render: () => {
+  args: {
+    hasHeader: true,
+  },
+  argTypes: {
+    hasHeader: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: (props) => {
     return (
       <>
-        <Header />
+        <Header isHome />
         <main className={styles.main}>
-          <Banner hasHeader />
+          <Banner hasHeader={props.hasHeader} />
         </main>
       </>
     )

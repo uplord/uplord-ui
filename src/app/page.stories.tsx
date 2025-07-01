@@ -15,15 +15,11 @@ const meta: Meta<typeof Banner> = {
   },
 }
 
-type PageProps = {
-  hasHeader?: boolean
-}
-
 export default meta
 type Story = StoryObj
 
 export const Default: Story = {
-  render: (args: PageProps) => {
+  render: () => {
     const { resolvedTheme, setTheme } = useTheme()
 
     const handleToggleTheme = (theme: 'dark' | 'light') => {
@@ -34,14 +30,13 @@ export const Default: Story = {
 
     return (
       <div className={styles.page}>
-        {args.hasHeader && (
-          <Header
-            theme={theme}
-            onToggleTheme={handleToggleTheme}
-          />
-        )}
+        <Header
+          isHome
+          theme={theme}
+          onToggleTheme={handleToggleTheme}
+        />
         <main className={styles.main}>
-          <Banner hasHeader={args.hasHeader} />
+          <Banner hasHeader />
           <Section />
           <Projects />
           <Timeline />

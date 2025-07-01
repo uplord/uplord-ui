@@ -6,7 +6,7 @@ import styles from '@/components/ui/Checkbox/checkbox.module.scss'
 export type RadioProps = {
   name: string
   id?: string
-  value: string
+  value: string | boolean
   checked?: boolean
   helper?: string
   className?: string

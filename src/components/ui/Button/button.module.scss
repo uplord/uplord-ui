@@ -72,12 +72,12 @@
   &.is-disabled {
     border-color: transparent;
     background-color: $color-disabled;
-    color: $color-disabled;
+    color: $color-text;
 
     @include dark-mode {
       border-color: transparent;
       background-color: $color-disabled-dark;
-      color: $color-disabled-dark;
+      color: $color-text-dark;
     }
   }
 
@@ -130,7 +130,7 @@
 .size {
   &-md {
     padding: 0.71875rem 1.4375rem;
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
 
     &.has-icon {
       padding-right: 0.8125rem;
@@ -151,7 +151,7 @@
 
     & {
       padding: 0.65625rem 0.9375rem;
-      border-radius: 1.25rem;
+      border-radius: 0.5rem;
     }
 
     &.has-icon {
