@@ -1,6 +1,7 @@
 'use client'
 
 import { NiceModalHandler } from '@ebay/nice-modal-react'
+import { clsx } from 'clsx'
 import { motion, AnimatePresence, useDragControls } from 'framer-motion'
 import React, { useRef, useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
@@ -14,6 +15,7 @@ export type ModalProps = {
   modal: NiceModalHandler
   headerProps?: ModalHeaderProps
   footerProps?: ModalFooterProps
+  maxWidth?: string
   sheet?: boolean
   mobileDraggable?: boolean
   backdropClose?: boolean
@@ -25,6 +27,7 @@ export const Modal = ({
   modal,
   headerProps,
   footerProps,
+  maxWidth,
   sheet = false,
   mobileDraggable = false,
   backdropClose = true,
@@ -65,7 +68,11 @@ export const Modal = ({
     <AnimatePresence onExitComplete={() => modal.remove()}>
       {modal.visible && (
         <motion.div
-          className={`${styles.backdrop} ${bottomSheet && styles['bottom-sheet']} ${sheet && !isMobile && styles.sheet}`}>
+          className={clsx(
+            styles.backdrop,
+            bottomSheet && styles['bottom-sheet'],
+            sheet && !isMobile && styles.sheet,
+          )}>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -77,7 +84,8 @@ export const Modal = ({
           {showMobile && mobileDraggable && bottomSheet ? (
             <motion.div
               ref={refMain}
-              className={`${styles.main}`}
+              className={clsx(styles.main)}
+              style={maxWidth ? { maxWidth: maxWidth } : undefined}
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
               dragElastic={{ top: 0, bottom: 0.5 }}
@@ -101,7 +109,8 @@ export const Modal = ({
             </motion.div>
           ) : (
             <motion.div
-              className={`${styles.main}`}
+              className={clsx(styles.main)}
+              style={maxWidth ? { maxWidth: maxWidth } : undefined}
               onDragEnd={handleDragEnd}
               initial={getInitialStyle()}
               animate={getAnimateStyle()}

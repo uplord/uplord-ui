@@ -9,6 +9,7 @@ const meta: Meta<SelectProps> = {
   title: 'UI/Select',
   component: Select,
   args: {
+    label: '',
     placeholder: 'Select an option',
     helper: 'Optional helper text',
     options: [

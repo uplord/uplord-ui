@@ -9,6 +9,7 @@ const meta: Meta<RadioProps> = {
   component: Radio,
   args: {
     label: '',
+    helper: '',
     isSkeleton: false,
     isDisabled: false,
     isError: false,

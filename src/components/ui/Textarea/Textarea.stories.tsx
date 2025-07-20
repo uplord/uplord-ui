@@ -9,6 +9,7 @@ const meta: Meta<TextareaProps> = {
   title: 'UI/Textarea',
   component: Textarea,
   args: {
+    label: '',
     placeholder: 'Label',
     helper: 'Optional helper text',
     isLoading: false,

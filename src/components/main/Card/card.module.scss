@@ -1,0 +1,23 @@
+.container {
+  @include text-content;
+
+  & {
+    &.border {
+      padding: 1rem;
+      border: 0.0625rem solid $color-border;
+      border-radius: 0.5rem;
+
+      @include dark-mode {
+        border-color: $color-border-dark;
+      }
+
+      @media (min-width: $breakpoint-md) {
+        padding: 1.5rem;
+      }
+    }
+  }
+
+  .button-group {
+    margin-top: 0.5rem;
+  }
+}

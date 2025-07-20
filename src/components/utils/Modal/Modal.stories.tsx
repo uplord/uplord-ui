@@ -62,8 +62,7 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
             onClick={() => modal.hide()}
           />
         ),
-      }}
-      mobileDraggable>
+      }}>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
         Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
@@ -83,6 +82,55 @@ export const ButtonOpen: StoryObj<ButtonProps> = {
     size: 'md',
     variant: 'primary',
     onClick: () => NiceModal.show(ButtonOpenModal),
+  },
+  parameters: { controls: { disable: true } },
+  render: (args) => <Button {...args} />,
+  decorators: [
+    (Story) => (
+      <div className="padding">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+const DialogModal = NiceModal.create((props: ModalProps) => {
+  const modal = useModal()
+  return (
+    <Modal
+      {...props}
+      modal={modal}
+      footerProps={{
+        trailing: (
+          <Button
+            label="Submit"
+            size="md"
+            variant="primary"
+            onClick={() => modal.hide()}
+          />
+        ),
+      }}
+      maxWidth="460px">
+      <h2>Dialog</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
+        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
+        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
+        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
+        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
+        dui vehicula vitae.
+      </p>
+    </Modal>
+  )
+})
+
+export const Dialog: StoryObj<ButtonProps> = {
+  args: {
+    label: 'Open',
+    size: 'md',
+    variant: 'primary',
+    onClick: () => NiceModal.show(DialogModal),
   },
   parameters: { controls: { disable: true } },
   render: (args) => <Button {...args} />,
@@ -116,17 +164,6 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
         sheet: true,
       }}
       footerProps={{
-        title: 'Title',
-        subtext: 'Subtext',
-        leading: (
-          <Button
-            label="Back"
-            size="md"
-            variant="anchor"
-            className={styles.anchor}
-            onClick={() => modal.hide()}
-          />
-        ),
         trailing: (
           <Button
             label="Submit"

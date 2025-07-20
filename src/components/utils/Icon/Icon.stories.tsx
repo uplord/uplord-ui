@@ -1,10 +1,8 @@
-import * as icons from 'lucide-react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import { Icon as IconComponent, IconProps } from '@/components/utils/Icon'
+import { IconOptions } from '@/lib/icons'
 import { Size } from '@/types/system'
-
-type AvailableIcons = keyof typeof icons
 
 const meta: Meta<IconProps> = {
   title: 'Utils/Icon',
@@ -12,6 +10,7 @@ const meta: Meta<IconProps> = {
   args: {
     name: 'Home',
     size: 'lg',
+    strokeWidth: 2,
     className: '',
   },
   argTypes: {
@@ -19,13 +18,18 @@ const meta: Meta<IconProps> = {
       control: {
         type: 'select',
       },
-      options: [null, ...Object.keys(icons)] as AvailableIcons[],
+      options: IconOptions,
     },
     size: {
       control: {
         type: 'select',
       },
       options: Object.values(Size),
+    },
+    className: {
+      table: {
+        disable: true,
+      },
     },
   },
 }

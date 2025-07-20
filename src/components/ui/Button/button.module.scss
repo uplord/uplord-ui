@@ -129,12 +129,17 @@
 
 .size {
   &-md {
-    padding: 0.71875rem 1.4375rem;
     border-radius: 0.5rem;
 
+    &.padding {
+      padding: 0.71875rem 1.4375rem;
+    }
+
     &.has-icon {
-      padding-right: 0.8125rem;
-      padding-left: 0.8125rem;
+      &.padding {
+        padding-right: 0.8125rem;
+        padding-left: 0.8125rem;
+      }
 
       span {
         width: 1.25rem;
@@ -150,13 +155,18 @@
     @include text-sm;
 
     & {
-      padding: 0.65625rem 0.9375rem;
       border-radius: 0.5rem;
+
+      &.padding {
+        padding: 0.65625rem 0.9375rem;
+      }
     }
 
     &.has-icon {
-      padding-right: 0.5625rem;
-      padding-left: 0.5625rem;
+      &.padding {
+        padding-right: 0.5625rem;
+        padding-left: 0.5625rem;
+      }
 
       span {
         width: 1.25rem;
@@ -240,10 +250,6 @@
         color: $color-light;
       }
     }
-
-    &.has-hover:hover:not(.is-disabled) {
-      text-decoration: underline;
-    }
   }
 
   &-default {
@@ -280,9 +286,19 @@
     background-color: $color-dark;
     color: $color-light;
 
+    @include dark-mode {
+      background-color: $color-light;
+      color: $color-dark;
+    }
+
     &.has-hover:hover:not(.is-disabled) {
       background-color: color.mix($color-light, $color-dark, 10%);
       color: $color-light;
+
+      @include dark-mode {
+        background-color: color.mix($color-dark, $color-light, 10%);
+        color: $color-dark;
+      }
     }
   }
 }

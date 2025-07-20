@@ -9,6 +9,7 @@ import styles from './button.module.scss'
 import { VariantType } from '@/types/system'
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  children?: React.ReactNode
   label?: string
   href?: string
   target?: '_blank' | '_self' | ''
@@ -18,6 +19,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   trailingIcon?: IconProps['name']
   block?: boolean
   className?: string
+  hasPadding?: boolean
   isIcon?: boolean
   isDisabled?: boolean
   isLoading?: boolean
@@ -27,6 +29,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 }
 
 export const Button = ({
+  children,
   label,
   href,
   target,
@@ -36,6 +39,7 @@ export const Button = ({
   trailingIcon,
   block = false,
   className = '',
+  hasPadding = true,
   isIcon = false,
   isDisabled = false,
   isLoading = false,
@@ -45,23 +49,27 @@ export const Button = ({
 }: ButtonProps) => {
   const content = (
     <>
-      <span className={styles.content}>
-        {leadingIcon && (
-          <Icon
-            name={leadingIcon}
-            size="md"
-            className={styles.icon}
-          />
-        )}
-        {label}
-        {trailingIcon && (
-          <Icon
-            name={trailingIcon}
-            size="md"
-            className={styles.icon}
-          />
-        )}
-      </span>
+      {children ? (
+        <>{children}</>
+      ) : (
+        <span className={styles.content}>
+          {leadingIcon && (
+            <Icon
+              name={leadingIcon}
+              size="md"
+              className={styles.icon}
+            />
+          )}
+          {label}
+          {trailingIcon && (
+            <Icon
+              name={trailingIcon}
+              size="md"
+              className={styles.icon}
+            />
+          )}
+        </span>
+      )}
     </>
   )
 
@@ -71,6 +79,7 @@ export const Button = ({
     styles[`variant-${variant}`],
     block && styles.block,
     className,
+    hasPadding && styles.padding,
     (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
     isLoading && styles['is-loading'],
     isSkeleton && styles['is-skeleton'],

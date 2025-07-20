@@ -1,4 +1,5 @@
 @use '/src/styles/forward' as *;
+@use 'sass:color';
 
 .fields {
   display: flex;
@@ -17,6 +18,30 @@
   position: relative;
   display: flex;
   align-items: flex-start;
+
+  &.toggle {
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &.is-disabled .input {
+      border-color: transparent;
+      background-color: $color-disabled;
+
+      @include dark-mode {
+        background-color: $color-disabled-dark;
+      }
+    }
+
+    &.is-error:not(.is-skeleton, .is-disabled) .input {
+      background-color: $color-error;
+
+      @media (hover: hover) {
+        &:hover:not(.is-disabled &) {
+          background-color: $color-error;
+        }
+      }
+    }
+  }
 
   &.is-disabled .input {
     border-color: transparent;
@@ -53,41 +78,34 @@
 
     &:checked {
       border-color: transparent;
+      background-color: $color-skeleton;
 
       & + label::before {
         display: none;
       }
     }
 
+    & + label::before {
+      display: none;
+    }
+
     & + label {
       .label,
       .total,
       .content {
-        height: 1.5rem;
         border-radius: 0.25rem;
         animation: pulse 1.5s infinite alternate;
         background-color: $color-skeleton;
+        color: transparent;
 
         @include dark-mode {
           background-color: $color-skeleton-dark;
         }
       }
-
-      .label {
-        width: 10rem;
-      }
-
-      .total {
-        width: 2.8125rem;
-      }
-
-      .content {
-        height: 1.5rem;
-      }
     }
   }
 
-  &.is-error:not(.is-ghost) {
+  &.is-error:not(.is-skeleton, .is-disabled) {
     &.radio .input:checked {
       background: $color-error;
     }
@@ -111,7 +129,7 @@
     }
   }
 
-  &.no-placholder label {
+  &.no-placeholder label {
     padding-left: 0;
   }
 }
@@ -132,6 +150,18 @@
     border-color: $color-border-dark;
   }
 
+  .toggle & {
+    width: 4.5rem;
+    height: 2rem;
+    border-color: transparent;
+    border-radius: 1.25rem;
+    background-color: color.change($color-dark, $alpha: 0.2);
+
+    @include dark-mode {
+      background-color: color.change($color-light, $alpha: 0.1);
+    }
+  }
+
   .radio & {
     border-radius: 0.75rem;
   }
@@ -145,8 +175,17 @@
       background: $color-light;
     }
 
+    .toggle & {
+      border-color: transparent;
+      background-color: $color-success;
+    }
+
     & + label::before {
       opacity: 1;
+
+      .toggle & {
+        right: 0.1875rem;
+      }
     }
   }
 
@@ -157,6 +196,25 @@
 
       @include dark-mode {
         border-color: $color-light;
+      }
+
+      &:checked {
+        .toggle & {
+          background-color: color.mix($color-dark, $color-success, 20%);
+
+          @include dark-mode {
+            background-color: color.mix($color-dark, $color-success, 20%);
+          }
+        }
+      }
+
+      .toggle & {
+        border-color: transparent;
+        background-color: color.change($color-dark, $alpha: 0.3);
+
+        @include dark-mode {
+          background-color: color.change($color-light, $alpha: 0.15);
+        }
       }
 
       & + label {
@@ -184,6 +242,11 @@
       flex: 1;
       padding-left: 0.75rem;
       margin: 0;
+
+      .toggle & {
+        padding-right: 1.5rem;
+        padding-left: 0;
+      }
     }
 
     &::before {
@@ -202,6 +265,19 @@
       @include dark-mode {
         border-right-color: $color-dark;
         border-bottom-color: $color-dark;
+      }
+
+      .toggle & {
+        right: 1.8126rem;
+        left: auto;
+        width: 2.5rem;
+        height: 1.625rem;
+        border: 0;
+        border-radius: 0.8125rem;
+        background-color: $color-light;
+        opacity: 1;
+        transform: none;
+        transition: all 0.2s ease-in-out;
       }
 
       .radio & {

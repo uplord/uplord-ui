@@ -8,11 +8,18 @@ const meta: Meta<CheckboxProps> = {
   component: Checkbox,
   args: {
     label: '',
+    helper: '',
+    isToggle: false,
     isSkeleton: false,
     isDisabled: false,
     isError: false,
   },
   argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
     className: {
       table: {
         disable: true,
@@ -60,31 +67,50 @@ export default meta
 type Story = StoryObj<CheckboxProps>
 
 export const Default: Story = {
-  args: {
-    label: 'Checkbox',
-  },
   render: (args: CheckboxProps) => (
     <Checkbox
       {...args}
       name="input1"
+      label="Checkbox"
       value="true"
     />
   ),
 }
 
-export const Content: Story = {
-  args: {
-    label: 'Title',
-    total: 'X,XXX',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit facilisis quis eu odio.',
+export const Toggle: Story = {
+  argTypes: {
+    isToggle: {
+      table: {
+        disable: true,
+      },
+    },
   },
   render: (args: CheckboxProps) => (
     <Checkbox
       {...args}
-      name="input2"
+      name="input1"
+      label="Toggle"
       value="true"
+      isToggle
     />
+  ),
+}
+
+export const Content: Story = {
+  render: (args: CheckboxProps) => (
+    <Checkbox
+      {...args}
+      name="input2"
+      value="true">
+      <div className={styles.title}>
+        <div className={styles.label}>Title</div>
+        <div className={styles.total}>X,XXX</div>
+      </div>
+      <div className={styles.content}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit
+        facilisis quis eu odio.
+      </div>
+    </Checkbox>
   ),
 }
 
@@ -157,10 +183,18 @@ export const State: Story = {
 
 export const StateText: Story = {
   args: {
-    label: 'Title',
-    total: 'X,XXX',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit facilisis quis eu odio.',
+    children: (
+      <>
+        <div className={styles.title}>
+          <div className={styles.label}>Title</div>
+          <div className={styles.total}>X,XXX</div>
+        </div>
+        <div className={styles.content}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit
+          facilisis quis eu odio.
+        </div>
+      </>
+    ),
   },
   parameters: {
     controls: {

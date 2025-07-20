@@ -26,6 +26,11 @@ const meta: Meta<InputProps> = {
     isError: false,
   },
   argTypes: {
+    autoComplete: {
+      table: {
+        disable: true,
+      },
+    },
     leadingIcon: {
       control: {
         type: 'select',
@@ -319,6 +324,19 @@ const InputStates = (args: InputProps) => {
         label="Label"
         placeholder="Label"
         helper="Label"
+      />
+      <Input
+        {...args}
+        name="search"
+        placeholder="Search..."
+        leadingIcon="Search"
+        button={{
+          label: 'Search',
+          variant: 'black',
+          onClick: () => handleButtonClick(),
+        }}
+        helper="Button"
+        onChange={(e) => console.log(e.target.value)}
       />
     </div>
   )

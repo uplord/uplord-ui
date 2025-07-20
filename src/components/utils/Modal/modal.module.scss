@@ -269,7 +269,7 @@ $background-surface-dark: #191919;
 .scroll {
   overflow: scroll;
   flex: 1;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
@@ -278,12 +278,10 @@ $background-surface-dark: #191919;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  @include text-content;
 
-  p {
-    @include text-md;
-    @include text-normal;
+  & {
+    display: grid;
+    gap: 1rem;
   }
 }

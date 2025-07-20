@@ -4,6 +4,7 @@ import React from 'react'
 import styles from './checkbox.module.scss'
 
 export type CheckboxProps = {
+  children?: React.ReactNode
   name: string
   id?: string
   value: string
@@ -12,8 +13,8 @@ export type CheckboxProps = {
   className?: string
 
   label?: string
-  total?: string
-  content?: string
+
+  isToggle?: boolean
 
   isDisabled?: boolean
   isSkeleton?: boolean
@@ -23,6 +24,7 @@ export type CheckboxProps = {
 }
 
 export const Checkbox = ({
+  children,
   name,
   id,
   value,
@@ -31,8 +33,8 @@ export const Checkbox = ({
   className = '',
 
   label,
-  total,
-  content,
+
+  isToggle = false,
 
   isDisabled = false,
   isSkeleton = false,
@@ -45,10 +47,11 @@ export const Checkbox = ({
       <div
         className={clsx(
           styles.checkbox,
+          isToggle && styles['toggle'],
           (isDisabled || isSkeleton) && styles['is-disabled'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
-          !label && styles['no-placeholder'],
+          !children && !label && styles['no-placeholder'],
         )}>
         <input
           type="checkbox"
@@ -62,11 +65,13 @@ export const Checkbox = ({
           disabled={isDisabled || isSkeleton}
         />
         <label htmlFor={id || name}>
-          <div className={styles.title}>
-            {label !== undefined && <div className={styles.label}>{!isSkeleton && label}</div>}
-            {total !== undefined && <div className={styles.total}>{!isSkeleton && total}</div>}
-          </div>
-          {content !== undefined && <div className={styles.content}>{!isSkeleton && content}</div>}
+          {children ? (
+            children
+          ) : (
+            <div className={styles.title}>
+              <div className={styles.label}>{label}</div>
+            </div>
+          )}
         </label>
       </div>
 

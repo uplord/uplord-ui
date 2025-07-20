@@ -16,11 +16,32 @@ const meta: Meta<ButtonProps> = {
     leadingIcon: null,
     trailingIcon: null,
     block: false,
+    hasPadding: true,
     isDisabled: false,
     isLoading: false,
     isSkeleton: false,
   },
   argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    isIcon: {
+      table: {
+        disable: true,
+      },
+    },
+    hasHover: {
+      table: {
+        disable: true,
+      },
+    },
+    ariaLabel: {
+      table: {
+        disable: true,
+      },
+    },
     target: {
       control: {
         type: 'select',
@@ -137,9 +158,6 @@ export const Links: Story = {
 }
 
 export const Variants: Story = {
-  args: {
-    label: 'Button',
-  },
   argTypes: {
     href: {
       table: {
@@ -161,26 +179,37 @@ export const Variants: Story = {
     <ButtonGroup>
       <Button
         {...args}
+        label="Default"
         variant="default"
       />
       <Button
         {...args}
+        label="Primary"
         variant="primary"
       />
       <Button
         {...args}
+        label="Success"
         variant="success"
       />
       <Button
         {...args}
+        label="Black/White"
+        variant="black"
+      />
+      <Button
+        {...args}
+        label="Outline"
         variant="outline"
       />
       <Button
         {...args}
+        label="Text"
         variant="text"
       />
       <Button
         {...args}
+        label="Anchor"
         variant="anchor"
       />
     </ButtonGroup>
@@ -266,6 +295,25 @@ export const Outline: Story = {
 export const Text: Story = {
   args: {
     variant: 'text',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+  render: (args: ButtonProps) => <TestButtons {...args} />,
+}
+
+export const BlackWhite: Story = {
+  args: {
+    variant: 'black',
   },
   argTypes: {
     variant: {
