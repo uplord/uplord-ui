@@ -102,24 +102,27 @@ const DialogModal = NiceModal.create((props: ModalProps) => {
       modal={modal}
       footerProps={{
         trailing: (
-          <Button
-            label="Submit"
-            size="md"
-            variant="primary"
-            onClick={() => modal.hide()}
-          />
+          <ButtonGroup>
+            <Button
+              label="Cancel"
+              size="sm"
+              variant="outline"
+              onClick={() => modal.hide()}
+            />
+            <Button
+              label="Continue"
+              size="sm"
+              variant="primary"
+              onClick={() => modal.hide()}
+            />
+          </ButtonGroup>
         ),
       }}
       maxWidth="460px">
-      <h2>Dialog</h2>
+      <h3>Dialog</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
-        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
-        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
-        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
-        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
-        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
-        dui vehicula vitae.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum.
       </p>
     </Modal>
   )

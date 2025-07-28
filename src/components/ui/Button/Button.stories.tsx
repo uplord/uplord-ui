@@ -330,6 +330,25 @@ export const BlackWhite: Story = {
   render: (args: ButtonProps) => <TestButtons {...args} />,
 }
 
+export const Anchor: Story = {
+  args: {
+    variant: 'anchor',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+  render: (args: ButtonProps) => <TestButtons {...args} />,
+}
+
 const TestButtons = (args: ButtonProps) => {
   return (
     <>

@@ -62,16 +62,15 @@ export const Checkbox = ({
           className={clsx(styles.input, className)}
           checked={checked}
           aria-label={name}
-          disabled={isDisabled || isSkeleton}
-        />
+          disabled={isDisabled || isSkeleton}></input>
         <label htmlFor={id || name}>
-          {children ? (
-            children
-          ) : (
-            <div className={styles.title}>
-              <div className={styles.label}>{label}</div>
-            </div>
-          )}
+          {children
+            ? children
+            : label && (
+                <div className={styles.title}>
+                  <div className={styles.label}>{label}</div>
+                </div>
+              )}
         </label>
       </div>
 

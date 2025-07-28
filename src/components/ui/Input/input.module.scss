@@ -10,6 +10,7 @@
 .field {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.5rem;
 
   label {
@@ -93,7 +94,11 @@
 
   &.is-loading {
     position: relative;
-    background-color: transparent;
+    background-color: $color-hover;
+
+    @include dark-mode {
+      background-color: $color-hover-dark;
+    }
 
     &::after {
       position: absolute;
@@ -135,14 +140,6 @@
     .text,
     .icon-wrap {
       display: none;
-    }
-  }
-
-  &.is-loading {
-    background-color: $color-hover;
-
-    @include dark-mode {
-      background-color: $color-hover-dark;
     }
   }
 

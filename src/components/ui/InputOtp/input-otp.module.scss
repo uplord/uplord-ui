@@ -1,0 +1,223 @@
+@use 'sass:color';
+
+.group {
+  position: relative;
+  display: flex;
+  width: max-content;
+  gap: 0.5rem;
+
+  @media (hover: hover) {
+    &:hover:not(.is-disabled, .is-error, &:has(.button:hover, .click:hover)) .list {
+      background-color: $color-hover;
+      cursor: text;
+
+      @include dark-mode {
+        background-color: $color-hover-dark;
+      }
+    }
+  }
+
+  &.is-disabled .item {
+    background-color: $color-disabled;
+
+    @include dark-mode {
+      background-color: $color-disabled-dark;
+    }
+  }
+
+  &.is-loading {
+    position: relative;
+    border: 1px solid $color-border;
+    border-radius: 0.5rem;
+    background-color: $color-hover;
+
+    @include dark-mode {
+      border-color: $color-border-dark;
+      background-color: $color-hover-dark;
+    }
+
+    .list {
+      opacity: 0;
+    }
+  }
+
+  &.is-skeleton .list {
+    border-color: $color-skeleton;
+    border-radius: 0.5rem;
+    animation: pulse 1.5s infinite ease-in-out;
+    background-color: $color-skeleton;
+
+    @include dark-mode {
+      border-color: $color-skeleton-dark;
+      background-color: $color-skeleton-dark;
+    }
+
+    .item {
+      opacity: 0;
+    }
+  }
+
+  &.is-error:not(.is-disabled) .item {
+    border-color: $color-error;
+    background-color: $color-error-02;
+  }
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  width: 3rem;
+  height: 3.5625rem;
+  padding: 0.96875rem;
+  border: 1px solid $color-border;
+  text-align: center;
+
+  @include dark-mode {
+    border-color: $color-border-dark;
+  }
+
+  &:not(:last-child) {
+    border-right-width: 0;
+  }
+
+  &:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  &:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  &.active {
+    border-right-width: 0;
+    background-color: $color-hover;
+    outline: 0.125rem solid $color-focus;
+    outline-offset: -0.0625rem;
+
+    @include dark-mode {
+      background-color: $color-hover-dark;
+      outline-color: $color-focus-dark;
+    }
+
+    & + .item {
+      border-left-width: 0;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.loading {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.5rem;
+    border-radius: 50%;
+    animation: loading 1s infinite;
+    aspect-ratio: 1;
+    content: '';
+    transform: translate(-50%, -50%);
+
+    @include dark-mode {
+      animation: loading-dark 1s infinite;
+    }
+  }
+}
+
+$color-loading-01: color.change($color-dark, $alpha: 0.15);
+$color-loading-02: color.change($color-dark, $alpha: 0.25);
+$color-loading-03: color.change($color-dark, $alpha: 0.35);
+$color-loading-01-dark: color.change($color-light, $alpha: 0.15);
+$color-loading-02-dark: color.change($color-light, $alpha: 0.25);
+$color-loading-03-dark: color.change($color-light, $alpha: 0.35);
+
+@keyframes loading {
+  0% {
+    background: $color-loading-02;
+    box-shadow:
+      0.875rem 0 $color-loading-01,
+      -0.875rem 0 $color-loading-03;
+  }
+
+  33% {
+    background: $color-loading-03;
+    box-shadow:
+      0.875rem 0 $color-loading-02,
+      -0.875rem 0 $color-loading-01;
+  }
+
+  66% {
+    background: $color-loading-01;
+    box-shadow:
+      0.875rem 0 $color-loading-03,
+      -0.875rem 0 $color-loading-02;
+  }
+
+  100% {
+    background: $color-loading-02;
+    box-shadow:
+      0.875rem 0 $color-loading-01,
+      -0.875rem 0 $color-loading-03;
+  }
+}
+
+@keyframes loading-dark {
+  0% {
+    background: $color-loading-02-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-01-dark,
+      -0.875rem 0 $color-loading-03-dark;
+  }
+
+  33% {
+    background: $color-loading-03-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-02-dark,
+      -0.875rem 0 $color-loading-01-dark;
+  }
+
+  66% {
+    background: $color-loading-01-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-03-dark,
+      -0.875rem 0 $color-loading-02-dark;
+  }
+
+  100% {
+    background: $color-loading-02-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-01-dark,
+      -0.875rem 0 $color-loading-03-dark;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}

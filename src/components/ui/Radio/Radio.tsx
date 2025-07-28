@@ -4,6 +4,7 @@ import React from 'react'
 import styles from '@/components/ui/Checkbox/checkbox.module.scss'
 
 export type RadioProps = {
+  children?: React.ReactNode
   name: string
   id?: string
   value: string | boolean
@@ -12,8 +13,6 @@ export type RadioProps = {
   className?: string
 
   label?: string
-  total?: string
-  content?: string
 
   isDisabled?: boolean
   isSkeleton?: boolean
@@ -23,6 +22,7 @@ export type RadioProps = {
 }
 
 export const Radio = ({
+  children,
   name,
   id,
   value,
@@ -31,8 +31,6 @@ export const Radio = ({
   className = '',
 
   label,
-  total,
-  content,
 
   isDisabled = false,
   isSkeleton = false,
@@ -58,14 +56,15 @@ export const Radio = ({
           className={clsx(styles.input, className)}
           checked={checked}
           aria-label={name}
-          disabled={isDisabled || isSkeleton}
-        />
+          disabled={isDisabled || isSkeleton}></input>
         <label htmlFor={id || name}>
-          <div className={styles.title}>
-            {label !== undefined && <div className={styles.label}>{!isSkeleton && label}</div>}
-            {total !== undefined && <div className={styles.total}>{!isSkeleton && total}</div>}
-          </div>
-          {content !== undefined && <div className={styles.content}>{!isSkeleton && content}</div>}
+          {children
+            ? children
+            : label && (
+                <div className={styles.title}>
+                  <div className={styles.label}>{label}</div>
+                </div>
+              )}
         </label>
       </div>
 

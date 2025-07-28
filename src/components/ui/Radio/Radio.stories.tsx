@@ -15,6 +15,11 @@ const meta: Meta<RadioProps> = {
     isError: false,
   },
   argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
     className: {
       table: {
         disable: true,
@@ -94,12 +99,6 @@ export const Default: Story = {
 }
 
 export const Content: Story = {
-  args: {
-    label: 'Title',
-    total: 'X,XXX',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit facilisis quis eu odio.',
-  },
   argTypes: {
     id: {
       table: {
@@ -127,16 +126,32 @@ export const Content: Story = {
           name="input2"
           value={true}
           onChange={() => setValue(true)}
-          checked={value === true}
-        />
+          checked={value === true}>
+          <div className={styles.title}>
+            <div className={styles.label}>Title</div>
+            <div className={styles.total}>X,XXX</div>
+          </div>
+          <div className={styles.content}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat
+            suscipit facilisis quis eu odio.
+          </div>
+        </Radio>
         <Radio
           {...args}
           id="radio4"
           name="input2"
           value={false}
           onChange={() => setValue(false)}
-          checked={value === false}
-        />
+          checked={value === false}>
+          <div className={styles.title}>
+            <div className={styles.label}>Title</div>
+            <div className={styles.total}>X,XXX</div>
+          </div>
+          <div className={styles.content}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat
+            suscipit facilisis quis eu odio.
+          </div>
+        </Radio>
       </div>
     )
   },
@@ -211,10 +226,18 @@ export const State: Story = {
 
 export const StateText: Story = {
   args: {
-    label: 'Title',
-    total: 'X,XXX',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit facilisis quis eu odio.',
+    children: (
+      <>
+        <div className={styles.title}>
+          <div className={styles.label}>Title</div>
+          <div className={styles.total}>X,XXX</div>
+        </div>
+        <div className={styles.content}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut metus et erat suscipit
+          facilisis quis eu odio.
+        </div>
+      </>
+    ),
   },
   parameters: {
     controls: {

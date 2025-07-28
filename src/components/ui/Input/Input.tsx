@@ -1,5 +1,3 @@
-'use client'
-
 import clsx from 'clsx'
 import React, { useRef, useState } from 'react'
 
@@ -8,6 +6,7 @@ import { Button, ButtonProps } from '@/components/ui/Button'
 import { Icon, IconProps } from '@/components/utils/Icon'
 
 export type InputProps = {
+  ref?: React.Ref<HTMLInputElement>
   type?: 'text' | 'email' | 'password' | 'number'
   label?: string
   placeholder?: string
@@ -31,11 +30,16 @@ export type InputProps = {
   isError?: boolean
 
   autoComplete?: string
+  maxlength?: number
 
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 export const Input = ({
+  ref,
   type = 'text',
   label = '',
   placeholder = '',
@@ -65,7 +69,22 @@ export const Input = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
-  const handleFocus = () => inputRef.current?.focus()
+  const combinedRef = (node: HTMLInputElement | null) => {
+    if (typeof ref === 'function') {
+      ref(node)
+    } else if (ref && typeof ref === 'object') {
+      ref.current = node
+    }
+    inputRef.current = node
+  }
+
+  const handleFocus = () => {
+    if (ref && typeof ref === 'object' && 'current' in ref && ref.current) {
+      ref.current.focus()
+    } else if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }
 
   const clearField = () => {
     onChange({
@@ -128,7 +147,7 @@ export const Input = ({
 
         <div className={clsx(styles.inner)}>
           <input
-            ref={inputRef}
+            ref={combinedRef}
             type={type === 'password' && isPasswordVisible ? 'text' : type}
             id={id || name}
             name={name}

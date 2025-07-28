@@ -10,6 +10,7 @@
 .field {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
@@ -20,6 +21,7 @@
   align-items: flex-start;
 
   &.toggle {
+    width: 100%;
     flex-direction: row-reverse;
     align-items: center;
 
@@ -67,39 +69,41 @@
     }
   }
 
-  &.is-skeleton .input {
-    border-color: transparent;
-    animation: pulse 1.5s infinite ease-in-out;
-    background-color: $color-skeleton;
-
-    @include dark-mode {
-      background-color: $color-skeleton-dark;
-    }
-
-    &:checked {
+  &.is-skeleton {
+    .input {
       border-color: transparent;
+      animation: pulse 1.5s infinite ease-in-out;
       background-color: $color-skeleton;
 
-      & + label::before {
+      @include dark-mode {
+        background-color: $color-skeleton-dark;
+      }
+
+      &:checked {
+        border-color: transparent;
+        background-color: $color-skeleton;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &::before {
         display: none;
       }
-    }
 
-    & + label::before {
-      display: none;
-    }
+      & + label {
+        .label,
+        .total,
+        .content {
+          border-radius: 0.25rem;
+          animation: pulse 1.5s infinite alternate;
+          background-color: $color-skeleton;
+          color: transparent;
 
-    & + label {
-      .label,
-      .total,
-      .content {
-        border-radius: 0.25rem;
-        animation: pulse 1.5s infinite alternate;
-        background-color: $color-skeleton;
-        color: transparent;
-
-        @include dark-mode {
-          background-color: $color-skeleton-dark;
+          @include dark-mode {
+            background-color: $color-skeleton-dark;
+          }
         }
       }
     }
@@ -166,6 +170,53 @@
     border-radius: 0.75rem;
   }
 
+  &::before {
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.5rem;
+    width: 0.5rem;
+    height: 0.875rem;
+    border-right: 0.1875rem solid $color-light;
+    border-bottom: 0.1875rem solid $color-light;
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(45deg);
+
+    @include dark-mode {
+      border-right-color: $color-dark;
+      border-bottom-color: $color-dark;
+    }
+
+    .toggle & {
+      right: 1.8126rem;
+      left: auto;
+      width: 2.5rem;
+      height: 1.625rem;
+      border: 0;
+      border-radius: 0.8125rem;
+      background-color: $color-light;
+      opacity: 1;
+      transform: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .radio & {
+      top: 0.5rem;
+      left: 0.5rem;
+      width: 0.5rem;
+      height: 0.5rem;
+      border: 0;
+      border-radius: 0.25rem;
+      background: $color-light;
+      transform: none;
+
+      @include dark-mode {
+        background: $color-dark;
+      }
+    }
+  }
+
   &:checked {
     border-color: $color-dark;
     background: $color-dark;
@@ -180,7 +231,7 @@
       background-color: $color-success;
     }
 
-    & + label::before {
+    &::before {
       opacity: 1;
 
       .toggle & {
@@ -246,53 +297,6 @@
       .toggle & {
         padding-right: 1.5rem;
         padding-left: 0;
-      }
-    }
-
-    &::before {
-      position: absolute;
-      top: 0.1875rem;
-      left: 0.5rem;
-      width: 0.5rem;
-      height: 0.875rem;
-      border-right: 0.1875rem solid $color-light;
-      border-bottom: 0.1875rem solid $color-light;
-      content: '';
-      opacity: 0;
-      pointer-events: none;
-      transform: rotate(45deg);
-
-      @include dark-mode {
-        border-right-color: $color-dark;
-        border-bottom-color: $color-dark;
-      }
-
-      .toggle & {
-        right: 1.8126rem;
-        left: auto;
-        width: 2.5rem;
-        height: 1.625rem;
-        border: 0;
-        border-radius: 0.8125rem;
-        background-color: $color-light;
-        opacity: 1;
-        transform: none;
-        transition: all 0.2s ease-in-out;
-      }
-
-      .radio & {
-        top: 0.5rem;
-        left: 0.5rem;
-        width: 0.5rem;
-        height: 0.5rem;
-        border: 0;
-        border-radius: 0.25rem;
-        background: $color-light;
-        transform: none;
-
-        @include dark-mode {
-          background: $color-dark;
-        }
       }
     }
   }

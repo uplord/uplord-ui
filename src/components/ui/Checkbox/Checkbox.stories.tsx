@@ -67,17 +67,22 @@ export default meta
 type Story = StoryObj<CheckboxProps>
 
 export const Default: Story = {
+  args: {
+    label: 'Checkbox',
+  },
   render: (args: CheckboxProps) => (
     <Checkbox
       {...args}
       name="input1"
-      label="Checkbox"
       value="true"
     />
   ),
 }
 
 export const Toggle: Story = {
+  args: {
+    label: 'Toggle',
+  },
   argTypes: {
     isToggle: {
       table: {
@@ -89,7 +94,6 @@ export const Toggle: Story = {
     <Checkbox
       {...args}
       name="input1"
-      label="Toggle"
       value="true"
       isToggle
     />
