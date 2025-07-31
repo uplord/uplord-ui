@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/uplord/uplord-ui/compare/v0.0.21...v0.0.22) (2025-07-31)
+
+
+### Features
+
+* contact form validation ([d3562ce](https://github.com/uplord/uplord-ui/commit/d3562ce1827fcf53dbabff5ba4532a21a68b0930))
+
 ### [0.0.21](https://github.com/uplord/uplord-ui/compare/v0.0.20...v0.0.21) (2025-07-28)
 
 
