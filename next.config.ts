@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
         {
           loader: '@svgr/webpack',
           options: {
+            dimensions: false,
             svgo: true,
             svgoConfig: {
               plugins: [
@@ -43,7 +44,6 @@ const nextConfig: NextConfig = {
               ],
             },
           },
-          dimensions: false,
         },
       ],
     })

@@ -1,52 +1,50 @@
+import * as yup from 'yup'
 import NiceModal, { NiceModalHocProps, useModal } from '@ebay/nice-modal-react'
-import { FC, useState } from 'react'
+import { Formik, Form, Field } from 'formik'
+import { FC, useEffect, useState } from 'react'
 
 import styles from './contact-form.module.scss'
-import { Modal, Input, Textarea, Button } from '@/components'
+import { Modal, FormikInput, Input, Textarea, Button } from '@/components'
 import { useModalData } from '@/lib'
 
 export const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    message: '',
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
   return (
     <div className={styles.section}>
-      <Input
+      <Field
+        component={FormikInput}
+        input={Input}
         placeholder="Full name"
         name="fullName"
-        value={formData.fullName}
-        onChange={handleChange}
         autoComplete="off"
       />
-      <Input
+      <Field
+        component={FormikInput}
+        input={Input}
         type="email"
         placeholder="Email address"
         name="email"
-        value={formData.email}
-        onChange={handleChange}
         autoComplete="off"
       />
-      <Textarea
+      <Field
+        component={FormikInput}
+        input={Textarea}
         placeholder="Message"
         name="message"
-        value={formData.message}
-        onChange={handleChange}
       />
     </div>
   )
 }
 
+export const validationSchema = yup.object({
+  fullName: yup.string().required('Full name is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  message: yup.string().required('Message is required'),
+})
+
 export const ContactFormModal: FC<NiceModalHocProps> = NiceModal.create(() => {
   useModalData()
   const modal = useModal()
+  const [submitFormFn, setSubmitFormFn] = useState<(() => void) | null>(null)
 
   return (
     <Modal
@@ -68,13 +66,38 @@ export const ContactFormModal: FC<NiceModalHocProps> = NiceModal.create(() => {
             label="Submit"
             size="md"
             variant="primary"
-            onClick={() => console.log('Submit')}
+            onClick={() => submitFormFn?.()}
           />
         ),
       }}
       mobileDraggable
       bottomSheet>
-      <ContactForm />
+      <div className={styles.section}>
+        <Formik
+          initialValues={{
+            fullName: '',
+            email: '',
+            message: '',
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
+            console.log('values', values)
+          }}>
+          {({ submitForm }) => {
+            useEffect(() => {
+              setSubmitFormFn(() => submitForm)
+            }, [submitForm])
+
+            return (
+              <Form
+                autoComplete="off"
+                noValidate>
+                <ContactForm />
+              </Form>
+            )
+          }}
+        </Formik>
+      </div>
     </Modal>
   )
 })
