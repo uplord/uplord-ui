@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/uplord/uplord-ui/compare/v0.0.25...v0.0.26) (2025-08-02)
+
+
+### Features
+
+* modal safe area ([cbe9f3b](https://github.com/uplord/uplord-ui/commit/cbe9f3b89422c4ad0e3cf04b582318f8d7186d44))
+
 ### [0.0.25](https://github.com/uplord/uplord-ui/compare/v0.0.24...v0.0.25) (2025-08-02)
 
 
