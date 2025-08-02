@@ -67,7 +67,6 @@ $background-surface-dark: #191919;
   }
 
   .main {
-    padding-bottom: env(safe-area-inset-bottom);
     border-radius: 1rem;
     background-color: $background-surface;
     box-shadow: 0 4px 18px 0 #0000002b;
@@ -92,6 +91,10 @@ $background-surface-dark: #191919;
   max-width: 35.5rem;
   max-height: calc(100dvh - 5rem);
   flex-direction: column;
+
+  @media (max-width: $breakpoint-md - 1) {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 
   &.fullscreen {
     max-width: 100%;
