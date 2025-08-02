@@ -12,7 +12,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode
   label?: string
   href?: string
-  target?: '_blank' | '_self' | ''
+  target?: '_blank' | '_self'
   size: 'sm' | 'md'
   variant: VariantType
   leadingIcon?: IconProps['name']
@@ -34,7 +34,7 @@ export const Button = ({
   href,
   target,
   size = 'md',
-  variant,
+  variant = 'default',
   leadingIcon,
   trailingIcon,
   block = false,
@@ -45,6 +45,7 @@ export const Button = ({
   isLoading = false,
   isSkeleton = false,
   hasHover = true,
+  ariaLabel,
   ...restProps
 }: ButtonProps) => {
   const content = (
@@ -89,7 +90,12 @@ export const Button = ({
 
   if (href) {
     return isSkeleton ? (
-      <div className={classes}>{content}</div>
+      <div
+        className={classes}
+        role="button"
+        aria-disabled="true">
+        {content}
+      </div>
     ) : target === '_blank' ? (
       <a
         href={href}
@@ -112,14 +118,10 @@ export const Button = ({
       className={classes}
       type="button"
       disabled={isDisabled || isLoading || isSkeleton}
-      aria-label={!label && leadingIcon === 'X' ? 'Close' : undefined}
+      aria-label={ariaLabel ?? (!label && leadingIcon === 'X' ? 'Close' : undefined)}
       onClick={(e) => {
-        if (isLoading) {
-          return
-        }
-        if (restProps.onClick) {
-          restProps.onClick(e)
-        }
+        if (isLoading) return
+        if (restProps.onClick) restProps.onClick(e)
       }}
       {...restProps}>
       {content}

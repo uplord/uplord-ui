@@ -17,6 +17,7 @@ export type ModalProps = {
   footerProps?: ModalFooterProps
   maxWidth?: string
   sheet?: boolean
+  fullscreen?: boolean
   mobileDraggable?: boolean
   backdropClose?: boolean
   bottomSheet?: boolean
@@ -29,6 +30,7 @@ export const Modal = ({
   footerProps,
   maxWidth,
   sheet = false,
+  fullscreen = false,
   mobileDraggable = false,
   backdropClose = true,
   bottomSheet = false,
@@ -71,6 +73,7 @@ export const Modal = ({
           className={clsx(
             styles.backdrop,
             bottomSheet && styles['bottom-sheet'],
+            fullscreen && styles.fullscreen,
             sheet && !isMobile && styles.sheet,
           )}>
           <motion.div
@@ -84,7 +87,7 @@ export const Modal = ({
           {showMobile && mobileDraggable && bottomSheet ? (
             <motion.div
               ref={refMain}
-              className={clsx(styles.main)}
+              className={clsx(styles.main, fullscreen && styles.fullscreen)}
               style={maxWidth ? { maxWidth: maxWidth } : undefined}
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
@@ -109,7 +112,7 @@ export const Modal = ({
             </motion.div>
           ) : (
             <motion.div
-              className={clsx(styles.main)}
+              className={clsx(styles.main, fullscreen && styles.fullscreen)}
               style={maxWidth ? { maxWidth: maxWidth } : undefined}
               onDragEnd={handleDragEnd}
               initial={getInitialStyle()}

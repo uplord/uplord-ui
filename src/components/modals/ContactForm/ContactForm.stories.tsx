@@ -2,6 +2,7 @@ import * as yup from 'yup'
 import NiceModal from '@ebay/nice-modal-react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Formik, Form } from 'formik'
+import { FC, useEffect, useState } from 'react'
 
 import { ContactForm, ContactFormModal, validationSchema } from './ContactForm'
 import { Button, ButtonProps } from '@/components/ui/Button'
@@ -41,50 +42,37 @@ export const ButtonOpen: StoryObj<ButtonProps> = {
 
 export const ModalOpen: StoryObj = {
   render: () => {
+    const [submitForm, setSubmitForm] = useState<(() => void) | null>(null)
+
     return (
-      <Formik
-        initialValues={{
-          fullName: '',
-          email: '',
-          message: '',
-        }}
-        validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log('Submit', values)
-        }}>
-        {() => (
-          <Form
-            autoComplete="off"
-            noValidate>
-            <ModalHeader
-              title="Get in touch"
-              trailing={
-                <Button
-                  leadingIcon="X"
-                  size="sm"
-                  variant="anchor"
-                  onClick={() => console.log('Close')}
-                />
-              }
+      <>
+        <ModalHeader
+          title="Get in touch"
+          trailing={
+            <Button
+              leadingIcon="X"
+              size="sm"
+              variant="anchor"
+              onClick={() => console.log('Close')}
             />
-            <div className={styles.scroll}>
-              <div className={styles.content}>
-                <ContactForm />
-              </div>
-            </div>
-            <ModalFooter
-              trailing={
-                <Button
-                  label="Submit"
-                  size="md"
-                  variant="primary"
-                  type="submit"
-                />
-              }
+          }
+        />
+        <div className={styles.scroll}>
+          <div className={styles.content}>
+            <ContactForm setSubmitForm={setSubmitForm} />
+          </div>
+        </div>
+        <ModalFooter
+          trailing={
+            <Button
+              label="Submit"
+              size="md"
+              variant="primary"
+              onClick={() => submitForm?.()}
             />
-          </Form>
-        )}
-      </Formik>
+          }
+        />
+      </>
     )
   },
 }

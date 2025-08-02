@@ -26,9 +26,11 @@
   padding: 0.71875rem 0;
   gap: 0.25rem;
 
-  &:hover {
-    color: $color-primary;
-    cursor: pointer;
+  @media (hover) and (pointer: fine) {
+    &:hover {
+      color: $color-primary;
+      cursor: pointer;
+    }
   }
 
   span {
