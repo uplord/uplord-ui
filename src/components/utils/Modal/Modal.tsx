@@ -18,6 +18,7 @@ export type ModalProps = {
   maxWidth?: string
   sheet?: boolean
   fullscreen?: boolean
+  mobileMaxHeight?: boolean
   mobileDraggable?: boolean
   backdropClose?: boolean
   bottomSheet?: boolean
@@ -31,6 +32,7 @@ export const Modal = ({
   maxWidth,
   sheet = false,
   fullscreen = false,
+  mobileMaxHeight = false,
   mobileDraggable = false,
   backdropClose = true,
   bottomSheet = false,
@@ -74,6 +76,7 @@ export const Modal = ({
             styles.backdrop,
             bottomSheet && styles['bottom-sheet'],
             fullscreen && styles.fullscreen,
+            mobileMaxHeight && isMobile && styles.max,
             sheet && !isMobile && styles.sheet,
           )}>
           <motion.div
