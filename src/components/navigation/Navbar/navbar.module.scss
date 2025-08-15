@@ -4,23 +4,6 @@
   display: flex;
   gap: 1rem;
 
-  &.top {
-    border-bottom: 0.0625rem solid $color-border;
-
-    @include dark-mode {
-      border-color: $color-border-dark;
-    }
-  }
-
-  &.bottom {
-    border-top: 0.0625rem solid $color-border;
-
-    @include dark-mode {
-      border-color: $color-border-dark;
-    }
-  }
-}
-
 .button {
   display: flex;
   flex: 1;

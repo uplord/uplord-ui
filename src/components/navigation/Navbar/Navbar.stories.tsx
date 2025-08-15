@@ -8,9 +8,6 @@ import { Icon } from '@/components/utils/Icon'
 const meta: Meta<NavbarProps> = {
   title: 'Navigation/Navbar',
   component: Navbar,
-  args: {
-    position: 'bottom',
-  },
   argTypes: {
     children: {
       table: {
