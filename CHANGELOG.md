@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/uplord/uplord-ui/compare/v0.0.33...v0.0.34) (2025-08-15)
+
+
+### Features
+
+* toggle remove outline ([83ae69b](https://github.com/uplord/uplord-ui/commit/83ae69b9117aff9c10cfbd4db725c318c0ddb7fd))
+
 ### [0.0.33](https://github.com/uplord/uplord-ui/compare/v0.0.32...v0.0.33) (2025-08-15)
 
 
