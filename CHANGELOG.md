@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.35](https://github.com/uplord/uplord-ui/compare/v0.0.34...v0.0.35) (2025-08-15)
+
+
+### Features
+
+* banner bottom padding ([1d8a753](https://github.com/uplord/uplord-ui/commit/1d8a753ed4fecdd9ee8c892e230c6eec24e63ac3))
+
 ### [0.0.34](https://github.com/uplord/uplord-ui/compare/v0.0.33...v0.0.34) (2025-08-15)
 
 
