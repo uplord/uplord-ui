@@ -2,7 +2,7 @@
 
 .section {
   position: relative;
-  scroll-margin-top: $header-height;
+  scroll-margin-top: 1.5rem + $header-height;
 
   @media (min-width: $breakpoint-md) {
     scroll-margin-top: 2rem + $header-height;
