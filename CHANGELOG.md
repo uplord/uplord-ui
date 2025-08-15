@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/uplord/uplord-ui/compare/v0.0.28...v0.0.29) (2025-08-15)
+
+
+### Features
+
+* export navbar ([0e1be9c](https://github.com/uplord/uplord-ui/commit/0e1be9cdb4e505e1eed8478083e33e86d55cc0a2))
+
 ### [0.0.28](https://github.com/uplord/uplord-ui/compare/v0.0.27...v0.0.28) (2025-08-03)
 
 
