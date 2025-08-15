@@ -51,6 +51,11 @@
 
   .header & {
     padding-top: $header-height;
+    padding-bottom: 5rem;
+
+    @media (min-width: $breakpoint-md) {
+      padding-bottom: 0;
+    }
   }
 }
 
