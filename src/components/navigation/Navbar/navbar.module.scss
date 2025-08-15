@@ -1,3 +1,5 @@
+@use '/src/styles/forward' as *;
+
 .nav {
   display: flex;
   gap: 1rem;
