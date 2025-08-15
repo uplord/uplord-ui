@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.33](https://github.com/uplord/uplord-ui/compare/v0.0.32...v0.0.33) (2025-08-15)
+
+
+### Features
+
+* navbar remove position ([bf18c4a](https://github.com/uplord/uplord-ui/commit/bf18c4a00885e6a8f408bdc9517eb8406aa9c412))
+
+
+### Bug Fixes
+
+* navbar styles ([7b68c2d](https://github.com/uplord/uplord-ui/commit/7b68c2db3e55572ff2d84ecfe84e4fb627308956))
+
 ### [0.0.32](https://github.com/uplord/uplord-ui/compare/v0.0.31...v0.0.32) (2025-08-15)
 
 
