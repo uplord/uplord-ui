@@ -8,6 +8,7 @@ export { Footer } from './main/Footer'
 export { Header } from './main/Header'
 
 export { Pagination } from './navigation/Pagination'
+export { Navbar } from './navigation/Navbar'
 
 export { Button } from './ui/Button'
 export { Checkbox } from './ui/Checkbox'
