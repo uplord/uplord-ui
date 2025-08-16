@@ -12,6 +12,23 @@
     scroll-margin-top: 4rem + $header-height;
   }
 
+  h3 {
+    @include text-lg;
+    @include text-bold;
+
+    & {
+      color: $color-primary;
+
+      @include dark-mode {
+        color: $color-primary;
+      }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-xl;
+    }
+  }
+
   h2 {
     @include text-xl;
     @include text-bold;
@@ -45,6 +62,11 @@
 
 .intro {
   @include skeleton-text;
+
+  & {
+    display: grid;
+    gap: 0.5rem;
+  }
 }
 
 .grid {

@@ -36,6 +36,7 @@ export const Projects = ({ id }: ProjectsProps) => {
       className={styles.projects}>
       <div className={styles.container}>
         <div className={styles.intro}>
+          <h3 className={skeletonClass}>My work</h3>
           <h2 className={skeletonClass}>Projects I&rsquo;ve worked on</h2>
         </div>
         <div className={styles.grid}>
