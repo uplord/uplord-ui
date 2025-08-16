@@ -21,3 +21,5 @@ export { Textarea } from './ui/Textarea'
 export { Example } from './utils/Example'
 export { Icon } from './utils/Icon'
 export { Modal } from './utils/Modal'
+
+export { useScroll } from '@/lib/scrollUtils'
