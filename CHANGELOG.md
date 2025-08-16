@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.39](https://github.com/uplord/uplord-ui/compare/v0.0.38...v0.0.39) (2025-08-16)
+
+
+### Features
+
+* banner amend ([8800fae](https://github.com/uplord/uplord-ui/commit/8800fae9ce652f26e5729cf74a6aa59fd0904971))
+
 ### [0.0.38](https://github.com/uplord/uplord-ui/compare/v0.0.37...v0.0.38) (2025-08-16)
 
 
