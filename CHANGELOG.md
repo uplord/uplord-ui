@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.37](https://github.com/uplord/uplord-ui/compare/v0.0.36...v0.0.37) (2025-08-16)
+
+
+### Features
+
+* use scroll export ([b6aca1a](https://github.com/uplord/uplord-ui/commit/b6aca1ac4fc6ffb3e04e61185dc989f5d29a60b9))
+
 ### [0.0.36](https://github.com/uplord/uplord-ui/compare/v0.0.35...v0.0.36) (2025-08-16)
 
 
