@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.38](https://github.com/uplord/uplord-ui/compare/v0.0.37...v0.0.38) (2025-08-16)
+
+
+### Features
+
+* remove scroll export ([3740b22](https://github.com/uplord/uplord-ui/commit/3740b2221f37a78f97b12403f04f9ee1b916937c))
+
 ### [0.0.37](https://github.com/uplord/uplord-ui/compare/v0.0.36...v0.0.37) (2025-08-16)
 
 
