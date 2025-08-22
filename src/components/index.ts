@@ -6,6 +6,7 @@ export { Timeline } from './blocks/Timeline'
 
 export { Footer } from './main/Footer'
 export { Header } from './main/Header'
+export { Card } from './main/Card'
 
 export { Pagination } from './navigation/Pagination'
 export { Navbar } from './navigation/Navbar'
