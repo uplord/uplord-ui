@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.48](https://github.com/uplord/uplord-ui/compare/v0.0.47...v0.0.48) (2025-08-23)
+
+
+### Features
+
+* input sm ([f63c130](https://github.com/uplord/uplord-ui/commit/f63c130e59c184c80e4b6ed90048a44d7de8c9a9))
+
 ### [0.0.47](https://github.com/uplord/uplord-ui/compare/v0.0.46...v0.0.47) (2025-08-23)
 
 
