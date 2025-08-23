@@ -100,8 +100,7 @@ $background-surface-dark: #191919;
 
   &.fullscreen {
     max-width: 100%;
-    height: 100%;
-    max-height: 100%;
+    max-height: 100dvh;
   }
 
   &.max {
@@ -181,6 +180,7 @@ $background-surface-dark: #191919;
 
   &.fullscreen {
     display: grid;
+    min-height: 5rem;
     padding: 1.25rem 1.5rem;
     grid-template-columns: 1fr 1fr 1fr;
 
