@@ -363,4 +363,8 @@ $background-surface-dark: #191919;
     display: grid;
     gap: 1rem;
   }
+
+  .fullscreen & {
+    min-height: 100%;
+  }
 }
