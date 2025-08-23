@@ -81,6 +81,7 @@ $background-surface-dark: #191919;
     &.fullscreen {
       border: 0;
       border-radius: 0;
+      background-color: $color-dark;
     }
   }
 }
@@ -175,20 +176,20 @@ $background-surface-dark: #191919;
   display: flex;
   min-height: 2.75rem;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 1.5rem 0;
   text-align: center;
 
-  &.sheet {
-    .title {
-      @media (min-width: $breakpoint-md) {
-        @include text-xl;
-      }
-    }
+  &.fullscreen {
+    display: grid;
+    padding: 1.25rem 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .top {
-    text-align: left;
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .title {
@@ -197,9 +198,23 @@ $background-surface-dark: #191919;
 
     & {
       color: $color-heading;
+      font-family: $font-heading;
 
       @include dark-mode {
         color: $color-heading-dark;
+      }
+
+      .fullscreen & {
+        @include text-md;
+
+        & {
+          color: $color-light;
+          font-family: $font-heading;
+
+          @include dark-mode {
+            color: $color-light;
+          }
+        }
       }
     }
   }
@@ -210,6 +225,7 @@ $background-surface-dark: #191919;
 
     & {
       color: $color-text;
+      font-family: $font-heading;
 
       @include dark-mode {
         color: $color-text-dark;
@@ -217,10 +233,24 @@ $background-surface-dark: #191919;
     }
   }
 
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .left.anchor {
+    margin: -0.5625rem auto -0.5625rem -0.875rem;
+  }
+
   .right {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    .fullscreen & {
+      justify-content: flex-end;
+    }
   }
 
   .right.anchor {
@@ -311,6 +341,11 @@ $background-surface-dark: #191919;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  .fullscreen & {
+    border-radius: 1.5rem 1.5rem 0 0;
+    background-color: $background-surface;
   }
 }
 

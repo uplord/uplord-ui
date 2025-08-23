@@ -261,6 +261,64 @@ export const MobileBottom: StoryObj<ButtonProps> = {
   ],
 }
 
+const FullScreenModal = NiceModal.create((props: ModalProps) => {
+  const modal = useModal()
+  return (
+    <Modal
+      {...props}
+      modal={modal}
+      headerProps={{
+        title: 'Full screen',
+        leading: (
+          <Button
+            leadingIcon="X"
+            size="sm"
+            variant="default"
+            onClick={() => modal.hide()}
+          />
+        ),
+        trailing: (
+          <Button
+            leadingIcon="X"
+            size="sm"
+            variant="default"
+            onClick={() => modal.hide()}
+          />
+        ),
+        fullscreen: true,
+      }}
+      fullscreen>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
+        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
+        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
+        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
+        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
+        dui vehicula vitae.
+      </p>
+    </Modal>
+  )
+})
+
+export const FullScreen: StoryObj<ButtonProps> = {
+  args: {
+    label: 'Open',
+    size: 'md',
+    variant: 'primary',
+    onClick: () => NiceModal.show(FullScreenModal),
+  },
+  parameters: { controls: { disable: true } },
+  render: (args) => <Button {...args} />,
+  decorators: [
+    (Story) => (
+      <div className="padding">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
 const PreventCloseModal = NiceModal.create((props: ModalProps) => {
   const modal = useModal()
   return (

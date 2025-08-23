@@ -241,7 +241,7 @@ $color-tooltip-text-dark: #000;
 
   hr {
     border-color: $color-border;
-    margin: 0.5rem 0;
+    margin: 0;
 
     @include dark-mode {
       border-color: $color-border-dark;
