@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.47](https://github.com/uplord/uplord-ui/compare/v0.0.46...v0.0.47) (2025-08-23)
+
+
+### Features
+
+* modal change ([9170a66](https://github.com/uplord/uplord-ui/commit/9170a663c7a596444e092aac28742c6d475d768e))
+
 ### [0.0.46](https://github.com/uplord/uplord-ui/compare/v0.0.45...v0.0.46) (2025-08-23)
 
 
