@@ -39,8 +39,9 @@ type Story = StoryObj<CardProps>
 export const Default: Story = {
   render: (args: CardProps) => {
     return (
-      <Card {...args}>
-        <h2>Card title</h2>
+      <Card
+        title={<h2>Card title</h2>}
+        {...args}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia egestas nunc, id
           sodales eros bibendum in. Morbi tristique dolor quis dictum condimentum. Curabitur non
@@ -52,7 +53,7 @@ export const Default: Story = {
           Integer augue quam, convallis ac efficitur at, maximus eget purus. In facilisis efficitur
           erat iaculis elementum. Nullam posuere eu augue sit amet consequat.
         </p>
-        <ButtonGroup className={styles['button-group']}>
+        <ButtonGroup>
           <Button
             label="Button"
             size="md"

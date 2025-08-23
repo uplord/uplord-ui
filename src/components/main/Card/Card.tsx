@@ -5,12 +5,16 @@ import styles from './card.module.scss'
 
 export type CardProps = {
   children: React.ReactNode
+  title?: React.ReactNode
   className?: string
   border?: boolean
 }
 
-export const Card = ({ children, className = '', border = false }: CardProps) => {
+export const Card = ({ children, title, className = '', border = false }: CardProps) => {
   return (
-    <div className={clsx(styles.container, border && styles.border, className)}>{children}</div>
+    <div className={clsx(styles.container, border && styles.border, className)}>
+      {title && <div className={styles.title}>{title}</div>}
+      <div className={styles.content}>{children}</div>
+    </div>
   )
 }

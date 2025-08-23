@@ -1,7 +1,12 @@
+@use '/src/styles/forward' as *;
+
 .container {
   @include text-content;
 
   & {
+    display: grid;
+    gap: 1rem;
+
     &.border {
       padding: 1rem;
       border: 0.0625rem solid $color-border;
@@ -17,7 +22,13 @@
     }
   }
 
-  .button-group {
-    margin-top: 0.5rem;
+  .title {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .content {
+    display: grid;
+    gap: 1rem;
   }
 }
