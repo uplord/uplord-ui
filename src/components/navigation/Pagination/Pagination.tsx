@@ -41,7 +41,7 @@ export const Pagination = ({
         <ButtonGroup justify="center">
           <Button
             leadingIcon="ChevronLeft"
-            size="sm"
+            size="md"
             variant="outline"
             onClick={handlePrev}
             isDisabled={currentPage === 1}
@@ -51,7 +51,7 @@ export const Pagination = ({
             <Button
               key={page}
               label={String(page)}
-              size="sm"
+              size="md"
               variant={page === currentPage ? 'primary' : 'text'}
               onClick={() => setCurrentPage(page)}
               isIcon
@@ -59,7 +59,7 @@ export const Pagination = ({
           ))}
           <Button
             leadingIcon="ChevronRight"
-            size="sm"
+            size="md"
             variant="outline"
             onClick={handleNext}
             isDisabled={currentPage === totalPages}
@@ -70,7 +70,7 @@ export const Pagination = ({
         <ButtonGroup justify="center">
           <Button
             leadingIcon="ChevronLeft"
-            size="sm"
+            size="md"
             variant="outline"
             onClick={handlePrev}
             isDisabled={currentPage === 1}
@@ -79,6 +79,7 @@ export const Pagination = ({
           <Select
             name="pageSize"
             value={String(currentPage)}
+            size="sm"
             options={pageNumbers.map((page) => ({
               value: String(page),
               label: String(page),
@@ -87,7 +88,7 @@ export const Pagination = ({
           />
           <Button
             leadingIcon="ChevronRight"
-            size="sm"
+            size="md"
             variant="outline"
             onClick={handleNext}
             isDisabled={currentPage === totalPages}
