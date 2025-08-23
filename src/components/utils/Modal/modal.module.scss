@@ -183,6 +183,10 @@ $background-surface-dark: #191919;
     display: grid;
     padding: 1.25rem 1.5rem;
     grid-template-columns: 1fr 1fr 1fr;
+
+    .title + .subtext {
+      margin-top: -0.25rem;
+    }
   }
 
   .top {
