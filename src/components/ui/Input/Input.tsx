@@ -13,6 +13,7 @@ export type InputProps = {
   name: string
   id?: string
   value: string
+  size?: 'sm' | 'md'
   helper?: string
   className?: string
 
@@ -46,6 +47,7 @@ export const Input = ({
   name,
   id,
   value,
+  size = 'md',
   helper,
   className = '',
 
@@ -122,6 +124,7 @@ export const Input = ({
       <div
         className={clsx(
           styles.outer,
+          size && styles[size],
           className,
           (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
           isLoading && !isSkeleton && styles['is-loading'],

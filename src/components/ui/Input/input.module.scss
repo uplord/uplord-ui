@@ -65,6 +65,10 @@
     }
   }
 
+  &.sm {
+    padding: 0.6875rem 0.96875rem;
+  }
+
   &:focus-within:not(:has(.button:focus, .click:focus)) {
     background-color: $color-hover;
     outline-color: $color-focus;
