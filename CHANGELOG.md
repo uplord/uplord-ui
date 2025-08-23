@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.45](https://github.com/uplord/uplord-ui/compare/v0.0.44...v0.0.45) (2025-08-23)
+
+
+### Features
+
+* modal fullscreen height amend ([2494973](https://github.com/uplord/uplord-ui/commit/24949739927477319284b7d64cf34281e013ec32))
+
 ### [0.0.44](https://github.com/uplord/uplord-ui/compare/v0.0.43...v0.0.44) (2025-08-23)
 
 
