@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.42](https://github.com/uplord/uplord-ui/compare/v0.0.41...v0.0.42) (2025-08-23)
+
+
+### Features
+
+* card amend ([dde05de](https://github.com/uplord/uplord-ui/commit/dde05de8c8c632946974e9c638ab3484dc5180f2))
+
 ### [0.0.41](https://github.com/uplord/uplord-ui/compare/v0.0.40...v0.0.41) (2025-08-22)
 
 
