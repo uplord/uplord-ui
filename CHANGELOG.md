@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.50](https://github.com/uplord/uplord-ui/compare/v0.0.49...v0.0.50) (2025-08-23)
+
+
+### Features
+
+* pagination size ([6fa01e7](https://github.com/uplord/uplord-ui/commit/6fa01e73187e88556cd21c79a9e00d42963a0fce))
+
 ### [0.0.49](https://github.com/uplord/uplord-ui/compare/v0.0.48...v0.0.49) (2025-08-23)
 
 
