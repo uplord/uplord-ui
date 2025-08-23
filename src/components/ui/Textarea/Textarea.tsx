@@ -11,6 +11,7 @@ export type TextareaProps = {
   name: string
   id?: string
   value: string
+  size?: 'sm' | 'md'
   helper?: string
   className?: string
 
@@ -28,6 +29,7 @@ export const Textarea = ({
   name,
   id,
   value,
+  size = 'md',
   helper,
   className = '',
 
@@ -48,6 +50,7 @@ export const Textarea = ({
       <div
         className={clsx(
           styles.outer,
+          size && styles[size],
           className,
           (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
           isLoading && !isSkeleton && styles['is-loading'],

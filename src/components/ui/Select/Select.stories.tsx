@@ -123,6 +123,12 @@ export const State: Story = {
       />
       <Select
         {...args}
+        name="input"
+        size="sm"
+        helper="Default"
+      />
+      <Select
+        {...args}
         name="hover"
         helper="Hover"
         className="hover"

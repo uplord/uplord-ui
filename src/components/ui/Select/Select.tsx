@@ -15,6 +15,7 @@ export type SelectProps = {
   name: string
   id?: string
   value: string
+  size?: 'sm' | 'md'
   helper?: string
   className?: string
 
@@ -33,6 +34,7 @@ export const Select = ({
   name,
   id,
   value,
+  size = 'md',
   helper,
   className = '',
 
@@ -51,6 +53,7 @@ export const Select = ({
       <div
         className={clsx(
           styles.outer,
+          size && styles[size],
           className,
           (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
           isLoading && !isSkeleton && styles['is-loading'],
