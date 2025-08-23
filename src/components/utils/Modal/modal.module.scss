@@ -177,13 +177,10 @@ $background-surface-dark: #191919;
   min-height: 2.75rem;
   align-items: center;
   padding: 1rem 1.5rem 0;
-  text-align: center;
 
   &.fullscreen {
-    display: grid;
     min-height: 5rem;
     padding: 1.25rem 1.5rem;
-    grid-template-columns: 1fr 1fr 1fr;
 
     .title + .subtext {
       margin-top: -0.25rem;
@@ -192,9 +189,14 @@ $background-surface-dark: #191919;
 
   .top {
     display: grid;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
   }
 
   .title {

@@ -37,14 +37,18 @@ export const ModalHeader = ({
         sheet && !isMobile && styles.sheet,
         fullscreen && `${styles.fullscreen} dark`,
       )}>
-      <div className={clsx(styles.left, hasAnchorLeading && styles.anchor)}>{leading}</div>
+      {leading && (
+        <div className={clsx(styles.left, hasAnchorLeading && styles.anchor)}>{leading}</div>
+      )}
 
       <div className={styles.top}>
         <div className={clsx(styles.title, !subtext && styles.large)}>{title}</div>
         {subtext && <div className={styles.subtext}>{subtext}</div>}
       </div>
 
-      <div className={clsx(styles.right, hasAnchorTrailing && styles.anchor)}>{trailing}</div>
+      {trailing && (
+        <div className={clsx(styles.right, hasAnchorTrailing && styles.anchor)}>{trailing}</div>
+      )}
     </div>
   )
 }
