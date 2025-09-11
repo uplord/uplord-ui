@@ -29,7 +29,7 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
               {mounted ? (
                 <>
                   <Image
-                    src="/me.jpeg"
+                    src="https://themichael.co.uk/me.jpeg"
                     alt="Michael Allen"
                     sizes="(max-width: 743px) 140px, 500px"
                     width={500}
@@ -63,7 +63,7 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
               />
               <Button
                 label="Download CV"
-                href="/michael-allen-cv.pdf"
+                href="https://themichael.co.uk/michael-allen-cv.pdf"
                 target="_blank"
                 variant="default"
                 size="md"

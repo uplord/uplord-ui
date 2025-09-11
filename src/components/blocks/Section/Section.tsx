@@ -24,7 +24,7 @@ export const Section = ({ id }: SectionProps) => {
             <div className={clsx(styles['image-wrap'])}>
               {mounted ? (
                 <Image
-                  src="/ellie.png"
+                  src="https://themichael.co.uk/ellie.png"
                   alt="Michael Allen"
                   sizes="(max-width: 743px) 250px, 500px"
                   width={520}
