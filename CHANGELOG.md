@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/uplord/uplord-ui/compare/v0.1.8...v0.1.9) (2025-09-11)
+
+
+### Features
+
+* timeline has header ([7ef4ac5](https://github.com/uplord/uplord-ui/commit/7ef4ac5b3ce77dc39dc254ca1f9ae05abb9bae99))
+
 ### [0.1.8](https://github.com/uplord/uplord-ui/compare/v0.1.7...v0.1.8) (2025-09-11)
 
 
