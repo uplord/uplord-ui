@@ -1,3 +1,5 @@
+@use '/src/styles/forward' as *;
+
 .item {
   border-bottom: 0.0625rem solid $color-border;
 
