@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/uplord/uplord-ui/compare/v0.1.2...v0.1.3) (2025-09-11)
+
+
+### Features
+
+* remove assets ([401a8d2](https://github.com/uplord/uplord-ui/commit/401a8d2eacfb2da45570cdc61ac6701ace72a3f7))
+
 ### [0.1.2](https://github.com/uplord/uplord-ui/compare/v0.1.1...v0.1.2) (2025-09-11)
 
 
