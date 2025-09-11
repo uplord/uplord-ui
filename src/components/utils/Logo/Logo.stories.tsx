@@ -3,12 +3,24 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Logo as LogoComponent } from './Logo'
 
 const meta: Meta<typeof LogoComponent> = {
-  title: 'Main/Header',
+  title: 'Utils/Logo',
   component: LogoComponent,
+  args: {
+    type: 'default',
+    hasTitle: true,
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'dark', 'light'],
+    },
+  },
   decorators: [
     (Story) => {
       return (
-        <div className="header">
+        <div className="padding">
           <Story />
         </div>
       )
@@ -19,4 +31,4 @@ const meta: Meta<typeof LogoComponent> = {
 export default meta
 type Story = StoryObj
 
-export const Logo: Story = {}
+export const Default: Story = {}

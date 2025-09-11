@@ -1,6 +1,6 @@
 import NiceModal, { useModal } from '@ebay/nice-modal-react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 
 import {
   Modal,
@@ -288,6 +288,34 @@ const FullScreenModal = NiceModal.create((props: ModalProps) => {
         fullscreen: true,
       }}
       fullscreen>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
+        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
+        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
+        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
+        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
+        dui vehicula vitae.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
+        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
+        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
+        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
+        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
+        dui vehicula vitae.
+      </p>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
+        Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis
+        leo. Maecenas a felis nec tortor molestie semper. Donec fermentum diam sollicitudin, ornare
+        neque a, egestas quam. Pellentesque et nisl vitae enim scelerisque eleifend eu quis ipsum.
+        Suspendisse potenti. Nulla in augue at odio imperdiet dapibus et nec risus. Nam elementum mi
+        ut tellus bibendum, nec scelerisque urna blandit. Duis egestas risus neque, rutrum ultrices
+        dui vehicula vitae.
+      </p>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula tempor gravida.
         Integer ac ligula luctus, consectetur nunc non, sagittis ipsum. Suspendisse vitae mattis

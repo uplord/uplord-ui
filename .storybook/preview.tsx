@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/nextjs'
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 import { Inter, Nunito } from 'next/font/google'
 import React from 'react'
 

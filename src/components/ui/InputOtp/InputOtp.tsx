@@ -1,4 +1,4 @@
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 import { useState, useRef } from 'react'
 
 import { Input } from '../Input'

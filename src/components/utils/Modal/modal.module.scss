@@ -360,7 +360,8 @@ $background-surface-dark: #191919;
   @include text-content;
 
   & {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
 

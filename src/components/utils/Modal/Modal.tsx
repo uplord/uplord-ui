@@ -1,7 +1,7 @@
 'use client'
 
 import { NiceModalHandler } from '@ebay/nice-modal-react'
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 import { motion, AnimatePresence, useDragControls } from 'framer-motion'
 import React, { useRef, useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'

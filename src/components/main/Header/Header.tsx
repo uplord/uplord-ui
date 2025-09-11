@@ -1,12 +1,12 @@
 'use client'
 
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 import { useState } from 'react'
 
-import { Logo } from './Logo'
 import { Navigation } from './Navigation'
 import { Toggle } from './Toggle'
 import styles from './header.module.scss'
+import { Logo } from '@/components/utils/Logo'
 import { useScroll } from '@/lib/scrollUtils'
 import { useMounted } from '@/lib/useMounted'
 
@@ -15,9 +15,16 @@ export type HeaderProps = {
   isHome?: boolean
   theme?: 'dark' | 'light'
   onToggleTheme?: (newTheme: 'dark' | 'light') => void
+  activeSection?: string | null
 }
 
-export const Header = ({ id, isHome = false, theme, onToggleTheme }: HeaderProps) => {
+export const Header = ({
+  id,
+  isHome = false,
+  theme,
+  onToggleTheme,
+  activeSection,
+}: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(theme === 'dark')
   const mounted = useMounted()
   const isScrolled = useScroll()
@@ -29,7 +36,7 @@ export const Header = ({ id, isHome = false, theme, onToggleTheme }: HeaderProps
       <div className={styles.container}>
         <div className={clsx(styles.top)}>
           <Logo />
-          <Navigation />
+          <Navigation activeSection={activeSection} />
           <div className={styles.right}>
             <Toggle
               name="toggle"

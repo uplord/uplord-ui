@@ -1,4 +1,4 @@
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 
 import styles from './social.module.scss'
 import EmailIcon from '@/assets/icons/envelope-solid.svg'

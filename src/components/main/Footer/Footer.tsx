@@ -1,4 +1,4 @@
-import { clsx } from 'clsx'
+import clsx from 'clsx'
 
 import { Social } from '../Social'
 import styles from './footer.module.scss'

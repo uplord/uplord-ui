@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import styles from './style.module.scss'
 import BrewdogIcon from '@/assets/icons/brewdog.svg'
@@ -24,7 +24,7 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   hungrrr: HungrrrIcon,
 }
 
-export const Projects = ({ id }: ProjectsProps) => {
+export const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({ id }, ref) => {
   const mounted = useMounted()
   const data = projectsData()
 
@@ -32,6 +32,7 @@ export const Projects = ({ id }: ProjectsProps) => {
 
   return (
     <div
+      ref={ref}
       id={id}
       className={styles.projects}>
       <div className={styles.container}>
@@ -75,4 +76,6 @@ export const Projects = ({ id }: ProjectsProps) => {
       </div>
     </div>
   )
-}
+})
+
+Projects.displayName = 'Projects'
