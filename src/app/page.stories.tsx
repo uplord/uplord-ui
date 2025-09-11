@@ -49,7 +49,6 @@ export const Default: Story = {
       )
 
       Object.values(sectionsRef.current).forEach((section) => {
-        console.log('section', section)
         if (section) observer.observe(section)
       })
 
