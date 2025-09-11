@@ -8,11 +8,12 @@ import HungrrrIcon from '@/assets/icons/hungrrr-logo.svg'
 import LeaselocoIcon from '@/assets/icons/leaseloco-logo.svg'
 import MtcIcon from '@/assets/icons/mtc-logo.svg'
 import SnappyIcon from '@/assets/icons/snappy-logo.svg'
-import { timelineData } from '@/data/data'
 import { useMounted } from '@/lib/useMounted'
+import { TimelineData } from '@/types/data'
 
 export type TimelineProps = {
   id?: string
+  data: TimelineData[]
 }
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -22,9 +23,8 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   'mtc-logo': MtcIcon,
 }
 
-export const Timeline = ({ id }: TimelineProps) => {
+export const Timeline = ({ id, data }: TimelineProps) => {
   const mounted = useMounted()
-  const data = timelineData()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (

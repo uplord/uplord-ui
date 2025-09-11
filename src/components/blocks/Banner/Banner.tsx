@@ -8,13 +8,15 @@ import styles from './style.module.scss'
 import { Social } from '@/components/main/Social'
 import { Button, ButtonGroup } from '@/components/ui/Button'
 import { useMounted } from '@/lib/useMounted'
+import { BannerData } from '@/types/data'
 
 export type BannerProps = {
   id?: string
+  data: BannerData
   hasHeader?: boolean
 }
 
-export const Banner = ({ id, hasHeader = false }: BannerProps) => {
+export const Banner = ({ id, data, hasHeader = false }: BannerProps) => {
   const mounted = useMounted()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
@@ -29,8 +31,8 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
               {mounted ? (
                 <>
                   <Image
-                    src="https://themichael.co.uk/me.jpeg"
-                    alt="Michael Allen"
+                    src={data.image}
+                    alt={data.title}
                     sizes="(max-width: 743px) 140px, 500px"
                     width={500}
                     height={500}
@@ -48,22 +50,22 @@ export const Banner = ({ id, hasHeader = false }: BannerProps) => {
           </div>
           <div className={styles.text}>
             <h1>
-              <span className={clsx(styles.primary, skeletonClass)}>Hi, I&apos;m Michael</span>
-              <span className={skeletonClass}>A Front End Developer</span>
+              <span className={clsx(styles.primary, skeletonClass)}>{data.title}</span>
+              <span className={skeletonClass}>{data.subtitle}</span>
             </h1>
-            <h2 className={skeletonClass}>With over a decade in the industry creating websites</h2>
+            <h2 className={skeletonClass}>{data.content}</h2>
             <ButtonGroup className={styles['button-group']}>
               <Button
-                href="mailto:michael@uplord.co.uk"
-                label="Get in touch"
+                href={data.buttons[0].href}
+                label={data.buttons[0].label}
                 variant="primary"
                 size="md"
                 isSkeleton={!mounted}
                 className={clsx(!mounted && styles.skeleton)}
               />
               <Button
-                label="Download CV"
-                href="https://themichael.co.uk/michael-allen-cv.pdf"
+                href={data.buttons[1].href}
+                label={data.buttons[1].label}
                 target="_blank"
                 variant="default"
                 size="md"

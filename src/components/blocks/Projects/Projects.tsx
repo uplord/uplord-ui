@@ -10,11 +10,12 @@ import HungrrrIcon from '@/assets/icons/hungrrrr.svg'
 import LeaselocoIcon from '@/assets/icons/leaseloco.svg'
 import MacdonaldIcon from '@/assets/icons/macdonald.svg'
 import SnappyIcon from '@/assets/icons/snappy.svg'
-import { projectsData } from '@/data/data'
 import { useMounted } from '@/lib/useMounted'
+import { ProjectsData } from '@/types/data'
 
 export type ProjectsProps = {
   id?: string
+  data: ProjectsData[]
 }
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -26,9 +27,8 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   hungrrr: HungrrrIcon,
 }
 
-export const Projects = ({ id }: ProjectsProps) => {
+export const Projects = ({ id, data }: ProjectsProps) => {
   const mounted = useMounted()
-  const data = projectsData()
 
   const skeletonClass = !mounted ? styles.skeleton : ''
 

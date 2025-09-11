@@ -7,12 +7,14 @@ import React from 'react'
 import styles from './style.module.scss'
 import { Button, ButtonGroup } from '@/components/ui/Button'
 import { useMounted } from '@/lib/useMounted'
+import { SectionData } from '@/types/data'
 
 export type SectionProps = {
   id?: string
+  data: SectionData
 }
 
-export const Section = ({ id }: SectionProps) => {
+export const Section = ({ id, data }: SectionProps) => {
   const mounted = useMounted()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
@@ -26,8 +28,8 @@ export const Section = ({ id }: SectionProps) => {
             <div className={clsx(styles['image-wrap'])}>
               {mounted ? (
                 <Image
-                  src="https://themichael.co.uk/ellie.png"
-                  alt="Michael Allen"
+                  src={data.image}
+                  alt={data.title}
                   sizes="(max-width: 743px) 250px, 500px"
                   width={520}
                   height={520}
@@ -38,19 +40,13 @@ export const Section = ({ id }: SectionProps) => {
             </div>
           </div>
           <div className={styles.text}>
-            <h3 className={skeletonClass}>About Michael Allen</h3>
-            <h2 className={skeletonClass}>Front End Development</h2>
-            <p className={skeletonClass}>
-              I&lsquo;m an experienced Front End Developer with excellent collaboration,
-              organization, and teamwork skills. Passionate about developing in HTML, CSS, and
-              JavaScript and always open to exploring new technologies. Over the last decade,
-              I&lsquo;ve worked with various clients, helping me hone my analytical, debugging, and
-              problem-solving skills to create exceptional websites.
-            </p>
+            <h3 className={skeletonClass}>{data.title}</h3>
+            <h2 className={skeletonClass}>{data.subtitle}</h2>
+            <p className={skeletonClass}>{data.content}</p>
             <ButtonGroup className={styles['button-group']}>
               <Button
-                href="mailto:michael@uplord.co.uk"
-                label="Get in touch"
+                href={data.buttons[0].href}
+                label={data.buttons[0].label}
                 variant="primary"
                 size="md"
                 isSkeleton={!mounted}
