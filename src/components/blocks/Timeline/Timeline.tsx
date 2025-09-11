@@ -14,6 +14,7 @@ import { TimelineData } from '@/types/data'
 export type TimelineProps = {
   id?: string
   data: TimelineData[]
+  hasHeader?: boolean
 }
 
 const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -23,14 +24,14 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   'mtc-logo': MtcIcon,
 }
 
-export const Timeline = ({ id, data }: TimelineProps) => {
+export const Timeline = ({ id, data, hasHeader = false }: TimelineProps) => {
   const mounted = useMounted()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (
     <div
       id={id}
-      className={styles.timeline}>
+      className={clsx(styles.timeline, hasHeader && styles.header)}>
       <div className={styles.container}>
         <div className={styles.intro}>
           <h2 className={skeletonClass}>My timeline</h2>

@@ -157,6 +157,10 @@
     top: 1rem;
     min-width: 260px;
     padding: 0 0 0 2rem;
+
+    .header & {
+      top: 6rem;
+    }
   }
 
   .dot {
