@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.54](https://github.com/uplord/uplord-ui/compare/v0.0.53...v0.0.54) (2025-09-11)
+
+
+### Features
+
+* header size adjust ([1ea7630](https://github.com/uplord/uplord-ui/commit/1ea7630d1f663ff1aed6a8b3a713fd43651330dd))
+
 ### [0.0.53](https://github.com/uplord/uplord-ui/compare/v0.0.52...v0.0.53) (2025-09-11)
 
 
