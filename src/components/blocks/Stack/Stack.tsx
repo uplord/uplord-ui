@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import styles from './style.module.scss'
 import AwsIcon from '@/assets/icons/aws.svg'
@@ -34,14 +34,13 @@ const stackIcons = [
   { name: 'VS Code', Icon: VscodeIcon },
 ]
 
-export const Stack = forwardRef<HTMLDivElement, StackProps>(({ id }, ref) => {
+export const Stack = ({ id }: StackProps) => {
   const mounted = useMounted()
 
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (
     <div
-      ref={ref}
       id={id}
       className={styles.stack}>
       <div className={styles.container}>
@@ -73,6 +72,4 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(({ id }, ref) => {
       </div>
     </div>
   )
-})
-
-Stack.displayName = 'Stack'
+}

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import Image from 'next/image'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import styles from './style.module.scss'
 import { Button, ButtonGroup } from '@/components/ui/Button'
@@ -10,13 +10,12 @@ export type SectionProps = {
   id?: string
 }
 
-export const Section = forwardRef<HTMLDivElement, SectionProps>(({ id }, ref) => {
+export const Section = ({ id }: SectionProps) => {
   const mounted = useMounted()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (
     <div
-      ref={ref}
       id={id}
       className={styles.section}>
       <div className={styles.container}>
@@ -60,6 +59,4 @@ export const Section = forwardRef<HTMLDivElement, SectionProps>(({ id }, ref) =>
       </div>
     </div>
   )
-})
-
-Section.displayName = 'Section'
+}

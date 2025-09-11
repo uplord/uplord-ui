@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import Image from 'next/image'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import styles from './style.module.scss'
 import { Social } from '@/components/main/Social'
@@ -14,13 +14,12 @@ export type BannerProps = {
   hasHeader?: boolean
 }
 
-export const Banner = forwardRef<HTMLDivElement, BannerProps>(({ id, hasHeader = false }, ref) => {
+export const Banner = ({ id, hasHeader = false }: BannerProps) => {
   const mounted = useMounted()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (
     <div
-      ref={ref}
       id={id}
       className={clsx(styles.banner, hasHeader && styles.header)}>
       <div className={styles.container}>
@@ -77,6 +76,4 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(({ id, hasHeader =
       </div>
     </div>
   )
-})
-
-Banner.displayName = 'Banner'
+}

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { forwardRef } from 'react'
+import React from 'react'
 
 import styles from './style.module.scss'
 import HungrrrIcon from '@/assets/icons/hungrrr-logo.svg'
@@ -20,14 +20,13 @@ const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>
   'mtc-logo': MtcIcon,
 }
 
-export const Timeline = forwardRef<HTMLDivElement, TimelineProps>(({ id }, ref) => {
+export const Timeline = ({ id }: TimelineProps) => {
   const mounted = useMounted()
   const data = timelineData()
   const skeletonClass = !mounted ? styles.skeleton : ''
 
   return (
     <div
-      ref={ref}
       id={id}
       className={styles.timeline}>
       <div className={styles.container}>
@@ -74,6 +73,4 @@ export const Timeline = forwardRef<HTMLDivElement, TimelineProps>(({ id }, ref) 
       </div>
     </div>
   )
-})
-
-Timeline.displayName = 'Timeline'
+}
