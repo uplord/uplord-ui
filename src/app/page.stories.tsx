@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes'
 
 import styles from '@/app/page.module.scss'
 import { Header, Footer, Banner, Projects, Section, Stack, Timeline } from '@/components'
-import { bannerData, sectionData, projectsData, timelineData } from '@/data/data'
+import { data } from '@/data'
 import { useActiveSection } from '@/lib/useActiveSection'
 
 const meta: Meta<typeof Banner> = {
@@ -42,19 +42,19 @@ export const Default: Story = {
         <main className={styles.main}>
           <Banner
             id="banner"
-            data={bannerData()}
+            data={data.bannerData}
           />
           <Section
             id="about-me"
-            data={sectionData()}
+            data={data.sectionData}
           />
           <Projects
             id="projects"
-            data={projectsData()}
+            data={data.projectsData}
           />
           <Timeline
             id="timeline"
-            data={timelineData()}
+            data={data.timelineData}
           />
           <Stack id="stack" />
         </main>

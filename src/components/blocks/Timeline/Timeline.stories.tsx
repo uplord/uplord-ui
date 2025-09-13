@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import { Timeline, TimelineProps } from '@/components/blocks/Timeline'
-import { timelineData } from '@/data/data'
+import { data } from '@/data'
 
 const meta: Meta<typeof Timeline> = {
   title: 'Blocks/Timeline',
   component: Timeline,
   args: {
-    data: timelineData(),
+    data: data.timelineData,
   },
   decorators: [
     (Story) => {

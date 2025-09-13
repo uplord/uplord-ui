@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
 import { Section, SectionProps } from '@/components/blocks/Section'
-import { sectionData } from '@/data/data'
+import { data } from '@/data'
 
 const meta: Meta<typeof Section> = {
   title: 'Blocks/Section',
   component: Section,
   args: {
-    data: sectionData(),
+    data: data.sectionData,
   },
   decorators: [
     (Story) => {

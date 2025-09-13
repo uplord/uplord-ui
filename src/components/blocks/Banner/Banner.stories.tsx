@@ -3,14 +3,14 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import styles from '@/app/page.module.scss'
 import { Banner, BannerProps } from '@/components/blocks/Banner'
 import { Header } from '@/components/main/Header'
-import { bannerData } from '@/data/data'
+import { data } from '@/data'
 
 const meta: Meta<typeof Banner> = {
   title: 'Blocks/Banner',
   component: Banner,
   args: {
     id: 'banner',
-    data: bannerData(),
+    data: data.bannerData,
   },
 }
 
