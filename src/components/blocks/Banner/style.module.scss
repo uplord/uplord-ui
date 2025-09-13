@@ -45,7 +45,6 @@
   }
 
   @media (max-width: $breakpoint-md - 1) {
-    height: 640px;
     min-height: calc(100dvh - $nav-height - env(safe-area-inset-bottom));
   }
 
