@@ -39,17 +39,13 @@
   justify-content: center;
 
   @media (min-width: $breakpoint-md) {
-    height: 800px;
+    height: 720px;
     flex-direction: row;
     justify-content: flex-start;
   }
 
   @media (max-width: $breakpoint-md - 1) {
-    min-height: calc(100dvh - $nav-height - env(safe-area-inset-bottom));
-  }
-
-  .header & {
-    padding-top: $header-height;
+    min-height: calc(100dvh - $header-height - $nav-height - env(safe-area-inset-bottom));
   }
 }
 

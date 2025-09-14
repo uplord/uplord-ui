@@ -1,3 +1,14 @@
+.page {
+  &.fixed {
+    padding-top: 5rem;
+  }
+
+  .header {
+    position: fixed;
+    width: 100%;
+  }
+}
+
 .main {
   display: flex;
   width: 100%;

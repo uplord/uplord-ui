@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import clsx from 'clsx'
 import { useTheme } from 'next-themes'
 
 import styles from '@/app/page.module.scss'
@@ -32,12 +33,13 @@ export const Default: Story = {
     const theme = resolvedTheme === 'dark' || resolvedTheme === 'light' ? resolvedTheme : undefined
 
     return (
-      <div className={styles.page}>
+      <div className={clsx(styles.page, styles.fixed)}>
         <Header
           isHome
           theme={theme}
           onToggleTheme={handleToggleTheme}
           activeSection={activeId}
+          className={styles.header}
         />
         <main className={styles.main}>
           <Banner
