@@ -55,7 +55,7 @@
   }
 
   @media (hover: hover) {
-    &:hover:not(.is-disabled, .is-error, &:has(.button:hover, .click:hover)) {
+    &.has-hover:hover:not(.is-disabled, .is-error, &:has(.button:hover, .click:hover)) {
       background-color: $color-hover;
       cursor: text;
 
@@ -74,7 +74,7 @@
     }
   }
 
-  &:focus-within:not(:has(.button:focus, .click:focus)) {
+  &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
     background-color: $color-hover;
     outline-color: $color-focus;
 
@@ -157,7 +157,7 @@
     border-color: $color-error;
     background-color: $color-error-02;
 
-    &:focus-within:not(:has(.button:focus, .click:focus)) {
+    &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
       background-color: $color-error-02;
       outline-color: $color-error;
     }

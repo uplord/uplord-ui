@@ -16,6 +16,7 @@ export type HeaderProps = {
   theme?: 'dark' | 'light'
   onToggleTheme?: (newTheme: 'dark' | 'light') => void
   activeSection?: string | null
+  className?: string
 }
 
 export const Header = ({
@@ -24,6 +25,7 @@ export const Header = ({
   theme,
   onToggleTheme,
   activeSection,
+  className = '',
 }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(theme === 'dark')
   const mounted = useMounted()
@@ -32,7 +34,12 @@ export const Header = ({
   return (
     <div
       id={id}
-      className={clsx(styles.header, isHome && styles['is-home'], isScrolled && styles.scrolled)}>
+      className={clsx(
+        styles.header,
+        isHome && styles['is-home'],
+        isScrolled && styles.scrolled,
+        className,
+      )}>
       <div className={styles.container}>
         <div className={clsx(styles.top)}>
           <Logo />

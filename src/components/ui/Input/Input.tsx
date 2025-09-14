@@ -30,6 +30,9 @@ export type InputProps = {
   isSkeleton?: boolean
   isError?: boolean
 
+  hasHover?: boolean
+  hasFocus?: boolean
+
   autoComplete?: string
   maxlength?: number
 
@@ -63,6 +66,9 @@ export const Input = ({
   isLoading = false,
   isSkeleton = false,
   isError = false,
+
+  hasHover = true,
+  hasFocus = true,
 
   onChange,
 
@@ -119,17 +125,19 @@ export const Input = ({
   }
 
   return (
-    <div className={clsx(styles.field, !placeholder && styles['no-placeholder'])}>
+    <div className={clsx(styles.field, !placeholder && styles['no-placeholder'], className)}>
       {label && <label htmlFor={id || name}>{label}</label>}
       <div
         className={clsx(
+          'outer',
           styles.outer,
           size && styles[size],
-          className,
           (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
           isLoading && !isSkeleton && styles['is-loading'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
+          hasHover && styles['has-hover'],
+          hasFocus && styles['has-focus'],
         )}
         onClick={handleFocus}>
         {isLoading && !isSkeleton && <div className={styles.loading}></div>}
@@ -141,14 +149,14 @@ export const Input = ({
             <Icon
               name={leadingIcon}
               size="md"
-              className={styles.icon}
+              className={clsx('icon', styles.icon)}
             />
           </div>
         )}
 
         {leadingText && <div className={styles.text}>{leadingText}</div>}
 
-        <div className={clsx(styles.inner)}>
+        <div className={clsx('inner', styles.inner)}>
           <input
             ref={combinedRef}
             type={type === 'password' && isPasswordVisible ? 'text' : type}
@@ -156,14 +164,14 @@ export const Input = ({
             name={name}
             value={value}
             onChange={onChange}
-            className={styles.input}
+            className={clsx('input', styles.input)}
             placeholder=" "
             required
             aria-label={!label ? placeholder : ''}
             disabled={isDisabled || isLoading || isSkeleton}
             {...props}
           />
-          <span className={styles.placeholder}>{placeholder}</span>
+          <span className={clsx('placeholder', styles.placeholder)}>{placeholder}</span>
         </div>
 
         {trailingText && <div className={styles.text}>{trailingText}</div>}
@@ -175,7 +183,7 @@ export const Input = ({
             <Icon
               name={!isPasswordVisible ? 'EyeOff' : 'Eye'}
               size="md"
-              className={styles.icon}
+              className={clsx('icon', styles.icon)}
             />
           </div>
         )}
@@ -190,7 +198,7 @@ export const Input = ({
             <Icon
               name={trailingIcon}
               size="md"
-              className={styles.icon}
+              className={clsx('icon', styles.icon)}
             />
           </div>
         )}
