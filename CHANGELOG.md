@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/uplord/uplord-ui/compare/v0.1.13...v0.1.14) (2025-11-01)
+
+
+### Features
+
+* color changes ([cf08022](https://github.com/uplord/uplord-ui/commit/cf080226476fb507ff84ce6ce1030dd44a2c3fb6))
+
 ### [0.1.13](https://github.com/uplord/uplord-ui/compare/v0.1.12...v0.1.13) (2025-09-14)
 
 
