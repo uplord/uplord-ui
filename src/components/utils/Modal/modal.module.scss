@@ -178,13 +178,8 @@ $background-surface-dark: #191919;
   align-items: center;
   padding: 1rem 1.5rem 0;
 
-  &.fullscreen {
-    min-height: 5rem;
-    padding: 1.25rem 1.5rem;
-
-    .title + .subtext {
-      margin-top: -0.25rem;
-    }
+  .fullscreen & {
+    padding-bottom: 1rem;
   }
 
   .top {
@@ -210,19 +205,6 @@ $background-surface-dark: #191919;
       @include dark-mode {
         color: $color-heading-dark;
       }
-
-      .fullscreen & {
-        @include text-md;
-
-        & {
-          color: $color-light;
-          font-family: $font-heading;
-
-          @include dark-mode {
-            color: $color-light;
-          }
-        }
-      }
     }
   }
 
@@ -231,11 +213,11 @@ $background-surface-dark: #191919;
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
       font-family: $font-heading;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -254,10 +236,6 @@ $background-surface-dark: #191919;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    .fullscreen & {
-      justify-content: flex-end;
-    }
   }
 
   .right.anchor {
@@ -272,6 +250,10 @@ $background-surface-dark: #191919;
   padding: 0 1.5rem max(env(safe-area-inset-bottom), 1rem);
   gap: 0.5rem;
   text-align: center;
+
+  .fullscreen & {
+    padding-top: 1rem;
+  }
 
   &.full {
     flex-direction: column-reverse;
@@ -312,10 +294,10 @@ $background-surface-dark: #191919;
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -346,14 +328,18 @@ $background-surface-dark: #191919;
   padding: 1.5rem;
   scrollbar-width: none;
 
+  .fullscreen & {
+    padding: 0.5rem 1.5rem;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
 
-  .fullscreen & {
-    border-radius: 1.5rem 1.5rem 0 0;
-    background-color: $background-surface;
-  }
+  // .fullscreen & {
+  //   border-radius: 1.5rem 1.5rem 0 0;
+  //   background-color: $background-surface;
+  // }
 }
 
 .content {

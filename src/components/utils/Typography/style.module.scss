@@ -49,10 +49,10 @@
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -77,10 +77,10 @@
 
     & {
       margin-bottom: 0.5rem;
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
 
       &:last-child {

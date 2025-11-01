@@ -3,22 +3,22 @@
 
 .light {
   background: $color-light;
-  color: $color-text;
+  color: $color-body;
 }
 
 .dark {
   background: $color-dark;
-  color: $color-text-dark;
+  color: $color-body-dark;
 }
 
 body {
   background: $color-light;
-  color: $color-text;
+  color: $color-body;
   overflow-y: scroll;
 
   @include dark-mode {
     background: $color-dark;
-    color: $color-text-dark;
+    color: $color-body-dark;
   }
 }
 

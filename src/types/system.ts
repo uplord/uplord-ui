@@ -3,6 +3,9 @@ export type VariantType =
   | 'text'
   | 'primary'
   | 'success'
+  | 'error'
+  | 'warning'
+  | 'info'
   | 'outline'
   | 'white'
   | 'black'
@@ -13,6 +16,9 @@ export enum Variant {
   Text = 'text',
   Primary = 'primary',
   Success = 'success',
+  Error = 'error',
+  Warning = 'warning',
+  Info = 'info',
   Outline = 'outline',
   White = 'white',
   Black = 'black',

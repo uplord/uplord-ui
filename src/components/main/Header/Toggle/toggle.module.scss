@@ -8,7 +8,7 @@
   &.skeleton {
     .checkbox + label {
       animation: pulse 1.5s infinite alternate;
-      background-color: $color-nav;
+      background-color: $color-skeleton;
       box-shadow: none;
       transition: opacity 0.3s ease-in-out;
 
@@ -29,10 +29,10 @@
       width: 5rem;
       height: 2.5rem;
       border-radius: 2.5rem;
-      background: rgb(0 0 0 / 20%);
+      background: $color-nav;
 
       @include dark-mode {
-        background: rgb(255 255 255 / 10%);
+        background: $color-nav-dark;
       }
 
       &::before {
@@ -53,11 +53,11 @@
     justify-content: center;
     border: 0.0625rem solid rgb(12 16 20 / 5%);
     border-radius: 1rem;
-    background-color: #ffc514;
+    background-color: $color-warning;
     pointer-events: none;
 
     @include dark-mode {
-      background-color: #74c0fc;
+      background-color: $color-info;
     }
   }
 }

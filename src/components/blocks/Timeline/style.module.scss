@@ -80,10 +80,10 @@
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
 
@@ -312,10 +312,10 @@
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
 

@@ -228,6 +228,15 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
           />
         ),
       }}
+      footerProps={{
+        trailing: (
+          <Button
+            label="Submit"
+            size="md"
+            variant="primary"
+          />
+        ),
+      }}
       bottomSheet
       mobileDraggable>
       <p>
@@ -269,23 +278,23 @@ const FullScreenModal = NiceModal.create((props: ModalProps) => {
       modal={modal}
       headerProps={{
         title: 'Full screen',
-        leading: (
-          <Button
-            leadingIcon="X"
-            size="sm"
-            variant="default"
-            onClick={() => modal.hide()}
-          />
-        ),
         trailing: (
           <Button
             leadingIcon="X"
             size="sm"
-            variant="default"
+            variant="anchor"
             onClick={() => modal.hide()}
           />
         ),
-        fullscreen: true,
+      }}
+      footerProps={{
+        trailing: (
+          <Button
+            label="Submit"
+            size="md"
+            variant="primary"
+          />
+        ),
       }}
       fullscreen>
       <p>

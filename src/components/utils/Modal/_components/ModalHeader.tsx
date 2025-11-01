@@ -10,7 +10,7 @@ export type ModalHeaderProps = {
   subtext?: string
   leading?: React.ReactNode
   trailing?: React.ReactNode
-  fullscreen?: boolean
+  // fullscreen?: boolean
   sheet?: boolean
 }
 
@@ -23,7 +23,7 @@ export const ModalHeader = ({
   subtext = '',
   leading,
   trailing,
-  fullscreen = false,
+  // fullscreen = false,
   sheet = false,
 }: ModalHeaderProps) => {
   const isMobile = useMediaQuery({ maxWidth: 743 })
@@ -35,7 +35,7 @@ export const ModalHeader = ({
       className={clsx(
         styles.header,
         sheet && !isMobile && styles.sheet,
-        fullscreen && `${styles.fullscreen} dark`,
+        // fullscreen && `${styles.fullscreen}`,
       )}>
       {leading && (
         <div className={clsx(styles.left, hasAnchorLeading && styles.anchor)}>{leading}</div>

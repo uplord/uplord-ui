@@ -8,39 +8,67 @@ $breakpoint-sm: 400px;
 $breakpoint-md: 744px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 2032px;
-$color-light: #fff;
-$color-dark: #0d0d0d;
-$color-bg: $color-light;
-$color-border: color.mix($color-dark, $color-light, 25%);
-$color-hover: color.mix($color-dark, $color-light, 5%);
-$color-focus: $color-dark;
-$color-disabled: color.change($color-dark, $alpha: 0.15);
-$color-skeleton: color.mix($color-dark, $color-light, 15%);
-$color-icon: color.mix($color-dark, $color-light, 80%);
-$color-block: color.mix($color-dark, $color-light, 2%);
-$color-bg-dark: $color-dark;
-$color-border-dark: color.mix($color-light, $color-dark, 20%);
-$color-hover-dark: color.mix($color-light, $color-dark, 10%);
-$color-focus-dark: $color-light;
-$color-disabled-dark: color.change($color-light, $alpha: 0.15);
-$color-skeleton-dark: color.mix($color-light, $color-dark, 20%);
-$color-icon-dark: color.mix($color-light, $color-dark, 80%);
-$color-block-dark: color.mix($color-light, $color-dark, 5%);
-$color-primary: #dd2121;
-$color-success: #34c759;
-$color-error: #dd2121;
-$color-error-02: #dd212111;
-$color-warning: #fc0;
-$color-info: #1164cc;
-$color-rebecca: #639;
-$color-heading: #222;
-$color-heading-dark: #fff;
-$color-text: #5d5d5d;
-$color-text-dark: #bdc1c6;
-$color-header: $color-info;
-$color-header-dark: #0d0d0d;
-$color-nav: rgb(0 0 0 / 20%);
-$color-nav-dark: rgb(255 255 255 / 10%);
-$color-header-text: #fff;
+$color-light: hsl(0deg 0% 100%);
+$color-dark: hsl(0deg 0% 5%);
 $header-height: 4.875rem;
 $nav-height: 4.375rem;
+
+// Light mode
+
+// Background
+$color-bg: hsl(0deg 0% 100%);
+$color-bg-02: hsl(0deg 0% 95%);
+$color-border: hsl(0deg 0% 80%);
+$color-border-02: hsl(0deg 0% 90%);
+
+// Text/icon
+$color-heading: hsl(0deg 0% 5%);
+$color-body: hsl(0deg 0% 30%);
+$color-placeholder: hsl(0deg 0% 80%);
+$color-icon: hsl(0deg 0% 30%);
+
+// Input
+$color-input: hsl(0deg 0% 30%);
+$color-hover: hsl(0deg 0% 95%);
+$color-disabled: hsl(0deg 0% 90%);
+$color-loading: hsl(0deg 0% 95%);
+$color-skeleton: hsl(0deg 0% 90%);
+$color-focus: hsl(0deg 0% 5%);
+
+// Dark mode
+
+// Background
+$color-bg-dark: hsl(0deg 0% 5%);
+$color-bg-02-dark: hsl(0deg 0% 10%);
+$color-border-dark: hsl(0deg 0% 25%);
+$color-border-02-dark: hsl(0deg 0% 20%);
+
+// Text/icon
+$color-heading-dark: hsl(0deg 0% 95%);
+$color-body-dark: hsl(0deg 0% 70%);
+$color-placeholder-dark: hsl(0deg 0% 25%);
+$color-icon-dark: hsl(0deg 0% 70%);
+
+// Input
+$color-input-dark: hsl(0deg 0% 5%);
+$color-hover-dark: hsl(0deg 0% 10%);
+$color-disabled-dark: hsl(0deg 0% 15%);
+$color-loading-dark: hsl(0deg 0% 10%);
+$color-skeleton-dark: hsl(0deg 0% 15%);
+$color-focus-dark: hsl(0deg 0% 95%);
+
+// Colors
+$color-primary: hsl(0deg 80% 50%);
+$color-success: hsl(142deg 76% 36%);
+$color-error: hsl(355deg 75% 40%);
+$color-error-02: hsl(0deg 80% 95%);
+$color-warning: hsl(38deg 92% 50%);
+$color-info: hsl(213deg 85% 43%);
+$color-rebecca: hsl(270deg 50% 40%);
+
+// Other
+$color-header: $color-info;
+$color-header-dark: $color-bg-dark;
+$color-nav: hsl(213deg 85% 33%);
+$color-nav-dark: hsl(0deg 0% 15%);
+$color-header-text: $color-light;

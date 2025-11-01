@@ -4,24 +4,24 @@ import styles from './colors.module.scss'
 
 export type ColorsProps = {
   name: string
-  className?: string
-  hexCode?: string | string[]
+  color?: string | string[]
+  border?: string | string[]
+  focus?: string | string[]
 }
 
-export const Colors = ({ name = '', className = '', hexCode = '' }: ColorsProps) => {
-  const background = Array.isArray(hexCode) ? hexCode[0] : hexCode // Handle hexCode as array or string
-  const classNames = `${styles.background} ${className ? styles[className] : ''}` // Handle optional className
+export const Colors = ({ name = '', color = '', border = '', focus = '' }: ColorsProps) => {
+  const background = Array.isArray(color) ? color[0] : color
+  const borderColor = Array.isArray(border) ? border[0] : border
+  const outlineColor = Array.isArray(focus) ? focus[0] : focus
 
   return (
     <div className={styles.color}>
       <div
-        className={classNames}
-        style={{ background: background }}></div>
+        className={styles.background}
+        style={{ background, borderColor, outlineColor }}
+      />
       <div className={styles.text}>
         <div className={styles.name}>{name}</div>
-        {hexCode && (
-          <div className={styles.hex}>{Array.isArray(hexCode) ? hexCode.join(' / ') : hexCode}</div>
-        )}
       </div>
     </div>
   )

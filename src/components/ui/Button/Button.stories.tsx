@@ -10,7 +10,7 @@ const meta: Meta<ButtonProps> = {
   args: {
     label: '',
     href: '',
-    target: '',
+    target: '_self',
     size: 'md',
     variant: 'default',
     leadingIcon: null,
@@ -176,43 +176,64 @@ export const Variants: Story = {
     },
   },
   render: (args: ButtonProps) => (
-    <ButtonGroup>
-      <Button
-        {...args}
-        label="Default"
-        variant="default"
-      />
-      <Button
-        {...args}
-        label="Primary"
-        variant="primary"
-      />
-      <Button
-        {...args}
-        label="Success"
-        variant="success"
-      />
-      <Button
-        {...args}
-        label="Black/White"
-        variant="black"
-      />
-      <Button
-        {...args}
-        label="Outline"
-        variant="outline"
-      />
-      <Button
-        {...args}
-        label="Text"
-        variant="text"
-      />
-      <Button
-        {...args}
-        label="Anchor"
-        variant="anchor"
-      />
-    </ButtonGroup>
+    <>
+      <ButtonGroup>
+        <Button
+          {...args}
+          label="Default"
+          variant="default"
+        />
+        <Button
+          {...args}
+          label="Primary"
+          variant="primary"
+        />
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button
+          {...args}
+          label="Success"
+          variant="success"
+        />
+        <Button
+          {...args}
+          label="Error"
+          variant="error"
+        />
+        <Button
+          {...args}
+          label="Warning"
+          variant="warning"
+        />
+        <Button
+          {...args}
+          label="Info"
+          variant="info"
+        />
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button
+          {...args}
+          label="Black/White"
+          variant="black"
+        />
+        <Button
+          {...args}
+          label="Outline"
+          variant="outline"
+        />
+        <Button
+          {...args}
+          label="Text"
+          variant="text"
+        />
+        <Button
+          {...args}
+          label="Anchor"
+          variant="anchor"
+        />
+      </ButtonGroup>
+    </>
   ),
 }
 
@@ -257,6 +278,63 @@ export const Primary: Story = {
 export const Success: Story = {
   args: {
     variant: 'success',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+  render: (args: ButtonProps) => <TestButtons {...args} />,
+}
+
+export const Error: Story = {
+  args: {
+    variant: 'error',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+  render: (args: ButtonProps) => <TestButtons {...args} />,
+}
+
+export const Warning: Story = {
+  args: {
+    variant: 'warning',
+  },
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      disable: true,
+    },
+  },
+  render: (args: ButtonProps) => <TestButtons {...args} />,
+}
+
+export const Info: Story = {
+  args: {
+    variant: 'info',
   },
   argTypes: {
     variant: {

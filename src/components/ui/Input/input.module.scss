@@ -18,10 +18,10 @@
     @include text-normal;
 
     & {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -94,10 +94,10 @@
     .input + .placeholder,
     .icon,
     .text {
-      color: $color-text;
+      color: $color-body;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -199,10 +199,10 @@
   }
 
   &:disabled {
-    color: $color-text;
+    color: $color-body;
 
     @include dark-mode {
-      color: $color-text-dark;
+      color: $color-body-dark;
     }
   }
 
@@ -221,12 +221,12 @@
     & + .placeholder {
       top: -0.40625rem;
       padding: 0;
-      color: $color-text;
+      color: $color-body;
       font-size: 0.75rem;
       line-height: 0.875rem;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -240,12 +240,12 @@
       top: 0;
       left: 0;
       padding: 0;
-      color: $color-text;
+      color: $color-body;
       pointer-events: none;
       transition: all 0.2s ease-in-out;
 
       @include dark-mode {
-        color: $color-text-dark;
+        color: $color-body-dark;
       }
     }
   }
@@ -310,11 +310,11 @@
   @include text-normal;
 
   & {
-    color: $color-text;
+    color: $color-body;
     transition: color 0.2s ease-in-out;
 
     @include dark-mode {
-      color: $color-text-dark;
+      color: $color-body-dark;
     }
   }
 }

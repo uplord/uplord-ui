@@ -3,28 +3,70 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import { Colors, ColorsProps } from './Colors'
 import styles from './colors.module.scss'
 
-const colors = {
-  Background: [{ name: 'Background', className: 'border', hexCode: ['#FFFFFF', '#0D0D0D'] }],
-  Text: [
-    { name: 'Heading', className: '', hexCode: ['#222222', '#ffffff'] },
-    { name: 'Text', className: '', hexCode: ['#5D5D5D', '#bdc1c6'] },
+const colors: Record<string, ColorsProps[]> = {
+  Background: [
+    {
+      name: 'Background',
+      color: ['hsl(0 0% 100%)', 'hsl(0 0% 5%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    {
+      name: 'Block',
+      color: ['hsl(0 0% 95%)', 'hsl(0 0% 10%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    { name: 'Border', color: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'] },
+    { name: 'Border 2', color: ['hsl(0 0% 90%)', 'hsl(0 0% 20%)'] },
   ],
-  Test: [
-    { name: 'Border', className: '', hexCode: ['#c3c3c3', '#565656'] },
-    { name: 'Hover', className: '', hexCode: ['#f3f3f3', '#252525'] },
-    { name: 'Focus', className: '', hexCode: ['#0d0d0d', '#ffffff'] },
-    { name: 'Disabled', className: '', hexCode: ['#0d0d0d26', '#ffffff26'] },
-    { name: 'Skeleton', className: 'skeleton', hexCode: ['#e7e7e7', '#252525'] },
-    { name: 'Placeholder', className: '', hexCode: ['#868686', '#868686'] },
-    { name: 'Icon', className: '', hexCode: ['#3d3d3d', '#cfcfcf'] },
+  'Text / Icon': [
+    { name: 'Heading', color: ['hsl(0 0% 5%)', 'hsl(0 0% 95%)'] },
+    { name: 'Body', color: ['hsl(0 0% 30%)', 'hsl(0 0% 70%)'] },
+    { name: 'Placeholder', color: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'] },
+    { name: 'Icon', color: ['hsl(0 0% 30%)', 'hsl(0 0% 70%)'] },
   ],
-  Colours: [
-    { name: 'Primary', className: '', hexCode: '#dd2121' },
-    { name: 'Success', className: '', hexCode: '#29a027' },
-    { name: 'Error', className: '', hexCode: '#dd2121' },
-    { name: 'Warning', className: '', hexCode: '#ffcc00' },
-    { name: 'Info', className: '', hexCode: '#1164cc' },
-    { name: 'Rebecca', className: '', hexCode: '#663399' },
+  Input: [
+    {
+      name: 'Input',
+      color: ['hsl(0 0% 100%)', 'hsl(0 0% 5%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    {
+      name: 'Hover',
+      color: ['hsl(0 0% 95%)', 'hsl(0 0% 10%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    {
+      name: 'Disabled',
+      color: ['hsl(0 0% 90%)', 'hsl(0 0% 15%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    {
+      name: 'Loading',
+      color: ['hsl(0 0% 95%)', 'hsl(0 0% 10%)'],
+      border: ['hsl(0 0% 80%)', 'hsl(0 0% 25%)'],
+    },
+    { name: 'Skeleton', color: ['hsl(0 0% 90%)', 'hsl(0 0% 15%)'] },
+    {
+      name: 'Focus',
+      color: ['hsl(0 0% 100%)', 'hsl(0 0% 5%)'],
+      border: ['hsl(0 0% 5%)', 'hsl(0 0% 95%)'],
+      focus: ['hsl(0 0% 5%)', 'hsl(0 0% 95%)'],
+    },
+    { name: 'Error', color: ['hsl(0 74% 95%)', 'hsl(0 74% 5%)'], border: ['hsl(355, 75%, 40%)'] },
+    {
+      name: 'Error focus',
+      color: ['hsl(355, 75%, 95%)', 'hsl(355, 75%, 5%)'],
+      border: ['hsl(355, 75%, 40%)'],
+      focus: ['hsl(355, 75%, 40%)'],
+    },
+  ],
+  Colors: [
+    { name: 'Primary', color: ['hsl(0, 80%, 50%)'] },
+    { name: 'Success', color: ['hsl(142, 76%, 36%)'] },
+    { name: 'Error', color: ['hsl(355, 75%, 40%)'] },
+    { name: 'Warning', color: ['hsl(38, 92%, 50%)'] },
+    { name: 'Info', color: ['hsl(213, 85%, 43%)'] },
+    { name: 'Rebecca', color: ['hsl(270 50% 40%)'] },
   ],
 }
 
@@ -45,11 +87,15 @@ const meta: Meta<ColorsProps> = {
       control: { type: 'select' },
       options: colorOptions.map((color) => color.name),
     },
-    hexCode: {
+    color: {
       control: { type: 'text' },
       table: { disable: true },
     },
-    className: {
+    border: {
+      control: { type: 'text' },
+      table: { disable: true },
+    },
+    focus: {
       control: { type: 'text' },
       table: { disable: true },
     },
@@ -64,14 +110,15 @@ export const Default: Story = {
   args: colorOptions[0],
   render: ({ name }) => {
     const selectedColor = colorOptions.find((color) => color.name === name) || colorOptions[0]
-    const { className, hexCode } = selectedColor
+    const { color, border, focus } = selectedColor
 
     return (
       <div className={styles.colors}>
         <Colors
           name={name}
-          className={className || ''}
-          hexCode={Array.isArray(hexCode) ? hexCode[0] : hexCode}
+          color={Array.isArray(color) ? color[0] : color}
+          border={Array.isArray(border) ? border[0] : border}
+          focus={Array.isArray(focus) ? focus[0] : focus}
         />
       </div>
     )
@@ -85,7 +132,7 @@ export const AllColors: Story = {
     },
   },
   render: (_, { globals }) => {
-    const background = globals.backgrounds?.value === '#0d0d0d' ? 'dark' : 'light'
+    const background = globals.backgrounds?.value ?? 'light'
 
     return (
       <div className={styles.blocks}>
@@ -95,19 +142,34 @@ export const AllColors: Story = {
             className={styles.block}>
             <div className={styles.title}>{category}</div>
             <div className={styles.colors}>
-              {shades.map(({ name, className, hexCode }: ColorsProps) => (
-                <Colors
-                  key={name}
-                  name={name}
-                  className={className || ''}
-                  hexCode={
-                    Array.isArray(hexCode)
-                      ? background === 'light'
-                        ? hexCode[0]
-                        : hexCode[1]
-                      : hexCode
-                  }
-                />
+              {shades.map(({ name, color, border, focus }: ColorsProps) => (
+                <>
+                  <Colors
+                    key={name}
+                    name={name}
+                    color={
+                      Array.isArray(color) && color.length > 1
+                        ? background === 'light'
+                          ? color[0]
+                          : color[1]
+                        : color
+                    }
+                    border={
+                      Array.isArray(border) && border.length > 1
+                        ? background === 'light'
+                          ? border[0]
+                          : border[1]
+                        : border
+                    }
+                    focus={
+                      Array.isArray(focus) && focus.length > 1
+                        ? background === 'light'
+                          ? focus[0]
+                          : focus[1]
+                        : focus
+                    }
+                  />
+                </>
               ))}
             </div>
           </div>

@@ -72,12 +72,12 @@
   &.is-disabled {
     border-color: transparent;
     background-color: $color-disabled;
-    color: $color-text;
+    color: $color-body;
 
     @include dark-mode {
       border-color: transparent;
       background-color: $color-disabled-dark;
-      color: $color-text-dark;
+      color: $color-body-dark;
     }
   }
 
@@ -200,24 +200,52 @@
     }
   }
 
+  &-error {
+    background-color: $color-error;
+    color: $color-light;
+
+    &.has-hover:hover:not(.is-disabled) {
+      background-color: color.mix($color-dark, $color-error, 20%);
+      color: $color-light;
+    }
+  }
+
+  &-warning {
+    background-color: $color-warning;
+    color: $color-dark;
+
+    &.has-hover:hover:not(.is-disabled) {
+      background-color: color.mix($color-light, $color-warning, 20%);
+      color: $color-dark;
+    }
+  }
+
+  &-info {
+    background-color: $color-info;
+    color: $color-light;
+
+    &.has-hover:hover:not(.is-disabled) {
+      background-color: color.mix($color-dark, $color-info, 30%);
+      color: $color-light;
+    }
+  }
+
   &-outline {
     border-color: color.mix($color-dark, $color-light, 25%);
-    background-color: $color-light;
     color: $color-dark;
 
     @include dark-mode {
       &:not(.is-disabled) {
         border-color: color.mix($color-light, $color-dark, 30%);
-        background-color: $color-dark;
         color: $color-light;
       }
     }
 
     &.has-hover:hover:not(.is-disabled) {
-      background-color: color.mix($color-dark, $color-light, 5%);
+      background-color: color.change($color-dark, $alpha: 0.1);
 
       @include dark-mode {
-        background-color: color.mix($color-light, $color-dark, 10%);
+        background-color: color.change($color-light, $alpha: 0.1);
       }
     }
   }
@@ -233,10 +261,10 @@
     }
 
     &.has-hover:hover:not(.is-disabled) {
-      background-color: color.mix($color-dark, $color-light, 5%);
+      background-color: color.change($color-dark, $alpha: 0.1);
 
       @include dark-mode {
-        background-color: color.mix($color-light, $color-dark, 10%);
+        background-color: color.change($color-light, $alpha: 0.1);
       }
     }
   }
@@ -253,7 +281,7 @@
   }
 
   &-default {
-    background-color: color.change($color-dark, $alpha: 0.2);
+    background-color: color.change($color-dark, $alpha: 0.1);
     color: $color-dark;
 
     @include dark-mode {
@@ -264,7 +292,7 @@
     }
 
     &.has-hover:hover:not(.is-disabled) {
-      background-color: color.change($color-dark, $alpha: 0.3);
+      background-color: color.change($color-dark, $alpha: 0.2);
 
       @include dark-mode {
         background-color: color.change($color-light, $alpha: 0.15);
@@ -292,11 +320,11 @@
     }
 
     &.has-hover:hover:not(.is-disabled) {
-      background-color: color.mix($color-light, $color-dark, 10%);
+      background-color: color.mix($color-light, $color-dark, 20%);
       color: $color-light;
 
       @include dark-mode {
-        background-color: color.mix($color-dark, $color-light, 10%);
+        background-color: color.mix($color-dark, $color-light, 20%);
         color: $color-dark;
       }
     }
