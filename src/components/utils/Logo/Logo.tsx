@@ -9,16 +9,22 @@ import { useMounted } from '@/lib/useMounted'
 type LogoProps = {
   type?: 'light' | 'dark' | 'default'
   hasTitle?: boolean
+  header?: boolean
   className?: string
 }
 
-export const Logo = ({ type = 'default', hasTitle = true, className = '' }: LogoProps) => {
+export const Logo = ({
+  type = 'default',
+  hasTitle = true,
+  header = false,
+  className = '',
+}: LogoProps) => {
   const mounted = useMounted()
 
   return (
     <Link
       href="/"
-      className={clsx(styles.logo, type && styles[type], className)}>
+      className={clsx(styles.logo, type && styles[type], header && styles.header, className)}>
       <span className={clsx(styles.icon, !mounted && styles.skeleton)}>M</span>
       {hasTitle && (
         <span className={clsx(styles.title, !mounted && styles.skeleton)}>TheMichael</span>

@@ -17,24 +17,27 @@
 
   &.dark {
     color: $color-dark;
-
-    .icon.skeleton {
-      color: transparent;
-    }
   }
 
   &.light {
     color: $color-light;
+  }
 
-    .icon.skeleton,
-    .title.skeleton {
+  &.header .skeleton {
+    @include light-mode {
       background-color: $color-nav-skeleton;
-      color: transparent;
+    }
+
+    &.icon {
+      @include light-mode {
+        background-color: $color-nav-skeleton;
+      }
     }
   }
 
   .icon {
     @include text-xl;
+    @include skeleton-text;
 
     & {
       position: relative;

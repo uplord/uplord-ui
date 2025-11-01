@@ -42,7 +42,10 @@ export const Header = ({
       )}>
       <div className={styles.container}>
         <div className={clsx(styles.top)}>
-          <Logo type={theme} />
+          <Logo
+            type="light"
+            header
+          />
           <Navigation activeSection={activeSection} />
           <div className={styles.right}>
             <Toggle
