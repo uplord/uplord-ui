@@ -9,21 +9,25 @@
   }
 
   .icon {
-    position: relative;
-    padding: 0.5rem;
-    border-radius: 0 0.5rem 0.5rem;
-    background: $color-primary;
-    color: $color-light;
-    transition: all 0.3s ease;
+    @include skeleton-text;
 
-    @media (hover: hover) {
-      &:hover {
-        scale: 1.1;
+    & {
+      position: relative;
+      padding: 0.5rem;
+      border-radius: 0 0.5rem 0.5rem;
+      background: $color-primary;
+      color: $color-light;
+      transition: all 0.3s ease;
+
+      @media (hover: hover) {
+        &:hover {
+          scale: 1.1;
+        }
       }
-    }
 
-    &:focus {
-      scale: 1;
+      &:focus {
+        scale: 1;
+      }
     }
   }
 

@@ -46,7 +46,10 @@ export const WithHeader: Story = {
       <>
         <Header isHome />
         <main className={styles.main}>
-          <Banner hasHeader={props.hasHeader} />
+          <Banner
+            hasHeader={props.hasHeader}
+            data={data.bannerData}
+          />
         </main>
       </>
     )

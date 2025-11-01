@@ -18,6 +18,9 @@ export type RadioProps = {
   isSkeleton?: boolean
   isError?: boolean
 
+  hasHover?: boolean
+  hasFocus?: boolean
+
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -36,6 +39,9 @@ export const Radio = ({
   isSkeleton = false,
   isError = false,
 
+  hasHover = true,
+  hasFocus = true,
+
   onChange,
 }: RadioProps) => {
   return (
@@ -46,6 +52,8 @@ export const Radio = ({
           (isDisabled || isSkeleton) && styles['is-disabled'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
+          hasHover && styles['has-hover'],
+          hasFocus && styles['has-focus'],
         )}>
         <input
           type="radio"

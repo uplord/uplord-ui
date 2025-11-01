@@ -18,7 +18,7 @@
 
   &.skeleton {
     @include light-mode {
-      background-color: rgb(0 0 0 / 20%) !important;
+      background-color: rgb(0 0 0 / 20%);
     }
 
     li {

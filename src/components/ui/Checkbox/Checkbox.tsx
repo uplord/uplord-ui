@@ -20,6 +20,9 @@ export type CheckboxProps = {
   isSkeleton?: boolean
   isError?: boolean
 
+  hasHover?: boolean
+  hasFocus?: boolean
+
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -40,6 +43,9 @@ export const Checkbox = ({
   isSkeleton = false,
   isError = false,
 
+  hasHover = true,
+  hasFocus = true,
+
   onChange,
 }: CheckboxProps) => {
   return (
@@ -51,6 +57,8 @@ export const Checkbox = ({
           (isDisabled || isSkeleton) && styles['is-disabled'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
+          hasHover && styles['has-hover'],
+          hasFocus && styles['has-focus'],
           !children && !label && styles['no-placeholder'],
         )}>
         <input

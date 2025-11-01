@@ -9,6 +9,7 @@
 
   @media (hover: hover) {
     &:hover:not(.is-disabled, .is-error, &:has(.button:hover, .click:hover)) .list {
+      border-radius: 0.5rem;
       background-color: $color-hover;
       cursor: text;
 

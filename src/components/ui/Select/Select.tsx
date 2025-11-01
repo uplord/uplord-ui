@@ -24,6 +24,9 @@ export type SelectProps = {
   isSkeleton?: boolean
   isError?: boolean
 
+  hasHover?: boolean
+  hasFocus?: boolean
+
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
@@ -43,6 +46,9 @@ export const Select = ({
   isSkeleton = false,
   isError = false,
 
+  hasHover = true,
+  hasFocus = true,
+
   onChange,
 }: SelectProps) => {
   const selectRef = useRef<HTMLSelectElement>(null)
@@ -59,6 +65,8 @@ export const Select = ({
           isLoading && !isSkeleton && styles['is-loading'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
+          hasHover && styles['has-hover'],
+          hasFocus && styles['has-focus'],
         )}>
         {isLoading && !isSkeleton && <div className={styles.loading}></div>}
 

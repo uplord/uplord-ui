@@ -20,6 +20,9 @@ export type TextareaProps = {
   isSkeleton?: boolean
   isError?: boolean
 
+  hasHover?: boolean
+  hasFocus?: boolean
+
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
@@ -37,6 +40,9 @@ export const Textarea = ({
   isLoading = false,
   isSkeleton = false,
   isError = false,
+
+  hasHover = true,
+  hasFocus = true,
 
   onChange,
 }: TextareaProps) => {
@@ -56,6 +62,8 @@ export const Textarea = ({
           isLoading && !isSkeleton && styles['is-loading'],
           isSkeleton && styles['is-skeleton'],
           isError && styles['is-error'],
+          hasHover && styles['has-hover'],
+          hasFocus && styles['has-focus'],
         )}
         onClick={handleFocus}>
         {isLoading && !isSkeleton && <div className={styles.loading}></div>}

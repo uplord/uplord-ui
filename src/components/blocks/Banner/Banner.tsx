@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import React from 'react'
 
-import styles from './style.module.scss'
+import styles from './banner.module.scss'
 import { Social } from '@/components/main/Social'
 import { Button, ButtonGroup } from '@/components/ui/Button'
 import { useMounted } from '@/lib/useMounted'
