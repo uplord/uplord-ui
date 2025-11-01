@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/uplord/uplord-ui/compare/v0.1.17...v0.1.18) (2025-11-01)
+
+
+### Features
+
+* disable mounted ([4479ff7](https://github.com/uplord/uplord-ui/commit/4479ff720d4e35ec72594eb4bd06ef974cdb821f))
+
 ### [0.1.17](https://github.com/uplord/uplord-ui/compare/v0.1.16...v0.1.17) (2025-11-01)
 
 
