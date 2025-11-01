@@ -281,7 +281,7 @@
   }
 
   &-default {
-    background-color: color.change($color-dark, $alpha: 0.1);
+    background-color: color.change($color-dark, $alpha: 0.25);
     color: $color-dark;
 
     @include dark-mode {
@@ -292,7 +292,7 @@
     }
 
     &.has-hover:hover:not(.is-disabled) {
-      background-color: color.change($color-dark, $alpha: 0.2);
+      background-color: color.change($color-dark, $alpha: 0.35);
 
       @include dark-mode {
         background-color: color.change($color-light, $alpha: 0.15);
