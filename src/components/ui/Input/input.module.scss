@@ -157,9 +157,17 @@
     border-color: $color-error;
     background-color: $color-error-02;
 
+    @include dark-mode {
+      background-color: $color-error-03;
+    }
+
     &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
       background-color: $color-error-02;
       outline-color: $color-error;
+
+      @include dark-mode {
+        background-color: $color-error-03;
+      }
     }
 
     & + .helper {
