@@ -278,6 +278,10 @@
         color: $color-light;
       }
     }
+
+    &.has-hover:hover:not(.is-disabled) {
+      scale: 1;
+    }
   }
 
   &-default {
