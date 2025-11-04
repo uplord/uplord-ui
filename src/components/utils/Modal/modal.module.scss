@@ -175,10 +175,18 @@ $background-surface-dark: #191919;
   display: flex;
   min-height: 2.75rem;
   align-items: center;
-  padding: 1rem 1.5rem 0;
+  padding: 1.25rem 1.5rem 0;
+
+  @media (min-width: $breakpoint-md) {
+    padding-bottom: 1rem;
+  }
 
   .fullscreen & {
-    padding-bottom: 1rem;
+    padding-bottom: 1.25rem;
+
+    @media (min-width: $breakpoint-md) {
+      padding-bottom: 1rem;
+    }
   }
 
   .top {

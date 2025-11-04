@@ -19,7 +19,7 @@ export const Alert = ({ type = 'default', title, icon, button, className = '' }:
         {icon}
         {title}
       </div>
-      <div className={styles.right}>{button}</div>
+      {button && <div className={styles.right}>{button}</div>}
     </div>
   )
 }
