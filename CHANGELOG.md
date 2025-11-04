@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/uplord/uplord-ui/compare/v0.1.21...v0.1.22) (2025-11-04)
+
+
+### Features
+
+* anchor button no scale ([f966589](https://github.com/uplord/uplord-ui/commit/f966589fdd87fb6cb4fa7fb33c7132aa1bc90e42))
+
 ### [0.1.21](https://github.com/uplord/uplord-ui/compare/v0.1.20...v0.1.21) (2025-11-02)
 
 
