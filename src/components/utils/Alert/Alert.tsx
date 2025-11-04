@@ -9,11 +9,12 @@ type AlertProps = {
   title: string
   icon?: React.ReactNode
   button?: React.ReactNode
+  className?: string
 }
 
-export const Alert = ({ type = 'default', title, icon, button }: AlertProps) => {
+export const Alert = ({ type = 'default', title, icon, button, className = '' }: AlertProps) => {
   return (
-    <div className={clsx(styles.alert, styles[type])}>
+    <div className={clsx(styles.alert, styles[type], className)}>
       <div className={styles.left}>
         {icon}
         {title}

@@ -6,9 +6,9 @@ import styles from './card.module.scss'
 export type CardProps = {
   children: React.ReactNode
   title?: React.ReactNode
-  className?: string
   border?: boolean
   padding?: boolean
+  className?: string
 }
 
 export const Card = ({
