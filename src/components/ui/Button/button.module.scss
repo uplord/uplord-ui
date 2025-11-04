@@ -279,8 +279,10 @@
       }
     }
 
-    &:active:not(.is-disabled) {
-      scale: 1;
+    @media (hover) and (pointer: fine) {
+      &:active:not(.is-disabled) {
+        scale: 1;
+      }
     }
   }
 
