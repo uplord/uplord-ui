@@ -8,11 +8,24 @@ export type CardProps = {
   title?: React.ReactNode
   className?: string
   border?: boolean
+  padding?: boolean
 }
 
-export const Card = ({ children, title, className = '', border = false }: CardProps) => {
+export const Card = ({
+  children,
+  title,
+  border = false,
+  padding = true,
+  className = '',
+}: CardProps) => {
   return (
-    <div className={clsx(styles.container, border && styles.border, className)}>
+    <div
+      className={clsx(
+        styles.container,
+        border && styles.border,
+        padding && styles.padding,
+        className,
+      )}>
       {title && <div className={styles.title}>{title}</div>}
       <div className={styles.content}>{children}</div>
     </div>

@@ -8,13 +8,16 @@
     gap: 1.5rem;
 
     &.border {
-      padding: 1rem;
       border: 0.0625rem solid $color-border;
       border-radius: 0.5rem;
 
       @include dark-mode {
         border-color: $color-border-dark;
       }
+    }
+
+    &.padding {
+      padding: 1rem;
 
       @media (min-width: $breakpoint-md) {
         padding: 1.5rem;
