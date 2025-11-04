@@ -15,7 +15,7 @@ export const Card = ({
   children,
   title,
   border = false,
-  padding = true,
+  padding = false,
   className = '',
 }: CardProps) => {
   return (
