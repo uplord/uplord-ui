@@ -279,7 +279,7 @@
       }
     }
 
-    &.has-hover:hover:not(.is-disabled) {
+    &:active:not(.is-disabled) {
       scale: 1;
     }
   }
