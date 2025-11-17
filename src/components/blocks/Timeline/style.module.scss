@@ -23,6 +23,7 @@
 }
 
 .intro {
+  @include text-content;
   @include skeleton-text;
 
   & {
@@ -38,33 +39,19 @@
   }
 
   h2 {
-    @include text-lg;
-    @include text-bold;
-
-    & {
-      color: $color-primary;
-
-      @include dark-mode {
-        color: $color-primary;
-      }
-    }
+    @include text-xm;
 
     @media (min-width: $breakpoint-lg) {
       @include text-xl;
+    }
+
+    & {
+      color: $color-primary;
     }
   }
 
   h3 {
     @include text-xl;
-    @include text-bold;
-
-    & {
-      color: $color-heading;
-
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
-    }
 
     @media (min-width: $breakpoint-md) {
       @include text-2xl;
@@ -73,22 +60,13 @@
     @media (min-width: $breakpoint-lg) {
       @include text-3xl;
     }
-  }
-
-  p {
-    @include text-md;
-    @include text-normal;
 
     & {
-      color: $color-body;
+      color: $color-heading;
 
       @include dark-mode {
-        color: $color-body-dark;
+        color: $color-heading-dark;
       }
-    }
-
-    @media (min-width: $breakpoint-md) {
-      @include text-xm;
     }
   }
 

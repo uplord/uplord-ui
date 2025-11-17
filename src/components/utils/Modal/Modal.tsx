@@ -16,6 +16,7 @@ export type ModalProps = {
   headerProps?: ModalHeaderProps
   footerProps?: ModalFooterProps
   maxWidth?: string
+  maxHeight?: string
   sheet?: boolean
   fullscreen?: boolean
   mobileMaxHeight?: boolean
@@ -30,6 +31,7 @@ export const Modal = ({
   headerProps,
   footerProps,
   maxWidth,
+  maxHeight,
   sheet = false,
   fullscreen = false,
   mobileMaxHeight = false,
@@ -91,7 +93,10 @@ export const Modal = ({
             <motion.div
               ref={refMain}
               className={clsx(styles.main, fullscreen && styles.fullscreen)}
-              style={maxWidth ? { maxWidth: maxWidth } : undefined}
+              style={{
+                ...(maxWidth ? { maxWidth } : {}),
+                ...(maxHeight ? { height: maxHeight } : {}),
+              }}
               drag="y"
               dragConstraints={{ top: 0, bottom: 0 }}
               dragElastic={{ top: 0, bottom: 0.5 }}
@@ -116,7 +121,10 @@ export const Modal = ({
           ) : (
             <motion.div
               className={clsx(styles.main, fullscreen && styles.fullscreen)}
-              style={maxWidth ? { maxWidth: maxWidth } : undefined}
+              style={{
+                ...(maxWidth ? { maxWidth } : {}),
+                ...(maxHeight ? { height: maxHeight } : {}),
+              }}
               onDragEnd={handleDragEnd}
               initial={getInitialStyle()}
               animate={getAnimateStyle()}

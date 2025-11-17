@@ -1,4 +1,3 @@
-import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 import styles from './accordion.module.scss'

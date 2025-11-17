@@ -157,15 +157,15 @@ $color-tooltip-text-dark: #000;
   gap: 0.5rem;
 
   h2 {
-    @include text-xl;
+    @include text-2xl;
     @include text-bold;
 
-    & {
-      color: $color-heading;
+    @media (min-width: $breakpoint-md) {
+      @include text-2xl;
+    }
 
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
+    @media (min-width: $breakpoint-lg) {
+      @include text-3xl;
     }
   }
 
@@ -173,12 +173,12 @@ $color-tooltip-text-dark: #000;
     @include text-lg;
     @include text-bold;
 
-    & {
-      color: $color-heading;
+    @media (min-width: $breakpoint-md) {
+      @include text-lg;
+    }
 
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
+    @media (min-width: $breakpoint-lg) {
+      @include text-xl;
     }
   }
 
@@ -186,12 +186,12 @@ $color-tooltip-text-dark: #000;
     @include text-md;
     @include text-bold;
 
-    & {
-      color: $color-heading;
+    @media (min-width: $breakpoint-md) {
+      @include text-md;
+    }
 
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
+    @media (min-width: $breakpoint-lg) {
+      @include text-lg;
     }
   }
 
@@ -199,16 +199,12 @@ $color-tooltip-text-dark: #000;
     @include text-md;
     @include text-normal;
 
-    & {
-      color: $color-body;
-
-      @include dark-mode {
-        color: $color-body-dark;
-      }
+    @media (min-width: $breakpoint-md) {
+      @include text-md;
     }
 
-    @media (min-width: $breakpoint-md) {
-      @include text-xm;
+    @media (min-width: $breakpoint-lg) {
+      @include text-lg;
     }
   }
 
@@ -228,15 +224,18 @@ $color-tooltip-text-dark: #000;
 
     & {
       margin-bottom: 0.5rem;
-      color: $color-body;
-
-      @include dark-mode {
-        color: $color-body-dark;
-      }
 
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    @media (min-width: $breakpoint-md) {
+      @include text-lg;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-lg;
     }
   }
 

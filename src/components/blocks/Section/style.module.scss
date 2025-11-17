@@ -73,6 +73,7 @@
 }
 
 .text {
+  @include text-content;
   @include skeleton-text;
 
   & {
@@ -87,59 +88,16 @@
     }
   }
 
-  h3 {
-    @include text-lg;
-    @include text-bold;
-
-    & {
-      color: $color-primary;
-
-      @include dark-mode {
-        color: $color-primary;
-      }
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      @include text-xl;
-    }
-  }
-
   h2 {
-    @include text-xl;
-    @include text-bold;
+    color: $color-heading;
 
-    & {
-      color: $color-heading;
-
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
-    }
-
-    @media (min-width: $breakpoint-md) {
-      @include text-2xl;
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      @include text-3xl;
+    @include dark-mode {
+      color: $color-heading-dark;
     }
   }
 
-  p {
-    @include text-md;
-    @include text-normal;
-
-    & {
-      color: $color-body;
-
-      @include dark-mode {
-        color: $color-body-dark;
-      }
-    }
-
-    @media (min-width: $breakpoint-md) {
-      @include text-xm;
-    }
+  h3 {
+    color: $color-primary;
   }
 
   .button-group {

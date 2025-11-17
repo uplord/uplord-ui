@@ -402,7 +402,7 @@ export const PreventClose: StoryObj<ButtonProps> = {
   ],
 }
 
-export const HeaderModal: StoryObj = {
+export const HeaderModal: StoryObj<ModalHeaderProps> = {
   args: {
     title: 'Title',
     subtext: 'Subtext',
@@ -419,7 +419,7 @@ export const HeaderModal: StoryObj = {
   render: (args: ModalHeaderProps) => <ModalHeader {...args} />,
 }
 
-export const FooterModal: StoryObj = {
+export const FooterModal: StoryObj<ModalFooterProps> = {
   args: {
     title: 'Title',
     subtext: 'Subtext',

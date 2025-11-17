@@ -11,6 +11,23 @@
   @media (min-width: $breakpoint-lg) {
     scroll-margin-top: 4rem + $header-height;
   }
+}
+
+.container {
+  @include container;
+
+  & {
+    align-items: flex-start;
+  }
+}
+
+.intro {
+  @include skeleton-text;
+
+  & {
+    display: grid;
+    gap: 0.5rem;
+  }
 
   h3 {
     @include text-lg;
@@ -18,10 +35,6 @@
 
     & {
       color: $color-primary;
-
-      @include dark-mode {
-        color: $color-primary;
-      }
     }
 
     @media (min-width: $breakpoint-lg) {
@@ -49,23 +62,6 @@
     @media (min-width: $breakpoint-lg) {
       @include text-3xl;
     }
-  }
-}
-
-.container {
-  @include container;
-
-  & {
-    align-items: flex-start;
-  }
-}
-
-.intro {
-  @include skeleton-text;
-
-  & {
-    display: grid;
-    gap: 0.5rem;
   }
 }
 
@@ -142,6 +138,7 @@
 }
 
 .text {
+  @include text-content;
   @include skeleton-text;
 
   & {
@@ -152,36 +149,10 @@
   }
 
   h3 {
-    @include text-lg;
-    @include text-bold;
+    color: $color-heading;
 
-    & {
-      color: $color-heading;
-
-      @include dark-mode {
-        color: $color-heading-dark;
-      }
-    }
-
-    @media (min-width: $breakpoint-lg) {
-      @include text-xl;
-    }
-  }
-
-  p {
-    @include text-md;
-    @include text-normal;
-
-    & {
-      color: $color-body;
-
-      @include dark-mode {
-        color: $color-body-dark;
-      }
-    }
-
-    @media (min-width: $breakpoint-md) {
-      @include text-md;
+    @include dark-mode {
+      color: $color-heading-dark;
     }
   }
 }
