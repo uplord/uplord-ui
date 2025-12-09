@@ -35,7 +35,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install -g npm@latest
+        run: npm install
 
       - name: Deploy to Chromatic
         run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --branch=${{ github.ref_name }}
