@@ -57,8 +57,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           always-auth: true
 
-      - name: Install dependencies
+      - name: Upgrade npm
         run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Bump version using standard-version
         run: |
