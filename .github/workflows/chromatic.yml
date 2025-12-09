@@ -2,7 +2,6 @@ name: Deploy to Chromatic and Publish to NPM
 
 permissions:
   contents: write
-  id-token: write
 
 on:
   push:
@@ -19,44 +18,59 @@ on:
 jobs:
   chromatic:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-      - run: npm install
-      - run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --branch=${{ github.ref_name }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to Chromatic
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --branch=${{ github.ref_name }}
 
   publish:
     if: github.ref == 'refs/heads/main'
     needs: chromatic
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: 'https://registry.npmjs.org/'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org/'
 
       - name: Authenticate npm
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: Bump version
+      - name: Bump version using standard-version
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           npx standard-version
           git push --follow-tags origin main
 
-      - run: npm run build-vite
+      - name: Build package
+        run: npm run build-vite
 
-      - name: Publish to npm
+      - name: Publish to NPM
         run: npm publish --access public
