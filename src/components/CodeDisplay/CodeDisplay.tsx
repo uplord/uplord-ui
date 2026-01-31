@@ -26,7 +26,7 @@ export const CodeDisplay = ({
   const editorRef = useRef<MonacoEditor.IStandaloneCodeEditor | null>(null)
   const editorTheme = theme ?? 'light'
 
-  const handleEditorMount: OnMount = (editorInstance, monaco) => {
+  const handleEditorMount: OnMount = (editorInstance) => {
     editorRef.current = editorInstance
     updateEditorHeight()
   }

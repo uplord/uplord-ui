@@ -12,7 +12,7 @@ export default defineConfig([
   ...storybook.configs['flat/recommended'],
 
   // Global ignores
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'dist/**', 'next-env.d.ts']),
 
   // Prettier rules (keep prettier plugin)
   {
