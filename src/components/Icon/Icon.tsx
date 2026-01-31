@@ -7,12 +7,12 @@ type AvailableIcons = keyof typeof icons
 
 export interface IconProps {
   name: AvailableIcons | null
-  size: SizeType
+  size?: SizeType
   strokeWidth?: number
   className?: string
 }
 
-export function Icon({ name, size, strokeWidth = 2, className = '' }: IconProps) {
+export function Icon({ name, size = 'md', strokeWidth = 2, className = '' }: IconProps) {
   if (!name) {
     return false
   }
