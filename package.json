@@ -18,7 +18,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:vite": "vite build && tsc -p tsconfig.build.json",
+    "build:vite": "vite build && tsc -p tsconfig.build.json && node scripts/copy-scss.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
