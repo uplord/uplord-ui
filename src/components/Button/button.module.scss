@@ -1,0 +1,267 @@
+@use '/src/styles/forward' as *;
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-start {
+    justify-content: flex-start;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+}
+
+.main {
+  @include font-body;
+  @include text-md;
+  @include text-semibold;
+
+  z-index: 5;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 0.0625rem solid transparent;
+  scale: 1;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    scale 0.2s ease-in-out;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible:not(.is-disabled) {
+    outline: 0.125rem solid var(--black);
+    outline-offset: 0.125rem;
+
+    @include dark-mode {
+      outline-color: var(--white);
+    }
+  }
+
+  &.hover {
+    @media (hover) and (pointer: fine) {
+      &:hover {
+        text-decoration: none;
+      }
+
+      &.active:active:not(.is-disabled) {
+        scale: 0.95;
+      }
+    }
+  }
+
+  &.active:not(.is-disabled) {
+    cursor: pointer;
+  }
+
+  &.rounded-lg {
+    border-radius: 2rem;
+  }
+
+  &.rounded-md {
+    border-radius: 1rem;
+  }
+
+  &.rounded-sm {
+    border-radius: 0.5rem;
+  }
+
+  &.rounded-none {
+    border-radius: 0;
+  }
+}
+
+.size {
+  &-md {
+    min-height: 3rem;
+
+    &.padding {
+      padding: 0.625rem 1.5rem;
+    }
+
+    &.icon {
+      min-width: 3rem;
+
+      &.padding {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+      }
+    }
+  }
+
+  &-sm {
+    @include text-sm;
+
+    &.padding {
+      padding: 0.5625rem 1rem;
+    }
+
+    &.icon {
+      min-width: 2.25rem;
+
+      &.padding {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}
+
+.variant {
+  &-default {
+    color: var(--black);
+    background-color: var(--black-10);
+
+    @include dark-mode {
+      color: var(--white);
+      background-color: var(--white-10);
+
+      &.hover:hover:not(.is-disabled) {
+        background-color: var(--white-15);
+      }
+
+      &.outline {
+        background-color: transparent;
+        border-color: var(--white-15);
+
+        &.hover:hover:not(.is-disabled) {
+          background-color: var(--white-15);
+          border-color: transparent;
+        }
+      }
+    }
+
+    &.hover:hover:not(.is-disabled) {
+      background-color: var(--black-20);
+    }
+
+    &.outline {
+      background-color: transparent;
+      border-color: var(--black-20);
+
+      &.hover:hover:not(.is-disabled) {
+        background-color: var(--black-20);
+        border-color: transparent;
+      }
+    }
+  }
+
+  &-text {
+    color: var(--black);
+
+    @include dark-mode {
+      color: var(--white);
+
+      &.hover:hover:not(.is-disabled) {
+        background-color: oklch(from var(--black) calc(l + 0.2) c h);
+      }
+    }
+
+    &.hover:hover:not(.is-disabled) {
+      background-color: oklch(from var(--white) calc(l - 0.1) c h);
+    }
+  }
+
+  &-custom {
+    color: var(--btn-text);
+    background-color: var(--btn-color);
+
+    &.hover:hover:not(.is-disabled) {
+      background-color: var(--btn-hover-color);
+    }
+
+    &.outline {
+      color: var(--btn-color);
+      background-color: transparent;
+      border-color: var(--btn-color);
+
+      &.hover:hover:not(.is-disabled) {
+        color: var(--btn-text);
+        background-color: var(--btn-hover-color);
+        border-color: var(--btn-hover-color);
+      }
+    }
+  }
+}
+
+.main {
+  &.is-disabled {
+    color: var(--body-color);
+    background-color: var(--black-15);
+    border-color: transparent;
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+      background-color: var(--white-15);
+      border-color: transparent;
+    }
+
+    @media (hover) and (pointer: fine) {
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  &.is-loading:not(.is-skeleton) {
+    color: transparent;
+    background-color: var(--black-10);
+    border-color: transparent;
+
+    @include dark-mode {
+      background-color: var(--white-10);
+      border-color: transparent;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.5rem;
+      aspect-ratio: 1;
+      content: '';
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: loading 1s infinite;
+
+      @include dark-mode {
+        animation: loading-dark 1s infinite;
+      }
+    }
+
+    .content {
+      opacity: 0;
+    }
+  }
+
+  &.is-skeleton {
+    color: transparent;
+    background-color: var(--black-10);
+    border-color: transparent;
+    animation: pulse 1.5s infinite ease-in-out;
+
+    @include dark-mode {
+      background-color: var(--white-10);
+    }
+
+    .content {
+      opacity: 0;
+    }
+  }
+}

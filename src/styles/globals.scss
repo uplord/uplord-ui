@@ -1,0 +1,48 @@
+:root {
+  --font-heading: 'Inter', arial, sans-serif;
+  --font-body: 'Nunito', arial, sans-serif;
+  --white: oklch(100% 0 0deg);
+  --black: oklch(0% 0 0deg);
+
+  /* Background */
+  --bg-color: oklch(100% 0 0deg);
+  --block-color: oklch(92% 0 0deg);
+  --border-color: oklch(85% 0 0deg);
+  --bg-dark-color: oklch(15% 0 0deg);
+  --block-dark-color: oklch(20% 0 0deg);
+  --border-dark-color: oklch(35% 0 0deg);
+
+  /* Text / icon */
+  --heading-color: oklch(15% 0 0deg);
+  --body-color: oklch(45% 0 0deg);
+  --heading-dark-color: oklch(95% 0 0deg);
+  --body-dark-color: oklch(75% 0 0deg);
+
+  /* Colors */
+  --primary-color: oklch(58% 0.22 25deg);
+  --error-color: oklch(46% 0.19 25deg);
+  --success-color: oklch(62% 0.19 145deg);
+  --info-color: oklch(54% 0.18 255deg);
+  --warning-color: oklch(75% 0.2 75deg);
+  --rebecca-color: oklch(46% 0.14 305deg);
+
+  /* Transparent */
+  --white-5: oklch(from var(--white) l c h / 5%);
+  --white-10: oklch(from var(--white) l c h / 10%);
+  --white-15: oklch(from var(--white) l c h / 15%);
+  --white-20: oklch(from var(--white) l c h / 20%);
+  --white-25: oklch(from var(--white) l c h / 25%);
+  --white-30: oklch(from var(--white) l c h / 30%);
+  --white-35: oklch(from var(--white) l c h / 35%);
+  --white-95: oklch(from var(--white) l c h / 95%);
+  --black-5: oklch(from var(--black) l c h / 5%);
+  --black-10: oklch(from var(--black) l c h / 10%);
+  --black-15: oklch(from var(--black) l c h / 15%);
+  --black-20: oklch(from var(--black) l c h / 20%);
+  --black-25: oklch(from var(--black) l c h / 25%);
+  --black-30: oklch(from var(--black) l c h / 30%);
+  --black-35: oklch(from var(--black) l c h / 35%);
+  --black-95: oklch(from var(--black) l c h / 95%);
+  --success-31: oklch(from var(--success-color) l c h / 31%);
+  --error-15: oklch(from var(--error-color) l c h / 15%);
+}

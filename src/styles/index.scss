@@ -1,0 +1,13 @@
+@use './globals';
+@use './forward' as *;
+@use './normalize';
+
+body {
+  color: var(--body-color);
+  background-color: var(--bg-color);
+
+  @include dark-mode {
+    color: var(--body-dark-color);
+    background-color: var(--bg-dark-color);
+  }
+}

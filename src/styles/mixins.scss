@@ -1,0 +1,202 @@
+@use './variables' as *;
+@use './typography' as *;
+
+@mixin dark-mode {
+  [class~='dark'] & {
+    @content;
+  }
+
+  .dark & {
+    @content;
+  }
+}
+
+@mixin light-mode {
+  [class~='light'] & {
+    @content;
+  }
+
+  .light & {
+    @content;
+  }
+}
+
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: $width-max;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-md) {
+    gap: 2rem;
+  }
+}
+
+$color-loading-01: var(--black-15);
+$color-loading-02: var(--black-25);
+$color-loading-03: var(--black-35);
+$color-loading-01-dark: var(--white-15);
+$color-loading-02-dark: var(--white-25);
+$color-loading-03-dark: var(--white-35);
+
+@keyframes loading {
+  0% {
+    background: $color-loading-02;
+    box-shadow:
+      0.875rem 0 $color-loading-01,
+      -0.875rem 0 $color-loading-03;
+  }
+
+  33% {
+    background: $color-loading-03;
+    box-shadow:
+      0.875rem 0 $color-loading-02,
+      -0.875rem 0 $color-loading-01;
+  }
+
+  66% {
+    background: $color-loading-01;
+    box-shadow:
+      0.875rem 0 $color-loading-03,
+      -0.875rem 0 $color-loading-02;
+  }
+
+  100% {
+    background: $color-loading-02;
+    box-shadow:
+      0.875rem 0 $color-loading-01,
+      -0.875rem 0 $color-loading-03;
+  }
+}
+
+@keyframes loading-dark {
+  0% {
+    background: $color-loading-02-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-01-dark,
+      -0.875rem 0 $color-loading-03-dark;
+  }
+
+  33% {
+    background: $color-loading-03-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-02-dark,
+      -0.875rem 0 $color-loading-01-dark;
+  }
+
+  66% {
+    background: $color-loading-01-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-03-dark,
+      -0.875rem 0 $color-loading-02-dark;
+  }
+
+  100% {
+    background: $color-loading-02-dark;
+    box-shadow:
+      0.875rem 0 $color-loading-01-dark,
+      -0.875rem 0 $color-loading-03-dark;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@mixin text-content {
+  display: grid;
+  gap: 0.5rem;
+
+  h1 {
+    @include text-3xl;
+    @include text-bold;
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-4xl;
+    }
+  }
+
+  h2 {
+    @include text-2xl;
+    @include text-bold;
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-3xl;
+    }
+  }
+
+  h3 {
+    @include text-lg;
+    @include text-bold;
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-xl;
+    }
+  }
+
+  h4 {
+    @include text-md;
+    @include text-bold;
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-lg;
+    }
+  }
+
+  p {
+    @include text-md;
+    @include text-normal;
+  }
+
+  ol {
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  li {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (min-width: $breakpoint-md) {
+      @include text-lg;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      @include text-lg;
+    }
+  }
+
+  hr {
+    margin: 0;
+    border-color: var(--border-color);
+
+    @include dark-mode {
+      border-color: var(--border-dark-color);
+    }
+  }
+}
