@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.14](https://github.com/uplord/uplord-ui/compare/v0.2.13...v0.2.14) (2026-01-31)
+
+
+### Features
+
+* readme packages ([a6ea7e8](https://github.com/uplord/uplord-ui/commit/a6ea7e8b427c5536c02fe604c2af48f5ed4f8c85))
+* styles amends ([e2b00cd](https://github.com/uplord/uplord-ui/commit/e2b00cd710cf167428464fcaf4d516d2aec3d2ce))
+
 ### [0.2.13](https://github.com/uplord/uplord-ui/compare/v0.2.12...v0.2.13) (2026-01-31)
 
 
