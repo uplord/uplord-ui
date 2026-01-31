@@ -50,12 +50,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node.js with OIDC
         uses: actions/setup-node@v4
         with:
           node-version: 25
           registry-url: 'https://registry.npmjs.org/'
-          always-auth: true
 
       - name: Upgrade npm
         run: npm install -g npm@latest
@@ -71,7 +70,8 @@ jobs:
           git push --follow-tags origin main
 
       - name: Build package
-        run: npm run build-vite
+        run: npm run build:vite
 
       - name: Publish to npm
         run: npm publish --access public
+
