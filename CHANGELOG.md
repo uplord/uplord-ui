@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.12](https://github.com/uplord/uplord-ui/compare/v0.2.11...v0.2.12) (2026-01-31)
+
+
+### Features
+
+* export other components ([5a47021](https://github.com/uplord/uplord-ui/commit/5a470215cf5e8381008d8a0680e08b0bbaa60b08))
+* other components ([097fdf7](https://github.com/uplord/uplord-ui/commit/097fdf7097213bde085dd8a7a832b4a724ffed00))
+
+
+### Bug Fixes
+
+* style ordering ([20db34c](https://github.com/uplord/uplord-ui/commit/20db34cd16322501e791f672528d84ec78da1e10))
+
 ### [0.2.11](https://github.com/uplord/uplord-ui/compare/v0.2.10...v0.2.11) (2026-01-31)
 
 
