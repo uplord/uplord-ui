@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/uplord/uplord-ui/compare/v0.2.9...v0.2.10) (2026-01-31)
+
+
+### Features
+
+* pipelines update ([8203bb5](https://github.com/uplord/uplord-ui/commit/8203bb53f401d9fa8c4cd4caefdda5af234aa201))
+
 ### 0.2.9 (2026-01-31)
 
 
