@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import React from 'react'
 
+import styles from '../modal.module.scss'
 import { ButtonProps } from '@/components/Button'
-import styles from '@/components/modal.module.scss'
 
 export type ModalFooterProps = {
   title?: string

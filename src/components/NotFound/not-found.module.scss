@@ -2,8 +2,8 @@
 
 .page {
   display: grid;
-  min-height: 100vh;
   place-items: center;
+  min-height: 100vh;
 }
 
 .main {
@@ -11,8 +11,8 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
   text-align: center;
 
   h2 {

@@ -9,8 +9,8 @@
 .field {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 0.5rem;
+  align-items: flex-start;
 
   label {
     @include text-md;
@@ -33,16 +33,16 @@
 
 .outer {
   display: flex;
-  width: 100%;
-  align-items: center;
-  padding: 1rem;
-  border: 0.0625rem solid var(--border-color);
-  border-radius: 0.5rem;
-  background-color: transparent;
   gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
   line-height: 1.4375rem;
   outline: 0.125rem solid transparent;
   outline-offset: -0.125rem;
+  background-color: transparent;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.5rem;
   transition:
     background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out,
@@ -59,8 +59,8 @@
         .is-error,
         &:has(.button:hover, .click:hover)
       ) {
-      background-color: var(--black-5);
       cursor: text;
+      background-color: var(--black-5);
 
       @include dark-mode {
         background-color: var(--white-5);
@@ -78,12 +78,12 @@
   }
 
   &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
-    background-color: var(--black-5);
     outline-color: var(--black-95);
+    background-color: var(--black-5);
 
     @include dark-mode {
-      border-color: transparent;
       outline-color: var(--white-95);
+      border-color: transparent;
     }
   }
 
@@ -119,8 +119,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 0.5rem;
       content: '';
+      border-radius: 0.5rem;
       transition: all 0.2s ease-in-out;
     }
 
@@ -136,13 +136,13 @@
   }
 
   &.is-skeleton {
+    background-color: var(--black-10);
     border-color: var(--black-10);
     animation: pulse 1.5s infinite ease-in-out;
-    background-color: var(--black-10);
 
     @include dark-mode {
-      border-color: var(--white-10);
       background-color: var(--white-10);
+      border-color: var(--white-10);
     }
 
     .inner {
@@ -157,12 +157,12 @@
   }
 
   &.is-error:not(.is-disabled) {
-    border-color: var(--error-color);
     background-color: var(--error-15);
+    border-color: var(--error-color);
 
     &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
-      background-color: var(--error-15);
       outline-color: var(--error-color);
+      background-color: var(--error-15);
     }
 
     & + .helper {
@@ -190,10 +190,10 @@
     position: relative;
     width: 100%;
     padding: 0;
-    border: 0;
+    color: var(--black);
     appearance: none;
     background-color: transparent;
-    color: var(--black);
+    border: 0;
     transition: all 0.2s ease-in-out;
 
     @include dark-mode {
@@ -224,9 +224,9 @@
     & + .placeholder {
       top: -0.40625rem;
       padding: 0;
-      color: var(--body-color);
       font-size: 0.75rem;
       line-height: 0.875rem;
+      color: var(--body-color);
 
       @include dark-mode {
         color: var(--body-dark-color);
@@ -324,9 +324,9 @@
 
 .loading {
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
 
@@ -335,11 +335,11 @@
     top: 50%;
     left: 50%;
     width: 0.5rem;
-    border-radius: 50%;
-    animation: loading 1s infinite;
     aspect-ratio: 1;
     content: '';
+    border-radius: 50%;
     transform: translate(-50%, -50%);
+    animation: loading 1s infinite;
 
     @include dark-mode {
       animation: loading-dark 1s infinite;

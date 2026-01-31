@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 
+import styles from '../modal.module.scss'
 import { ButtonProps } from '@/components/Button'
-import styles from '@/components/modal.module.scss'
 
 export type ModalHeaderProps = {
   title: string

@@ -8,8 +8,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  border-bottom: 0.0625rem solid var(--border-color);
   margin-bottom: 1rem;
+  border-bottom: 0.0625rem solid var(--border-color);
 
   @include dark-mode {
     border-bottom-color: var(--border-dark-color);
@@ -26,8 +26,8 @@
       position: relative;
       padding-right: 1rem;
       padding-left: 1rem;
-      border: 0;
       color: var(--body-color);
+      border: 0;
 
       @include dark-mode {
         color: var(--body-dark-color);
@@ -39,8 +39,8 @@
         bottom: -0.125rem;
         left: 0;
         height: 0.1875rem;
-        background-color: var(--primary-color);
         content: '';
+        background-color: var(--primary-color);
         opacity: 0;
         transition: opacity 0.3s ease;
       }

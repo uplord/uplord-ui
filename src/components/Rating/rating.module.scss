@@ -9,8 +9,8 @@ $list-colors: (
 .list {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-end;
   gap: 0.25rem;
+  justify-content: flex-end;
 }
 
 .item {

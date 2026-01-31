@@ -6,17 +6,17 @@
 
   & {
     display: flex;
+    gap: 1rem;
     align-items: center;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
     margin-top: 0.5rem;
-    background-color: var(--block-color);
     color: var(--heading-color);
-    gap: 1rem;
+    background-color: var(--block-color);
+    border-radius: 0.5rem;
 
     @include dark-mode {
-      background-color: var(--block-dark-color);
       color: var(--heading-dark-color);
+      background-color: var(--block-dark-color);
     }
   }
 }

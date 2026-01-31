@@ -11,18 +11,18 @@
 
   &:not(.margin) {
     @media (max-width: ($breakpoint-md - 1)) {
+      margin: 0 -1.5rem;
       border-width: 0.0625rem 0;
       border-radius: 0;
-      margin: 0 -1.5rem;
 
       &:first-child {
-        border-top: 0;
         margin-top: -1rem;
+        border-top: 0;
       }
 
       &:last-child {
-        border-bottom: 0;
         margin-bottom: -1rem;
+        border-bottom: 0;
       }
     }
   }
@@ -97,8 +97,8 @@
         display: flex;
         align-items: center;
         padding: 0.75rem 1.5rem 0;
-        border-bottom: 0;
         white-space: initial;
+        border-bottom: 0;
 
         &[scope='checkbox'] {
           position: absolute;
@@ -133,18 +133,18 @@
 
         &::after {
           position: absolute;
-          z-index: 0;
           top: 0;
           bottom: 0;
           left: 0;
+          z-index: 0;
           width: 40%;
-          border-right: 0.0625rem solid hsl(0deg 0% 90%);
-          background-color: hsl(0deg 0% 95%);
           content: '';
+          background-color: hsl(0deg 0% 95%);
+          border-right: 0.0625rem solid hsl(0deg 0% 90%);
 
           @include dark-mode {
-            border-color: hsl(0deg 0% 20%);
             background-color: hsl(0deg 0% 10%);
+            border-color: hsl(0deg 0% 20%);
           }
         }
 
@@ -156,8 +156,8 @@
   }
 
   table {
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
   }
 
   thead tr {
@@ -188,25 +188,25 @@
 
     & {
       padding: 0.75rem 1rem;
-      border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
       color: var(--heading-color);
       text-align: left;
+      border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
 
       @include dark-mode {
-        border-color: hsl(0deg 0% 20%);
         color: var(--heading-dark-color);
+        border-color: hsl(0deg 0% 20%);
       }
     }
   }
 
   td {
     padding: 0.75rem 1rem;
-    border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
     color: var(--body-color);
+    border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
 
     @include dark-mode {
-      border-color: hsl(0deg 0% 20%);
       color: var(--body-dark-color);
+      border-color: hsl(0deg 0% 20%);
     }
   }
 

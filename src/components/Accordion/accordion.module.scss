@@ -6,9 +6,9 @@
     gap: 1rem;
 
     .item {
+      background-color: var(--block-color);
       border: 0;
       border-radius: 0.5rem;
-      background-color: var(--block-color);
 
       @include dark-mode {
         background-color: var(--block-dark-color);
@@ -51,11 +51,11 @@
 
   & {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
     color: var(--heading-color);
-    gap: 0.5rem;
 
     @include dark-mode {
       color: var(--heading-dark-color);

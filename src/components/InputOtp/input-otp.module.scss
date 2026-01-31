@@ -3,15 +3,15 @@
 .group {
   position: relative;
   display: flex;
-  width: max-content;
   gap: 0.5rem;
+  width: max-content;
 
   @media (hover: hover) {
     &:hover:not(.is-disabled, .is-error, &:has(.button:hover, .click:hover))
       .list {
-      border-radius: 0.5rem;
-      background-color: var(--black-5);
       cursor: text;
+      background-color: var(--black-5);
+      border-radius: 0.5rem;
 
       @include dark-mode {
         background-color: var(--white-5);
@@ -36,14 +36,14 @@
   }
 
   &.is-skeleton .list {
+    background-color: var(--black-10);
     border-color: var(--black-10);
     border-radius: 0.5rem;
     animation: pulse 1.5s infinite ease-in-out;
-    background-color: var(--black-10);
 
     @include dark-mode {
-      border-color: var(--white-10);
       background-color: var(--white-10);
+      border-color: var(--white-10);
     }
 
     .item {
@@ -52,8 +52,8 @@
   }
 
   &.is-error:not(.is-disabled) .item {
-    border-color: var(--error-color);
     background-color: var(--error-15);
+    border-color: var(--error-color);
   }
 }
 
@@ -65,13 +65,13 @@
   width: 3rem;
   height: 3.5rem;
   padding: 0.96875rem;
-  border: 0.0625rem solid var(--border-color);
   color: var(--body-color);
   text-align: center;
+  border: 0.0625rem solid var(--border-color);
 
   @include dark-mode {
-    border-color: var(--border-dark-color);
     color: var(--body-dark-color);
+    border-color: var(--border-dark-color);
   }
 
   &:not(:last-child) {
@@ -88,14 +88,14 @@
 
   &.active {
     position: relative;
-    border-right-width: 0;
-    background-color: var(--black-5);
     outline: 0.125rem solid var(--black-95);
     outline-offset: -0.125rem;
+    background-color: var(--black-5);
+    border-right-width: 0;
 
     @include dark-mode {
-      background-color: var(--white-5);
       outline-color: var(--white-95);
+      background-color: var(--white-5);
     }
 
     & + .item {
@@ -115,18 +115,18 @@
 
 .loading {
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
+  background-color: var(--black-5);
   border: 0.0625rem solid var(--border-color);
   border-radius: 0.5rem;
-  background-color: var(--black-5);
 
   @include dark-mode {
-    border-color: var(--border-dark-color);
     background-color: var(--white-5);
+    border-color: var(--border-dark-color);
   }
 
   &::after {
@@ -134,11 +134,11 @@
     top: 50%;
     left: 50%;
     width: 0.5rem;
-    border-radius: 50%;
-    animation: loading 1s infinite;
     aspect-ratio: 1;
     content: '';
+    border-radius: 50%;
     transform: translate(-50%, -50%);
+    animation: loading 1s infinite;
 
     @include dark-mode {
       animation: loading-dark 1s infinite;

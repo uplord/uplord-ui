@@ -8,9 +8,9 @@
 
 .block {
   display: flex;
-  width: 100%;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .title {
@@ -42,8 +42,8 @@
 
 .colors {
   display: grid;
-  gap: 1.5rem;
   grid-template-columns: 1fr;
+  gap: 1.5rem;
 
   @media (min-width: $breakpoint-sm) {
     grid-template-columns: 1fr 1fr;
@@ -64,17 +64,17 @@
 
 .color {
   display: flex;
-  width: 100%;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .background {
   width: 100%;
-  border: 0.0625rem solid transparent;
-  border-radius: 0.5rem;
   aspect-ratio: 19 / 8;
   outline: 0.0625rem solid transparent;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.5rem;
 }
 
 .text {
@@ -83,10 +83,10 @@
 
   & {
     display: flex;
+    gap: 0.5rem;
     justify-content: space-between;
     padding: 0 0.5rem;
     color: var(--body-color);
-    gap: 0.5rem;
 
     @include dark-mode {
       color: var(--body-dark-color);
