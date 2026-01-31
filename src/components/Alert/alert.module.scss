@@ -1,0 +1,72 @@
+@use '/src/styles/forward' as *;
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1rem 1.5rem;
+  }
+
+  &.default {
+    padding: 0.9375rem;
+    border: 0.0625rem solid var(--border-color);
+    color: var(--body-color);
+
+    @media (min-width: $breakpoint-md) {
+      padding: 0.9375rem 1.4375rem;
+    }
+
+    @include dark-mode {
+      border-color: var(--border-dark-color);
+      color: var(--body-dark-color);
+    }
+  }
+
+  &.primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+
+  &.error {
+    background-color: var(--error-color);
+    color: var(--white);
+  }
+
+  &.warning {
+    background-color: var(--warning-color);
+    color: var(--black);
+  }
+
+  &.info {
+    background-color: var(--info-color);
+    color: var(--white);
+  }
+
+  &.success {
+    background-color: var(--success-color);
+    color: var(--white);
+  }
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .right {
+    margin: -0.5rem -0.5rem -0.5rem 0;
+
+    @media (min-width: $breakpoint-md) {
+      margin-right: -1rem;
+    }
+  }
+
+  .button {
+    color: inherit;
+  }
+}

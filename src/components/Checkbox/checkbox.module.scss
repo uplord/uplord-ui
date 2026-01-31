@@ -1,0 +1,350 @@
+@use '/src/styles/forward' as *;
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.checkbox,
+.radio {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  &.toggle {
+    width: 100%;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &.is-disabled .input {
+      border-color: transparent;
+      background-color: var(--black-10);
+
+      @include dark-mode {
+        background-color: var(--white-10);
+      }
+    }
+
+    &.is-error:not(.is-skeleton, .is-disabled) .input {
+      background-color: var(--error-color);
+
+      @media (hover: hover) {
+        &:hover:not(.is-disabled &) {
+          background-color: var(--error-color);
+        }
+      }
+    }
+  }
+
+  &.is-disabled .input {
+    border-color: transparent;
+    background: var(--black-10);
+
+    @include dark-mode {
+      border-color: transparent;
+      background: var(--white-10);
+    }
+
+    & + label {
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+
+      .title,
+      .total,
+      .content {
+        color: inherit;
+      }
+    }
+  }
+
+  &.is-skeleton {
+    .input {
+      border-color: transparent;
+      animation: pulse 1.5s infinite ease-in-out;
+      background-color: var(--black-10);
+
+      @include dark-mode {
+        background-color: var(--white-10);
+      }
+
+      &:checked {
+        border-color: transparent;
+        background-color: var(--black-10);
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+
+      & + label {
+        .label,
+        .total,
+        .content {
+          border-radius: 0.25rem;
+          animation: pulse 1.5s infinite alternate;
+          background-color: var(--black-10);
+          color: transparent;
+
+          @include dark-mode {
+            background-color: var(--white-10);
+          }
+        }
+      }
+    }
+  }
+
+  &.is-error:not(.is-skeleton, .is-disabled) {
+    &.radio .input:checked {
+      background: var(--error-color);
+    }
+
+    & + .helper {
+      color: var(--error-color);
+    }
+
+    .input {
+      border-color: var(--error-color);
+
+      &:checked {
+        background: var(--error-color);
+      }
+
+      &:focus-visible,
+      &:not(:placeholder-shown) {
+        border-color: var(--error-color);
+      }
+    }
+  }
+
+  &.no-placeholder label {
+    padding-left: 0;
+  }
+}
+
+.input {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.25rem;
+  appearance: none;
+  aspect-ratio: 1;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+
+  @include dark-mode {
+    border-color: var(--border-dark-color);
+  }
+
+  .toggle & {
+    width: 4.5rem;
+    height: 2rem;
+    border-color: transparent;
+    border-radius: 1.25rem;
+    background-color: var(--black-20);
+
+    @include dark-mode {
+      background-color: var(--white-20);
+    }
+  }
+
+  .radio & {
+    border-radius: 0.75rem;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.5rem;
+    width: 0.5rem;
+    height: 0.875rem;
+    border-right: 0.1875rem solid var(--white);
+    border-bottom: 0.1875rem solid var(--white);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(45deg);
+
+    @include dark-mode {
+      border-right-color: var(--black);
+      border-bottom-color: var(--black);
+    }
+
+    .toggle & {
+      right: 1.8126rem;
+      left: auto;
+      width: 2.5rem;
+      height: 1.625rem;
+      border: 0;
+      border-radius: 0.8125rem;
+      background-color: var(--white);
+      opacity: 1;
+      transform: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .radio & {
+      top: 0.375rem;
+      left: 0.375rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 0;
+      border-radius: 0.375rem;
+      background: var(--white);
+      transform: none;
+
+      @include dark-mode {
+        background: var(--black);
+      }
+    }
+  }
+
+  &:checked {
+    border-color: var(--black);
+    background: var(--black);
+
+    @include dark-mode {
+      border-color: var(--white);
+      background: var(--white);
+    }
+
+    .toggle & {
+      border-color: transparent;
+      background-color: var(--success-color);
+    }
+
+    &::before {
+      opacity: 1;
+
+      .toggle & {
+        right: 0.1875rem;
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover:not(.is-disabled &) {
+      background-color: var(--black-5);
+      cursor: text;
+
+      @include dark-mode {
+        background-color: var(--white-5);
+      }
+
+      &:checked {
+        border-color: var(--black);
+        background: var(--black);
+
+        @include dark-mode {
+          border-color: var(--white);
+          background: var(--white);
+        }
+
+        .toggle & {
+          border-color: transparent;
+          background-color: var(--success-31);
+
+          @include dark-mode {
+            border-color: transparent;
+            background-color: var(--success-31);
+          }
+        }
+      }
+
+      .toggle & {
+        border-color: transparent;
+        background-color: var(--black-30);
+
+        @include dark-mode {
+          background-color: var(--white-30);
+        }
+      }
+
+      & + label {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:focus-visible:not(.is-disabled) {
+    background-color: var(--black-5);
+    outline: 0.125rem solid var(--black-95);
+    outline-offset: 0.125rem;
+
+    @include dark-mode {
+      background-color: var(--white-5);
+      outline-color: var(--white-95);
+    }
+  }
+
+  & + label {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      flex: 1;
+      padding-left: 0.75rem;
+      margin: 0;
+
+      .toggle & {
+        padding-right: 1.5rem;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--heading-color);
+  gap: 0.25rem;
+
+  @include dark-mode {
+    color: var(--heading-dark-color);
+  }
+}
+
+.content {
+  @include text-md;
+  @include text-normal;
+
+  & {
+    margin-top: 0.25rem;
+    color: var(--body-color);
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+}
+
+.helper {
+  @include text-sm;
+  @include text-normal;
+
+  & {
+    color: var(--body-color);
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+}

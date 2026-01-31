@@ -1,0 +1,348 @@
+@use '/src/styles/forward' as *;
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  label {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+    }
+  }
+
+  textarea {
+    min-height: 7.5rem;
+    resize: none;
+  }
+}
+
+.outer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  gap: 0.5rem;
+  line-height: 1.4375rem;
+  outline: 0.125rem solid transparent;
+  outline-offset: -0.125rem;
+  transition:
+    background-color 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    outline 0.2s ease-in-out;
+
+  @include dark-mode {
+    border-color: var(--border-dark-color);
+  }
+
+  @media (hover: hover) {
+    &.has-hover:hover:not(
+        .is-disabled,
+        .is-error,
+        &:has(.button:hover, .click:hover)
+      ) {
+      background-color: var(--black-5);
+      cursor: text;
+
+      @include dark-mode {
+        background-color: var(--white-5);
+      }
+    }
+  }
+
+  &.sm {
+    padding: 0.6875rem 1rem;
+
+    select {
+      padding: 0.75rem 2.75rem 0.75rem 1rem;
+      margin: -0.75rem -2.75rem -0.75rem -1rem;
+    }
+  }
+
+  &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
+    background-color: var(--black-5);
+    outline-color: var(--black-95);
+
+    @include dark-mode {
+      border-color: transparent;
+      outline-color: var(--white-95);
+    }
+  }
+
+  &.is-disabled {
+    background-color: var(--black-10);
+
+    @include dark-mode {
+      background-color: var(--white-10);
+    }
+
+    .input + .placeholder,
+    .icon,
+    .text {
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+    }
+  }
+
+  &.is-loading {
+    position: relative;
+    background-color: var(--black-5);
+
+    @include dark-mode {
+      background-color: var(--white-5);
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      content: '';
+      transition: all 0.2s ease-in-out;
+    }
+
+    .inner {
+      opacity: 0;
+    }
+
+    .button,
+    .text,
+    .icon-wrap {
+      display: none;
+    }
+  }
+
+  &.is-skeleton {
+    border-color: var(--black-10);
+    animation: pulse 1.5s infinite ease-in-out;
+    background-color: var(--black-10);
+
+    @include dark-mode {
+      border-color: var(--white-10);
+      background-color: var(--white-10);
+    }
+
+    .inner {
+      opacity: 0;
+    }
+
+    .button,
+    .text,
+    .icon-wrap {
+      display: none;
+    }
+  }
+
+  &.is-error:not(.is-disabled) {
+    border-color: var(--error-color);
+    background-color: var(--error-15);
+
+    &.has-focus:focus-within:not(:has(.button:focus, .click:focus)) {
+      background-color: var(--error-15);
+      outline-color: var(--error-color);
+    }
+
+    & + .helper {
+      color: var(--error-color);
+    }
+  }
+
+  select {
+    width: calc(100% + 3.75rem);
+    padding: 1rem 2.75rem 1rem 1rem;
+    margin: -1rem -2.75rem -1rem -1rem;
+  }
+}
+
+.inner {
+  position: relative;
+  flex: 1;
+}
+
+.input {
+  @include text-md;
+  @include text-normal;
+
+  & {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    appearance: none;
+    background-color: transparent;
+    color: var(--black);
+    transition: all 0.2s ease-in-out;
+
+    @include dark-mode {
+      color: var(--white);
+    }
+  }
+
+  &:disabled {
+    color: var(--body-color);
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    top: 0.46875rem;
+
+    .no-placeholder & {
+      top: 0;
+    }
+
+    & + .placeholder {
+      top: -0.40625rem;
+      padding: 0;
+      color: var(--body-color);
+      font-size: 0.75rem;
+      line-height: 0.875rem;
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+    }
+  }
+
+  & + .placeholder {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0;
+      color: var(--body-color);
+      pointer-events: none;
+      transition: all 0.2s ease-in-out;
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+    }
+  }
+}
+
+.icon-wrap {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+
+  &.click {
+    pointer-events: initial;
+  }
+}
+
+.icon {
+  color: var(--heading-color);
+  transition: color 0.2s ease-in-out;
+
+  @include dark-mode {
+    color: var(--heading-dark-color);
+  }
+}
+
+.text {
+  @include text-md;
+  @include text-normal;
+
+  & {
+    color: var(--body-color);
+    transition: color 0.2s ease-in-out;
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+}
+
+.button {
+  margin: -0.5rem -0.5rem -0.5rem 0;
+
+  &:not(:disabled):hover {
+    cursor: pointer;
+  }
+}
+
+.click {
+  padding: 1.125rem 0;
+  margin: -1.125rem 0;
+  line-height: 1.4375rem;
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.helper {
+  @include text-xs;
+  @include text-normal;
+
+  & {
+    color: var(--body-color);
+    transition: color 0.2s ease-in-out;
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+}
+
+.loading {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.5rem;
+    border-radius: 50%;
+    animation: loading 1s infinite;
+    aspect-ratio: 1;
+    content: '';
+    transform: translate(-50%, -50%);
+
+    @include dark-mode {
+      animation: loading-dark 1s infinite;
+    }
+  }
+}

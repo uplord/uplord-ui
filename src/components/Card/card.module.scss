@@ -1,0 +1,18 @@
+@use '/src/styles/forward' as *;
+
+.main {
+  @include text-content;
+}
+
+.border {
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.5rem;
+
+  @include dark-mode {
+    border-color: var(--border-dark-color);
+  }
+
+  &.padding {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,27 @@
+@use '/src/styles/forward' as *;
+
+.toast {
+  @include text-sm;
+  @include text-normal;
+
+  & {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: var(--block-color);
+    color: var(--heading-color);
+    gap: 1rem;
+
+    @include dark-mode {
+      background-color: var(--block-dark-color);
+      color: var(--heading-dark-color);
+    }
+  }
+}
+
+.button {
+  padding: 0.3125rem;
+  margin-right: -0.4375rem;
+}

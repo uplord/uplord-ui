@@ -1,0 +1,103 @@
+@use '/src/styles/forward' as *;
+
+.container {
+  width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border-bottom: 0.0625rem solid var(--border-color);
+  margin-bottom: 1rem;
+
+  @include dark-mode {
+    border-bottom-color: var(--border-dark-color);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    gap: 0.5rem;
+  }
+
+  .button {
+    @include text-semibold;
+
+    & {
+      position: relative;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      border: 0;
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: -0.125rem;
+        left: 0;
+        height: 0.1875rem;
+        background-color: var(--primary-color);
+        content: '';
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    }
+
+    &:hover {
+      color: var(--heading-color);
+
+      @include dark-mode {
+        color: var(--heading-dark-color);
+      }
+    }
+
+    &.active {
+      color: var(--heading-color);
+
+      @include dark-mode {
+        color: var(--heading-dark-color);
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.content {
+  @include text-content;
+
+  & {
+    padding: 0 1rem;
+    color: var(--body-color);
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+
+    @include dark-mode {
+      color: var(--heading-dark-color);
+    }
+  }
+}
+
+.card {
+  padding-bottom: 1rem;
+
+  .options .button::after {
+    bottom: -0.0625rem;
+  }
+}

@@ -1,0 +1,137 @@
+@use '/src/styles/forward' as *;
+
+:global(:root) {
+  --btn-color: transparent;
+  --btn-hover-color: var(--black-10);
+}
+
+.main {
+  display: grid;
+  padding: 0.5rem;
+  color: var(--white);
+  gap: 0.5rem;
+
+  &.default {
+    background-color: var(--block-color);
+    color: var(--black);
+
+    @include dark-mode {
+      background-color: var(--block-dark-color);
+      color: var(--white);
+    }
+  }
+
+  &.primary {
+    background-color: var(--primary-color);
+  }
+
+  &.error {
+    background-color: var(--error-color);
+  }
+
+  &.warning {
+    background-color: var(--warning-color);
+    color: var(--black);
+  }
+
+  &.info {
+    background-color: var(--info-color);
+  }
+
+  &.success {
+    background-color: var(--success-color);
+  }
+
+  &.border {
+    border-radius: 1rem;
+
+    .content {
+      border-radius: 0.75rem;
+    }
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  .buttons {
+    margin-right: -1rem;
+    background-color: transparent;
+    gap: 0;
+  }
+}
+
+.content {
+  @include text-content;
+
+  & {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  &.default {
+    background-color: var(--bg-color);
+    color: var(--body-color);
+
+    @include dark-mode {
+      background-color: var(--bg-dark-color);
+      color: var(--body-dark-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--heading-color);
+
+      @include dark-mode {
+        color: var(--heading-dark-color);
+      }
+    }
+  }
+
+  &.light {
+    background-color: var(--bg-color);
+    color: var(--body-color);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--heading-color);
+    }
+  }
+
+  &.dark {
+    background-color: var(--bg-dark-color);
+    color: var(--body-dark-color);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--heading-dark-color);
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .center & {
+    justify-content: center;
+  }
+}

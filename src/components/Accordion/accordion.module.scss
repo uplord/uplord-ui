@@ -1,0 +1,90 @@
+@use '/src/styles/forward' as *;
+
+.container {
+  &.alt {
+    display: grid;
+    gap: 1rem;
+
+    .item {
+      border: 0;
+      border-radius: 0.5rem;
+      background-color: var(--block-color);
+
+      @include dark-mode {
+        background-color: var(--block-dark-color);
+
+        &:hover {
+          background-color: oklch(22% 0 0deg);
+        }
+      }
+
+      &:hover {
+        background-color: oklch(88% 0 0deg);
+      }
+    }
+
+    .title,
+    .content {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.item {
+  border-bottom: 0.0625rem solid var(--border-color);
+  transition: background-color 0.2s ease-in-out;
+
+  @include dark-mode {
+    border-color: var(--border-dark-color);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.title {
+  @include font-heading;
+  @include text-xm;
+  @include text-normal;
+
+  & {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    color: var(--heading-color);
+    gap: 0.5rem;
+
+    @include dark-mode {
+      color: var(--heading-dark-color);
+    }
+  }
+}
+
+.content {
+  @include text-content;
+
+  & {
+    padding: 0 0 1rem;
+    color: var(--body-color);
+
+    @include dark-mode {
+      color: var(--body-dark-color);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+
+    @include dark-mode {
+      color: var(--heading-dark-color);
+    }
+  }
+}

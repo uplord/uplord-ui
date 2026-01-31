@@ -1,0 +1,103 @@
+@use '/src/styles/forward' as *;
+
+.typography {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+
+    @include dark-mode {
+      color: var(--heading-dark-color);
+    }
+  }
+
+  h1 {
+    @include text-4xl;
+    @include text-bold;
+  }
+
+  h2 {
+    @include text-3xl;
+    @include text-bold;
+  }
+
+  h3 {
+    @include text-2xl;
+    @include text-bold;
+  }
+
+  h4 {
+    @include text-xl;
+    @include text-bold;
+  }
+
+  h5 {
+    @include text-lg;
+    @include text-semibold;
+  }
+
+  h6 {
+    @include text-md;
+    @include text-semibold;
+  }
+
+  p {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+    }
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  ol {
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  li {
+    @include text-md;
+    @include text-normal;
+
+    & {
+      margin-bottom: 0.5rem;
+      color: var(--body-color);
+
+      @include dark-mode {
+        color: var(--body-dark-color);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .text-normal {
+    @include text-normal;
+  }
+
+  .text-semibold {
+    @include text-semibold;
+  }
+
+  .text-bold {
+    @include text-bold;
+  }
+}

@@ -1,0 +1,220 @@
+@use '/src/styles/forward' as *;
+
+.table {
+  overflow: auto hidden;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.5rem;
+
+  @include dark-mode {
+    border-color: var(--border-dark-color);
+  }
+
+  &:not(.margin) {
+    @media (max-width: ($breakpoint-md - 1)) {
+      border-width: 0.0625rem 0;
+      border-radius: 0;
+      margin: 0 -1.5rem;
+
+      &:first-child {
+        border-top: 0;
+        margin-top: -1rem;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+        margin-bottom: -1rem;
+      }
+    }
+  }
+
+  &.has-checkbox tbody tr {
+    @media (max-width: ($breakpoint-md - 1)) {
+      padding-right: 2.5rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    td {
+      &:first-child {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      &:nth-child(2) {
+        @media (max-width: ($breakpoint-md - 1)) {
+          padding-top: 1rem;
+        }
+      }
+    }
+  }
+
+  &.responsive {
+    thead {
+      @media (max-width: ($breakpoint-md - 1)) {
+        display: none;
+      }
+    }
+
+    tbody tr {
+      @media (max-width: ($breakpoint-md - 1)) {
+        position: relative;
+        display: block;
+        border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
+
+        @include dark-mode {
+          border-color: hsl(0deg 0% 20%);
+        }
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        td {
+          padding-top: 0.5rem;
+
+          &:first-child {
+            padding-top: 1rem;
+          }
+
+          &:last-child {
+            padding-bottom: 1rem;
+          }
+        }
+      }
+    }
+
+    th {
+      @media (max-width: ($breakpoint-md - 1)) {
+        padding: 0.75rem 1.5rem;
+      }
+    }
+
+    td {
+      @media (max-width: ($breakpoint-md - 1)) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem 0;
+        border-bottom: 0;
+        white-space: initial;
+
+        &[scope='checkbox'] {
+          position: absolute;
+          top: 0;
+          right: 1rem;
+          width: auto;
+          padding: 0;
+
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+
+        &::before {
+          @include text-bold;
+
+          & {
+            position: relative;
+            z-index: 1;
+            width: 40%;
+            padding-right: 1rem;
+            margin-right: 1rem;
+            color: var(--heading-color);
+            content: attr(data-title);
+
+            @include dark-mode {
+              color: var(--heading-dark-color);
+            }
+          }
+        }
+
+        &::after {
+          position: absolute;
+          z-index: 0;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 40%;
+          border-right: 0.0625rem solid hsl(0deg 0% 90%);
+          background-color: hsl(0deg 0% 95%);
+          content: '';
+
+          @include dark-mode {
+            border-color: hsl(0deg 0% 20%);
+            background-color: hsl(0deg 0% 10%);
+          }
+        }
+
+        span {
+          width: 60%;
+        }
+      }
+    }
+  }
+
+  table {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  thead tr {
+    background-color: hsl(0deg 0% 95%);
+
+    @include dark-mode {
+      background-color: hsl(0deg 0% 10%);
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: 0;
+  }
+
+  th,
+  td {
+    @include text-sm;
+    @include text-normal;
+
+    & {
+      white-space: nowrap;
+    }
+  }
+
+  th {
+    @include text-sm;
+    @include text-bold;
+
+    & {
+      padding: 0.75rem 1rem;
+      border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
+      color: var(--heading-color);
+      text-align: left;
+
+      @include dark-mode {
+        border-color: hsl(0deg 0% 20%);
+        color: var(--heading-dark-color);
+      }
+    }
+  }
+
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 0.0625rem solid hsl(0deg 0% 90%);
+    color: var(--body-color);
+
+    @include dark-mode {
+      border-color: hsl(0deg 0% 20%);
+      color: var(--body-dark-color);
+    }
+  }
+
+  a {
+    color: var(--primary-color);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

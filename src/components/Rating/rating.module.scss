@@ -1,0 +1,32 @@
+$list-colors: (
+  1: #34c759,
+  2: #a6c700,
+  3: #ffd500,
+  4: #ff7a00,
+  5: #dd2121,
+);
+
+.list {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.item {
+  width: 12px;
+  height: 24px;
+  background-color: #eee;
+
+  &.active {
+    @each $i, $color in $list-colors {
+      &:nth-child(#{$i}) {
+        background-color: $color;
+
+        & ~ .item {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}
