@@ -11,6 +11,7 @@
     "block-no-redundant-nested-style-rules": null,
     "scss/no-global-function-names": null,
     "number-max-precision": 5,
+    "scss/operator-no-newline-after": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {

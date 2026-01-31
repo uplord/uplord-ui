@@ -22,13 +22,13 @@ $background-surface-dark: var(--block-dark-color);
   }
 
   &.bottom-sheet {
-    @media (max-width: $breakpoint-md - 1) {
+    @media (max-width: #{$breakpoint-md - 1}) {
       place-items: end;
       padding: 0;
     }
 
     .main {
-      @media (max-width: $breakpoint-md - 1) {
+      @media (max-width: #{$breakpoint-md - 1}) {
         border-radius: 1rem 1rem 0 0;
 
         @include dark-mode {
@@ -96,7 +96,7 @@ $background-surface-dark: var(--block-dark-color);
   max-width: 35.5rem;
   max-height: calc(100dvh - 5rem);
 
-  @media (max-width: $breakpoint-md - 1) {
+  @media (max-width: #{$breakpoint-md - 1}) {
     padding-bottom: env(safe-area-inset-bottom);
   }
 
@@ -111,7 +111,7 @@ $background-surface-dark: var(--block-dark-color);
   }
 
   .bottom-sheet & {
-    @media (max-width: $breakpoint-md - 1) {
+    @media (max-width: #{$breakpoint-md - 1}) {
       max-width: 100% !important;
       max-height: calc(100dvh - 1rem);
 
