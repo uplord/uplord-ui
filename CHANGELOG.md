@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.15](https://github.com/uplord/uplord-ui/compare/v0.2.14...v0.2.15) (2026-01-31)
+
+
+### Features
+
+* copy scss mixins ([6cdc84c](https://github.com/uplord/uplord-ui/commit/6cdc84c4c9f93cf40be85638974df5c04e343a61))
+
 ### [0.2.14](https://github.com/uplord/uplord-ui/compare/v0.2.13...v0.2.14) (2026-01-31)
 
 
