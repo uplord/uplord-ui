@@ -1,6 +1,11 @@
 {
   "name": "uplord-ui",
   "version": "0.2.10",
+  "description": "A modern, reusable React UI library.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uplord/uplord-ui.git"
+  },
   "type": "module",
   "files": [
     "dist"
