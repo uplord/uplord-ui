@@ -44,14 +44,38 @@ export default function Example() {
 
 ## Available Components
 
+- `Accordion`
+- `Alert`
 - `Button`
-- *(More components coming soon)*
+- `Calendar`
+- `Card`
+- `Checkbox`
+- `CodeDisplay`
+- `CodeEditor`
+- `Contribution`
+- `FormikInput`
+- `Icon`
+- `Input`
+- `InputOtp`
+- `Modal`
+- `NotFound`
+- `Pagination`
+- `Radio`
+- `Range`
+- `RangeMulti`
+- `Rating`
+- `Select`
+- `Stack`
+- `Table`
+- `Tabs`
+- `Textarea`
+- `Toast`
 
 ## License
 
 MIT License
 
-Copyright (c) 2026 [Your Name]
+Copyright (c) 2026 Uplord
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
