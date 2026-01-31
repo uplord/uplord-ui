@@ -1,4 +1,4 @@
-@use '/src/styles/forward' as *;
+@use '@/styles/forward' as *;
 
 .group {
   display: flex;
@@ -24,22 +24,24 @@
   @include text-md;
   @include text-semibold;
 
-  z-index: 5;
-  display: inline-flex;
-  flex-wrap: nowrap;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  white-space: nowrap;
-  text-decoration: none;
-  border: 0.0625rem solid transparent;
-  scale: 1;
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out,
-    border-color 0.2s ease-in-out,
-    scale 0.2s ease-in-out;
+  & {
+    z-index: 5;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 0.0625rem solid transparent;
+    scale: 1;
+    transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      scale 0.2s ease-in-out;
+  }
 
   &:focus {
     outline: 0;

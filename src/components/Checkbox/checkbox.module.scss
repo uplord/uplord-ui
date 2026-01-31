@@ -1,4 +1,4 @@
-@use '/src/styles/forward' as *;
+@use '@/styles/forward' as *;
 
 .fields {
   display: flex;
@@ -9,8 +9,8 @@
 .field {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 0.5rem;
+  align-items: flex-start;
 }
 
 .checkbox,
@@ -20,13 +20,13 @@
   align-items: flex-start;
 
   &.toggle {
-    width: 100%;
     flex-direction: row-reverse;
     align-items: center;
+    width: 100%;
 
     &.is-disabled .input {
-      border-color: transparent;
       background-color: var(--black-10);
+      border-color: transparent;
 
       @include dark-mode {
         background-color: var(--white-10);
@@ -45,12 +45,12 @@
   }
 
   &.is-disabled .input {
-    border-color: transparent;
     background: var(--black-10);
+    border-color: transparent;
 
     @include dark-mode {
-      border-color: transparent;
       background: var(--white-10);
+      border-color: transparent;
     }
 
     & + label {
@@ -70,17 +70,17 @@
 
   &.is-skeleton {
     .input {
+      background-color: var(--black-10);
       border-color: transparent;
       animation: pulse 1.5s infinite ease-in-out;
-      background-color: var(--black-10);
 
       @include dark-mode {
         background-color: var(--white-10);
       }
 
       &:checked {
-        border-color: transparent;
         background-color: var(--black-10);
+        border-color: transparent;
 
         &::before {
           display: none;
@@ -95,10 +95,10 @@
         .label,
         .total,
         .content {
+          color: transparent;
+          background-color: var(--black-10);
           border-radius: 0.25rem;
           animation: pulse 1.5s infinite alternate;
-          background-color: var(--black-10);
-          color: transparent;
 
           @include dark-mode {
             background-color: var(--white-10);
@@ -139,13 +139,13 @@
 .input {
   width: 1.5rem;
   height: 1.5rem;
+  aspect-ratio: 1;
   padding: 0;
+  appearance: none;
+  background-color: transparent;
   border: 0;
   border: 0.0625rem solid var(--border-color);
   border-radius: 0.25rem;
-  appearance: none;
-  aspect-ratio: 1;
-  background-color: transparent;
   transition: all 0.2s ease-in-out;
 
   @include dark-mode {
@@ -155,9 +155,9 @@
   .toggle & {
     width: 4.5rem;
     height: 2rem;
+    background-color: var(--black-20);
     border-color: transparent;
     border-radius: 1.25rem;
-    background-color: var(--black-20);
 
     @include dark-mode {
       background-color: var(--white-20);
@@ -174,11 +174,11 @@
     left: 0.5rem;
     width: 0.5rem;
     height: 0.875rem;
+    pointer-events: none;
+    content: '';
     border-right: 0.1875rem solid var(--white);
     border-bottom: 0.1875rem solid var(--white);
-    content: '';
     opacity: 0;
-    pointer-events: none;
     transform: rotate(45deg);
 
     @include dark-mode {
@@ -191,9 +191,9 @@
       left: auto;
       width: 2.5rem;
       height: 1.625rem;
+      background-color: var(--white);
       border: 0;
       border-radius: 0.8125rem;
-      background-color: var(--white);
       opacity: 1;
       transform: none;
       transition: all 0.2s ease-in-out;
@@ -204,9 +204,9 @@
       left: 0.375rem;
       width: 0.75rem;
       height: 0.75rem;
+      background: var(--white);
       border: 0;
       border-radius: 0.375rem;
-      background: var(--white);
       transform: none;
 
       @include dark-mode {
@@ -216,17 +216,17 @@
   }
 
   &:checked {
-    border-color: var(--black);
     background: var(--black);
+    border-color: var(--black);
 
     @include dark-mode {
-      border-color: var(--white);
       background: var(--white);
+      border-color: var(--white);
     }
 
     .toggle & {
-      border-color: transparent;
       background-color: var(--success-color);
+      border-color: transparent;
     }
 
     &::before {
@@ -240,36 +240,36 @@
 
   @media (hover: hover) {
     &:hover:not(.is-disabled &) {
-      background-color: var(--black-5);
       cursor: text;
+      background-color: var(--black-5);
 
       @include dark-mode {
         background-color: var(--white-5);
       }
 
       &:checked {
-        border-color: var(--black);
         background: var(--black);
+        border-color: var(--black);
 
         @include dark-mode {
-          border-color: var(--white);
           background: var(--white);
+          border-color: var(--white);
         }
 
         .toggle & {
-          border-color: transparent;
           background-color: var(--success-31);
+          border-color: transparent;
 
           @include dark-mode {
-            border-color: transparent;
             background-color: var(--success-31);
+            border-color: transparent;
           }
         }
       }
 
       .toggle & {
-        border-color: transparent;
         background-color: var(--black-30);
+        border-color: transparent;
 
         @include dark-mode {
           background-color: var(--white-30);
@@ -283,13 +283,13 @@
   }
 
   &:focus-visible:not(.is-disabled) {
-    background-color: var(--black-5);
     outline: 0.125rem solid var(--black-95);
     outline-offset: 0.125rem;
+    background-color: var(--black-5);
 
     @include dark-mode {
-      background-color: var(--white-5);
       outline-color: var(--white-95);
+      background-color: var(--white-5);
     }
   }
 
@@ -313,9 +313,9 @@
 .title {
   display: flex;
   flex-direction: row;
+  gap: 0.25rem;
   justify-content: space-between;
   color: var(--heading-color);
-  gap: 0.25rem;
 
   @include dark-mode {
     color: var(--heading-dark-color);
