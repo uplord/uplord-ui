@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.18](https://github.com/uplord/uplord-ui/compare/v0.2.17...v0.2.18) (2026-02-04)
+
+
+### Features
+
+* test component ([1702209](https://github.com/uplord/uplord-ui/commit/17022095d75b47de8457e9f826db2a372651ab97))
+
 ### [0.2.17](https://github.com/uplord/uplord-ui/compare/v0.2.16...v0.2.17) (2026-01-31)
 
 
