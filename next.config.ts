@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@use '@/styles/forward' as *;`,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
+  },
 }
 
 export default nextConfig
