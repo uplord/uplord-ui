@@ -12,6 +12,7 @@ export function Test() {
         alt=""
         width="800"
         height="400"
+        loading="eager"
       />
     </div>
   )
