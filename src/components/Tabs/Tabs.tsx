@@ -31,7 +31,7 @@ export const Tabs = ({ items, card, className = '' }: TabsProps) => {
             label={item.title}
             size="md"
             variant="text"
-            hasHover={false}
+            hasInteration={false}
             className={clsx(styles.button, openIndex === index && styles.active)}
             onClick={() => toggleItem(index)}
           />

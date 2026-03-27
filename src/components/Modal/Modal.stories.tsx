@@ -40,6 +40,7 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
             size="sm"
             variant="text"
             hasIcon
+            hasHover={false}
             className={styles.anchor}
             onClick={() => modal.hide()}>
             <Icon
@@ -55,6 +56,7 @@ const ButtonOpenModal = NiceModal.create((props: ModalProps) => {
             label="Back"
             size="md"
             variant="text"
+            hasHover={false}
             className={styles.anchor}
             onClick={() => modal.hide()}
           />
@@ -166,6 +168,7 @@ const SheetModal = NiceModal.create((props: ModalProps) => {
             size="sm"
             variant="text"
             hasIcon
+            hasHover={false}
             className={styles.anchor}
             onClick={() => modal.hide()}>
             <Icon
@@ -233,6 +236,7 @@ const MobileBottomModal = NiceModal.create((props: ModalProps) => {
             size="sm"
             variant="text"
             hasIcon
+            hasHover={false}
             className={styles.anchor}
             onClick={() => modal.hide()}>
             <Icon
@@ -297,6 +301,7 @@ const FullScreenModal = NiceModal.create((props: ModalProps) => {
             size="sm"
             variant="text"
             hasIcon
+            hasHover={false}
             className={styles.anchor}
             onClick={() => modal.hide()}>
             <Icon
@@ -431,6 +436,7 @@ export const HeaderModal: StoryObj<ModalHeaderProps> = {
         size="sm"
         variant="text"
         hasIcon
+        hasHover={false}
         className={styles.anchor}>
         <Icon
           name="X"
@@ -458,6 +464,7 @@ export const FooterModal: StoryObj<ModalFooterProps> = {
         label="Back"
         size="md"
         variant="text"
+        hasHover={false}
         className={clsx(styles.anchor, styles.button)}
         onClick={() => console.log('Close')}
       />
@@ -503,6 +510,7 @@ export const ModalOpen: StoryObj = {
               size="sm"
               variant="text"
               hasIcon
+              hasHover={false}
               className={styles.anchor}>
               <Icon
                 name="X"
@@ -530,6 +538,7 @@ export const ModalOpen: StoryObj = {
               label="Back"
               size="md"
               variant="text"
+              hasHover={false}
               className={clsx(styles.anchor, styles.button)}
               onClick={() => console.log('Close')}
             />

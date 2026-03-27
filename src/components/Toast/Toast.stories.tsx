@@ -1,17 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import type { Meta, StoryObj, StoryContext } from '@storybook/nextjs-vite'
 import { toast } from 'react-toastify'
 
 import { Toast, ToastProps } from './Toast'
-import { Button } from '@/components/Button'
+import { Button, Theme } from '@/components/Button'
+
+const getStoryTheme = (context: StoryContext<ToastProps>): Theme => {
+  const background = context.globals.backgrounds?.value || 'light'
+  return background === 'dark' ? Theme.Dark : Theme.Light
+}
 
 const meta: Meta<ToastProps> = {
   title: 'Utils/Toast',
-  argTypes: {},
   decorators: [
-    (Story) => {
+    (Story, context) => {
+      const theme = getStoryTheme(context)
+
       return (
         <div className="padding">
-          <Story />
+          <Story args={{ ...context.args, theme }} />
         </div>
       )
     },

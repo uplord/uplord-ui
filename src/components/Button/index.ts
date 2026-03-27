@@ -1,2 +1,2 @@
-export { Button, ButtonGroup } from './Button'
+export { Button, ButtonGroup, Theme } from './Button'
 export type { ButtonProps, VariantType } from './Button'

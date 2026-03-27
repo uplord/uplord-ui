@@ -23,20 +23,28 @@ export enum Theme {
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode
   label?: string
+
   href?: string
   target?: '_self' | '_blank'
+
   size?: 'sm' | 'md'
   variant?: VariantType
   color?: string
   theme?: Theme
+
   hasIcon?: boolean
   outline?: boolean
   rounded?: RoundedCornersStyle
+
   hasPadding?: boolean
   hasInteration?: boolean
+  hasHover?: boolean
+  hasActive?: boolean
+
   isDisabled?: boolean
   isLoading?: boolean
   isSkeleton?: boolean
+
   className?: string
 }
 
@@ -54,6 +62,8 @@ export const Button = ({
   hasIcon = false,
   hasPadding = true,
   hasInteration = true,
+  hasHover = true,
+  hasActive = true,
   isDisabled = false,
   isLoading = false,
   isSkeleton = false,
@@ -73,8 +83,8 @@ export const Button = ({
     rounded && styles[`rounded-${rounded}`],
     hasIcon && styles.icon,
     hasPadding && styles.padding,
-    hasInteration && styles.hover,
-    hasInteration && styles.active,
+    hasHover && hasInteration && styles.hover,
+    hasActive && hasInteration && styles.active,
     (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
     isLoading && styles['is-loading'],
     isSkeleton && styles['is-skeleton'],
@@ -92,7 +102,7 @@ export const Button = ({
       } as React.CSSProperties)
     : undefined
 
-  if (!hasInteration || (href && isSkeleton)) {
+  if ((!hasInteration && !restProps.onClick) || (href && isSkeleton)) {
     return (
       <span
         className={classes}
