@@ -6,36 +6,29 @@ permissions:
 
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches: [main, develop]
     paths-ignore:
       - '**.md'
   pull_request:
-    branches:
-      - main
-      - develop
+    branches: [main, develop]
 
 jobs:
   chromatic:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [25]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 25
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Deploy to Chromatic
         run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --branch=${{ github.ref_name }}
@@ -46,21 +39,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node.js with OIDC
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 25
-          registry-url: 'https://registry.npmjs.org/'
+          registry-url: https://registry.npmjs.org/
 
       - name: Upgrade npm
         run: npm install -g npm@latest
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Bump version using standard-version
         run: |
@@ -74,4 +67,3 @@ jobs:
 
       - name: Publish to npm
         run: npm publish --access public
-
