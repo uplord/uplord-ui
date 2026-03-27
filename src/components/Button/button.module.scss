@@ -3,7 +3,7 @@
 .group {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
   align-items: center;
 
   &.justify-center {
@@ -51,7 +51,7 @@
     outline: 0.125rem solid var(--black);
     outline-offset: 0.125rem;
 
-    @include dark-mode {
+    &.theme-dark {
       outline-color: var(--white);
     }
   }
@@ -130,7 +130,7 @@
     color: var(--black);
     background-color: var(--black-10);
 
-    @include dark-mode {
+    &.theme-dark {
       color: var(--white);
       background-color: var(--white-10);
 
@@ -167,7 +167,7 @@
   &-text {
     color: var(--black);
 
-    @include dark-mode {
+    &.theme-dark {
       color: var(--white);
 
       &.hover:hover:not(.is-disabled) {
@@ -208,7 +208,7 @@
     background-color: var(--black-15);
     border-color: transparent;
 
-    @include dark-mode {
+    &.theme-dark {
       color: var(--body-dark-color);
       background-color: var(--white-15);
       border-color: transparent;
@@ -226,9 +226,14 @@
     background-color: var(--black-10);
     border-color: transparent;
 
-    @include dark-mode {
+    &.theme-dark {
+      color: transparent;
       background-color: var(--white-10);
       border-color: transparent;
+
+      &::after {
+        animation: loading-dark 1s infinite;
+      }
     }
 
     &::after {
@@ -241,10 +246,6 @@
       border-radius: 50%;
       transform: translate(-50%, -50%);
       animation: loading 1s infinite;
-
-      @include dark-mode {
-        animation: loading-dark 1s infinite;
-      }
     }
 
     .content {
@@ -258,7 +259,8 @@
     border-color: transparent;
     animation: pulse 1.5s infinite ease-in-out;
 
-    @include dark-mode {
+    &.theme-dark {
+      color: transparent;
       background-color: var(--white-10);
     }
 

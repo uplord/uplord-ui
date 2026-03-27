@@ -4,13 +4,12 @@
 
   "stylelint.validate": ["scss"],
   "stylelint.enable": true,
+
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
-    "source.fixAll.stylelint": "always",
-    "source.fixAll": "always"
+    "source.fixAll.stylelint": "always"
   },
 
-  // Use ESLint for JS/TS/React files
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -24,13 +23,11 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
 
-  // Keep Prettier for SCSS
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
 
-  // Optional: disable Prettier for JSON if needed
   "[json]": {
     "editor.formatOnSave": false
   }

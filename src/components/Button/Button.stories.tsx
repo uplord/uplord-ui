@@ -1,7 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import type { Meta, StoryObj, StoryContext } from '@storybook/nextjs-vite'
 
-import { Button, ButtonGroup, ButtonProps, Variant } from './Button'
+import { Button, ButtonGroup, ButtonProps, Theme, Variant } from './Button'
 import { Icon } from '@/components/Icon'
+
+const getStoryTheme = (context: StoryContext<ButtonProps>): Theme => {
+  const background = context.globals.backgrounds?.value || 'light'
+  return background === 'dark' ? Theme.Dark : Theme.Light
+}
 
 const meta: Meta<ButtonProps> = {
   title: 'UI/Button',
@@ -11,11 +16,11 @@ const meta: Meta<ButtonProps> = {
     size: 'md',
     variant: 'default',
     color: '#663399',
+    theme: Theme.Light,
     outline: false,
     rounded: 'sm',
     hasPadding: true,
-    hasHover: true,
-    hasActive: true,
+    hasInteration: true,
     isDisabled: false,
     isLoading: false,
     isSkeleton: false,
@@ -54,6 +59,13 @@ const meta: Meta<ButtonProps> = {
       },
       if: { arg: 'variant', eq: 'custom' },
     },
+    theme: {
+      control: {
+        type: 'select',
+      },
+      options: ['light', 'dark'],
+      if: { arg: 'variant', eq: 'default' },
+    },
     rounded: {
       control: {
         type: 'select',
@@ -70,16 +82,11 @@ const meta: Meta<ButtonProps> = {
         disable: true,
       },
     },
-    hasHover: {
-      table: {
-        disable: true,
-      },
-    },
-    hasActive: {
-      table: {
-        disable: true,
-      },
-    },
+    // hasInteration: {
+    //   table: {
+    //     disable: true,
+    //   },
+    // },
     className: {
       table: {
         disable: true,
@@ -87,10 +94,12 @@ const meta: Meta<ButtonProps> = {
     },
   },
   decorators: [
-    (Story) => {
+    (Story, context) => {
+      const theme = getStoryTheme(context)
+
       return (
         <div className="padding">
-          <Story />
+          <Story args={{ ...context.args, theme }} />
         </div>
       )
     },

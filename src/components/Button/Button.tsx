@@ -15,6 +15,11 @@ export enum Variant {
   Custom = 'custom',
 }
 
+export enum Theme {
+  Dark = 'dark',
+  Light = 'light',
+}
+
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode
   label?: string
@@ -23,12 +28,12 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   size?: 'sm' | 'md'
   variant?: VariantType
   color?: string
+  theme?: Theme
   hasIcon?: boolean
   outline?: boolean
   rounded?: RoundedCornersStyle
   hasPadding?: boolean
-  hasHover?: boolean
-  hasActive?: boolean
+  hasInteration?: boolean
   isDisabled?: boolean
   isLoading?: boolean
   isSkeleton?: boolean
@@ -43,12 +48,12 @@ export const Button = ({
   size = 'md',
   variant = 'default',
   color,
+  theme = Theme.Light,
   outline = false,
   rounded = 'sm',
   hasIcon = false,
   hasPadding = true,
-  hasHover = true,
-  hasActive = true,
+  hasInteration = true,
   isDisabled = false,
   isLoading = false,
   isSkeleton = false,
@@ -63,12 +68,13 @@ export const Button = ({
     styles.main,
     styles[`size-${size}`],
     styles[`variant-${currentVariant}`],
+    theme && styles[`theme-${theme}`],
     outline && styles.outline,
     rounded && styles[`rounded-${rounded}`],
     hasIcon && styles.icon,
     hasPadding && styles.padding,
-    hasHover && styles.hover,
-    hasActive && styles.active,
+    hasInteration && styles.hover,
+    hasInteration && styles.active,
     (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
     isLoading && styles['is-loading'],
     isSkeleton && styles['is-skeleton'],
@@ -86,43 +92,52 @@ export const Button = ({
       } as React.CSSProperties)
     : undefined
 
-  if (href) {
-    return isSkeleton ? (
-      <div
+  if (!hasInteration || (href && isSkeleton)) {
+    return (
+      <span
         className={classes}
+        style={style}
         role="button"
         aria-disabled="true">
         {content}
-      </div>
-    ) : target === '_blank' ? (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes}>
+      </span>
+    )
+  } else if (href) {
+    if (target === '_blank') {
+      return (
+        <a
+          href={href}
+          target={target}
+          rel="noopener noreferrer"
+          className={classes}
+          style={style}>
+          {content}
+        </a>
+      )
+    } else {
+      return (
+        <Link
+          href={href}
+          className={classes}
+          style={style}>
+          {content}
+        </Link>
+      )
+    }
+  } else {
+    return (
+      <button
+        className={classes}
+        style={style}
+        type="button"
+        onClick={(e) => {
+          if (isLoading) return
+          if (restProps.onClick) restProps.onClick(e)
+        }}>
         {content}
-      </a>
-    ) : (
-      <Link
-        href={href}
-        className={classes}>
-        {content}
-      </Link>
+      </button>
     )
   }
-
-  return (
-    <button
-      className={classes}
-      style={style}
-      type="button"
-      onClick={(e) => {
-        if (isLoading) return
-        if (restProps.onClick) restProps.onClick(e)
-      }}>
-      {content}
-    </button>
-  )
 }
 
 export type ButtonGroupProps = {
