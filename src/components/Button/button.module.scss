@@ -91,10 +91,9 @@
 
 .size {
   &-md {
-    min-height: 3rem;
-
     &.padding {
       padding: 0.625rem 1.5rem;
+      min-height: 3rem;
     }
 
     &.icon {

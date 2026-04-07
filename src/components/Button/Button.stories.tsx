@@ -82,11 +82,16 @@ const meta: Meta<ButtonProps> = {
         disable: true,
       },
     },
-    // hasInteration: {
-    //   table: {
-    //     disable: true,
-    //   },
-    // },
+    hasHover: {
+      table: {
+        disable: true,
+      },
+    },
+    hasActive: {
+      table: {
+        disable: true,
+      },
+    },
     className: {
       table: {
         disable: true,
@@ -245,6 +250,68 @@ export const Variants: Story = {
             size="md"
           />
         </Button>
+      </ButtonGroup>
+    </>
+  ),
+}
+
+export const Types: Story = {
+  argTypes: {
+    label: {
+      table: {
+        disable: true,
+      },
+    },
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+    outline: {
+      table: {
+        disable: true,
+      },
+    },
+    hasIcon: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: (args: ButtonProps) => (
+    <>
+      <ButtonGroup>
+        <Button
+          {...args}
+          label="Button"
+          variant="default"
+        />
+        <Button
+          {...args}
+          href="/"
+          label="Internal"
+          variant="default"
+        />
+        <Button
+          {...args}
+          href="/"
+          target="_blank"
+          label="External"
+          variant="default"
+        />
+        <Button
+          {...args}
+          label="No interaction"
+          variant="default"
+          hasInteration={false}
+        />
+        <Button
+          {...args}
+          href="/"
+          label="No padding"
+          variant="text"
+          hasPadding={false}
+        />
       </ButtonGroup>
     </>
   ),

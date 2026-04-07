@@ -83,8 +83,8 @@ export const Button = ({
     rounded && styles[`rounded-${rounded}`],
     hasIcon && styles.icon,
     hasPadding && styles.padding,
-    hasHover && hasInteration && styles.hover,
-    hasActive && hasInteration && styles.active,
+    hasHover && hasInteration && hasPadding && styles.hover,
+    hasActive && hasInteration && hasPadding && styles.active,
     (isDisabled || isLoading || isSkeleton) && styles['is-disabled'],
     isLoading && styles['is-loading'],
     isSkeleton && styles['is-skeleton'],
@@ -107,7 +107,6 @@ export const Button = ({
       <span
         className={classes}
         style={style}
-        role="button"
         aria-disabled="true">
         {content}
       </span>
